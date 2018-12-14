@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ssd:SystemStructureDescription name="simple-cse-example" version="Draft20180219">
+  <ssd:DefaultExperiment startTime="0.0" stopTime="2e-4"/>
+  <ssd:System name="cse-instance" description="An example of how to use Core Simulation Environment">
+
+    <ssd:SimulationInformation>
+      <ssd:FixedStepMaster description="FixedStepAlgorithm" stepSize="1e-2" />
+    </ssd:SimulationInformation>
+
+    <ssd:Elements>
+      <ssd:Component name="COMSlave" source="DPController.fmu"/>
+      <ssd:Component name="NLP" source="NLPobserver.fmu"/>
+      <ssd:Component name="Ref" source="ReferenceGenerator.fmu"/>
+      <ssd:Component name="ThMPC" source="ThMPC.fmu"/>
+      <ssd:Component name="Ship" source="OSOM.fmu"/>
+    </ssd:Elements>
+
+    <ssd:Connections>
+      <ssd:Connection startElement="ThMPC" startConnector="F1c" endElement="Ship" endConnector="Fc[1]"/>
+      <ssd:Connection startElement="ThMPC" startConnector="F2c" endElement="Ship" endConnector="Fc[2]"/>
+      <ssd:Connection startElement="ThMPC" startConnector="F3c" endElement="Ship" endConnector="Fc[3]"/>
+      <ssd:Connection startElement="NLP" startConnector="y_hat[1]" endElement="COMSlave" endConnector="x"/>
+      <ssd:Connection startElement="NLP" startConnector="y_hat[2]" endElement="COMSlave" endConnector="y"/>
+      <ssd:Connection startElement="NLP" startConnector="y_hat[3]" endElement="COMSlave" endConnector="psi"/>
+      <ssd:Connection startElement="NLP" startConnector="v_hat[1]" endElement="COMSlave" endConnector="dx"/>
+      <ssd:Connection startElement="NLP" startConnector="v_hat[2]" endElement="COMSlave" endConnector="dy"/>
+      <ssd:Connection startElement="NLP" startConnector="v_hat[3]" endElement="COMSlave" endConnector="dpsi"/>
+      <ssd:Connection startElement="Ship" startConnector="y[1]" endElement="NLP" endConnector="y[1]"/>
+      <ssd:Connection startElement="Ship" startConnector="y[2]" endElement="NLP" endConnector="y[2]"/>
+      <ssd:Connection startElement="Ship" startConnector="y[3]" endElement="NLP" endConnector="y[3]"/>
+
+      <ssd:Connection startElement="COMSlave" startConnector="Controlx" endElement="ThMPC" endConnector="refx"/>
+      <ssd:Connection startElement="COMSlave" startConnector="Controly" endElement="ThMPC" endConnector="refy"/>
+      <ssd:Connection startElement="COMSlave" startConnector="ControlMz" endElement="ThMPC" endConnector="refMz"/>
+
+      <ssd:Connection startElement="ThMPC" startConnector="Fxg" endElement="NLP" endConnector="tau[1]"/>
+      <ssd:Connection startElement="ThMPC" startConnector="Fyg" endElement="NLP" endConnector="tau[2]"/>
+      <ssd:Connection startElement="ThMPC" startConnector="Mzg" endElement="NLP" endConnector="tau[3]"/>
+
+      <ssd:Connection startElement="ThMPC" startConnector="alpha1" endElement="Ship" endConnector="alpha1"/>
+      <ssd:Connection startElement="ThMPC" startConnector="alpha2" endElement="Ship" endConnector="alpha2"/>
+
+      <ssd:Connection startElement="Ref" startConnector="x_ref" endElement="COMSlave" endConnector="x_ref"/>
+      <ssd:Connection startElement="Ref" startConnector="y_ref" endElement="COMSlave" endConnector="y_ref"/>
+      <ssd:Connection startElement="Ref" startConnector="psi_ref" endElement="COMSlave" endConnector="psi_ref"/>
+      <ssd:Connection startElement="Ref" startConnector="dx_ref" endElement="COMSlave" endConnector="dx_ref"/>
+      <ssd:Connection startElement="Ref" startConnector="dy_ref" endElement="COMSlave" endConnector="dy_ref"/>
+      <ssd:Connection startElement="Ref" startConnector="dpsi_ref" endElement="COMSlave" endConnector="dpsi_ref"/>
+    </ssd:Connections>
+
+  </ssd:System>
+</ssd:SystemStructureDescription>
