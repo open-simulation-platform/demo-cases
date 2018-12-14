@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ssd:SystemStructureDescription name="simple-cse-house-example" version="Draft20181214">
+  <ssd:DefaultExperiment startTime="0.0" stopTime="2e10"/>
+  <ssd:System name="cse-instance" description="An example of how to use Core Simulation Environment">
+
+    <ssd:SimulationInformation>
+      <ssd:FixedStepMaster description="FixedStepAlgorithm" stepSize="0.01" />
+    </ssd:SimulationInformation>
+
+    <ssd:Elements>
+      <ssd:Component name="Clock" source="Clock.fmu"/>
+      <ssd:Component name="InnerWall" source="InnerWall.fmu"/>
+      <ssd:Component name="OuterWall1" source="OuterWall1.fmu"/>
+      <ssd:Component name="OuterWall2" source="OuterWall2.fmu"/>
+      <ssd:Component name="Room1" source="Room1.fmu"/>
+      <ssd:Component name="Room2" source="Room2.fmu"/>
+      <ssd:Component name="TempController" source="TempController.fmu"/>
+    </ssd:Elements>
+
+    <ssd:Connections>
+      <ssd:Connection startElement="OuterWall1" startConnector="h_wall" endElement="Room1" endConnector="h_OuterWall"/>
+      <ssd:Connection startElement="InnerWall" startConnector="h_wall" endElement="Room1" endConnector="h_InnerWall"/>
+      <ssd:Connection startElement="TempController" startConnector="h_room1" endElement="Room1" endConnector="h_powerHeater"/>
+      <ssd:Connection startElement="Room1" startConnector="T_room" endElement="OuterWall1" endConnector="T_room1"/>
+      <ssd:Connection startElement="InnerWall" startConnector="h_wall" endElement="Room2" endConnector="h_InnerWall"/>
+      <ssd:Connection startElement="OuterWall2" startConnector="h_wall" endElement="Room2" endConnector="h_OuterWall"/>
+      <ssd:Connection startElement="TempController" startConnector="h_room2" endElement="Room2" endConnector="h_powerHeater"/>
+      <ssd:Connection startElement="Room2" startConnector="T_room" endElement="TempController" endConnector="T_room2"/>
+      <ssd:Connection startElement="Room1" startConnector="T_room" endElement="TempController" endConnector="T_room1"/>
+      <ssd:Connection startElement="Clock" startConnector="Clock" endElement="TempController" endConnector="T_clock"/>
+      <ssd:Connection startElement="Room1" startConnector="T_room" endElement="InnerWall" endConnector="T_room1"/>
+      <ssd:Connection startElement="Room2" startConnector="T_room" endElement="InnerWall" endConnector="T_room2"/>
+      <ssd:Connection startElement="Room2" startConnector="T_room" endElement="OuterWall2" endConnector="T_room2"/>
+    </ssd:Connections>
+
+  </ssd:System>
+</ssd:SystemStructureDescription>
