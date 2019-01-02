@@ -4,51 +4,51 @@
   <ssd:System name="cse-instance" description="An example of how to use Core Simulation Environment">
 
     <ssd:SimulationInformation>
-      <ssd:FixedStepMaster description="FixedStepAlgorithm" stepSize="0.05" />
+      <ssd:FixedStepMaster description="FixedStepAlgorithm" stepSize="0.04" />
     </ssd:SimulationInformation>
 
     <ssd:Elements>
-      <ssd:Component name="DP" source="DPController.fmu"/>
-      <ssd:Component name="NLP" source="NLPobserver.fmu"/>
-      <ssd:Component name="Ref" source="ReferenceGenerator.fmu"/>
-      <ssd:Component name="ThMPC" source="ThMPC.fmu"/>
+      <ssd:Component name="DP Controller" source="DPController.fmu"/>
+      <ssd:Component name="Observer" source="NLPobserver.fmu"/>
+      <ssd:Component name="Reference Generator" source="ReferenceGenerator.fmu"/>
+      <ssd:Component name="Thrust Allocation" source="ThMPC.fmu"/>
       <ssd:Component name="Ship" source="OSOM.fmu"/>
     </ssd:Elements>
 
     <ssd:Connections>
-      <ssd:Connection startElement="ThMPC" startConnector="F1c" endElement="Ship" endConnector="Thrust_d[1]"/>
-      <ssd:Connection startElement="ThMPC" startConnector="F2c" endElement="Ship" endConnector="Thrust_d[2]"/>
-      <ssd:Connection startElement="ThMPC" startConnector="F3c" endElement="Ship" endConnector="Thrust_d[3]"/>
+      <ssd:Connection startElement="Thrust Allocation" startConnector="F1c" endElement="Ship" endConnector="Thrust_d[1]"/>
+      <ssd:Connection startElement="Thrust Allocation" startConnector="F2c" endElement="Ship" endConnector="Thrust_d[2]"/>
+      <ssd:Connection startElement="Thrust Allocation" startConnector="F3c" endElement="Ship" endConnector="Thrust_d[3]"/>
 
-      <ssd:Connection startElement="NLP" startConnector="y_hat[1]" endElement="DP" endConnector="x"/>
-      <ssd:Connection startElement="NLP" startConnector="y_hat[2]" endElement="DP" endConnector="y"/>
-      <ssd:Connection startElement="NLP" startConnector="y_hat[3]" endElement="DP" endConnector="psi"/>
-      <ssd:Connection startElement="NLP" startConnector="v_hat[1]" endElement="DP" endConnector="dx"/>
-      <ssd:Connection startElement="NLP" startConnector="v_hat[2]" endElement="DP" endConnector="dy"/>
-      <ssd:Connection startElement="NLP" startConnector="v_hat[3]" endElement="DP" endConnector="dpsi"/>
+      <ssd:Connection startElement="Observer" startConnector="y_hat[1]" endElement="DP Controller" endConnector="x"/>
+      <ssd:Connection startElement="Observer" startConnector="y_hat[2]" endElement="DP Controller" endConnector="y"/>
+      <ssd:Connection startElement="Observer" startConnector="y_hat[3]" endElement="DP Controller" endConnector="psi"/>
+      <ssd:Connection startElement="Observer" startConnector="v_hat[1]" endElement="DP Controller" endConnector="dx"/>
+      <ssd:Connection startElement="Observer" startConnector="v_hat[2]" endElement="DP Controller" endConnector="dy"/>
+      <ssd:Connection startElement="Observer" startConnector="v_hat[3]" endElement="DP Controller" endConnector="dpsi"/>
 
-      <ssd:Connection startElement="Ship" startConnector="q[1]" endElement="NLP" endConnector="y[1]"/>
-      <ssd:Connection startElement="Ship" startConnector="q[2]" endElement="NLP" endConnector="y[2]"/>
-      <ssd:Connection startElement="Ship" startConnector="q[3]" endElement="NLP" endConnector="y[3]"/>
+      <ssd:Connection startElement="Ship" startConnector="q[1]" endElement="Observer" endConnector="y[1]"/>
+      <ssd:Connection startElement="Ship" startConnector="q[2]" endElement="Observer" endConnector="y[2]"/>
+      <ssd:Connection startElement="Ship" startConnector="q[3]" endElement="Observer" endConnector="y[3]"/>
 
-      <ssd:Connection startElement="DP" startConnector="Controlx" endElement="ThMPC" endConnector="refx"/>
-      <ssd:Connection startElement="DP" startConnector="Controly" endElement="ThMPC" endConnector="refy"/>
-      <ssd:Connection startElement="DP" startConnector="ControlMz" endElement="ThMPC" endConnector="refMz"/>
+      <ssd:Connection startElement="DP Controller" startConnector="Controlx" endElement="Thrust Allocation" endConnector="refx"/>
+      <ssd:Connection startElement="DP Controller" startConnector="Controly" endElement="Thrust Allocation" endConnector="refy"/>
+      <ssd:Connection startElement="DP Controller" startConnector="ControlMz" endElement="Thrust Allocation" endConnector="refMz"/>
 
-      <ssd:Connection startElement="ThMPC" startConnector="Fxg" endElement="NLP" endConnector="tau[1]"/>
-      <ssd:Connection startElement="ThMPC" startConnector="Fyg" endElement="NLP" endConnector="tau[2]"/>
-      <ssd:Connection startElement="ThMPC" startConnector="Mzg" endElement="NLP" endConnector="tau[3]"/>
+      <ssd:Connection startElement="Thrust Allocation" startConnector="Fxg" endElement="Observer" endConnector="tau[1]"/>
+      <ssd:Connection startElement="Thrust Allocation" startConnector="Fyg" endElement="Observer" endConnector="tau[2]"/>
+      <ssd:Connection startElement="Thrust Allocation" startConnector="Mzg" endElement="Observer" endConnector="tau[3]"/>
 
-      <ssd:Connection startElement="ThMPC" startConnector="alpha1" endElement="Ship" endConnector="input[1]"/>
-      <ssd:Connection startElement="ThMPC" startConnector="alpha2" endElement="Ship" endConnector="input[2]"/>
+      <ssd:Connection startElement="Thrust Allocation" startConnector="alpha1" endElement="Ship" endConnector="input[1]"/>
+      <ssd:Connection startElement="Thrust Allocation" startConnector="alpha2" endElement="Ship" endConnector="input[2]"/>
 
-      <ssd:Connection startElement="Ref" startConnector="x_ref" endElement="DP" endConnector="x_ref"/>
-      <ssd:Connection startElement="Ref" startConnector="y_ref" endElement="DP" endConnector="y_ref"/>
-      <ssd:Connection startElement="Ref" startConnector="psi_ref" endElement="DP" endConnector="psi_ref"/>
+      <ssd:Connection startElement="Reference Generator" startConnector="x_ref" endElement="DP Controller" endConnector="x_ref"/>
+      <ssd:Connection startElement="Reference Generator" startConnector="y_ref" endElement="DP Controller" endConnector="y_ref"/>
+      <ssd:Connection startElement="Reference Generator" startConnector="psi_ref" endElement="DP Controller" endConnector="psi_ref"/>
 
-      <ssd:Connection startElement="Ref" startConnector="dx_ref" endElement="DP" endConnector="dx_ref"/>
-      <ssd:Connection startElement="Ref" startConnector="dy_ref" endElement="DP" endConnector="dy_ref"/>
-      <ssd:Connection startElement="Ref" startConnector="dpsi_ref" endElement="DP" endConnector="dpsi_ref"/>
+      <ssd:Connection startElement="Reference Generator" startConnector="dx_ref" endElement="DP Controller" endConnector="dx_ref"/>
+      <ssd:Connection startElement="Reference Generator" startConnector="dy_ref" endElement="DP Controller" endConnector="dy_ref"/>
+      <ssd:Connection startElement="Reference Generator" startConnector="dpsi_ref" endElement="DP Controller" endConnector="dpsi_ref"/>
     </ssd:Connections>
 
   </ssd:System>
