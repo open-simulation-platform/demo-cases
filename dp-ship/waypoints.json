@@ -1,0 +1,141 @@
+{
+  "defaults": {
+    "model": "Reference Generator",
+    "causality": "input",
+    "type": "real",
+    "action": "override"
+  },
+  "events": [
+    {
+      "time": 500,
+      "variable": "x_wp",
+      "value": 20.0
+    },
+    {
+      "time": 500,
+      "variable": "x_tp",
+      "value": 700.0
+    },
+    {
+      "time": 800,
+      "variable": "psi_wp",
+      "value": 1.507
+    },
+    {
+      "time": 800,
+      "variable": "psi_tp",
+      "value": 1200.0
+    },
+    {
+      "time": 1300,
+      "variable": "y_wp",
+      "value": 20.0
+    },
+    {
+      "time": 1300,
+      "variable": "y_tp",
+      "value": 1500.0
+    },
+    {
+      "time": 1600,
+      "variable": "psi_wp",
+      "value": 0.0
+    },
+    {
+      "time": 1600,
+      "variable": "psi_tp",
+      "value": 2000.0
+    },
+    {
+      "time": 2100,
+      "variable": "x_wp",
+      "value": 40.0
+    },
+    {
+      "time": 2100,
+      "variable": "x_tp",
+      "value": 2300.0
+    },
+    {
+      "time": 2400,
+      "variable": "psi_wp",
+      "value": -1.507
+    },
+    {
+      "time": 2400,
+      "variable": "psi_tp",
+      "value": 2800.0
+    },
+    {
+      "time": 2900,
+      "variable": "y_wp",
+      "value": -20.0
+    },
+    {
+      "time": 2900,
+      "variable": "y_tp",
+      "value": 3300.0
+    },
+    {
+      "time": 3400,
+      "variable": "psi_wp",
+      "value": 0.0
+    },
+    {
+      "time": 3400,
+      "variable": "psi_tp",
+      "value": 3800.0
+    },
+    {
+      "time": 3900,
+      "variable": "x_wp",
+      "value": 60.0
+    },
+    {
+      "time": 3900,
+      "variable": "x_tp",
+      "value": 4100.0
+    },
+    {
+      "time": 4200,
+      "variable": "psi_wp",
+      "value": 1.507
+    },
+    {
+      "time": 4200,
+      "variable": "psi_tp",
+      "value": 4600
+    },
+    {
+      "time": 4700,
+      "variable": "y_wp",
+      "value": 0
+    },
+    {
+      "time": 4700,
+      "variable": "y_tp",
+      "value": 4900.0
+    },
+    {
+      "time": 5000,
+      "variable": "psi_wp",
+      "value": 0
+    },
+    {
+      "time": 5000,
+      "variable": "psi_tp",
+      "value": 5400.0
+    },
+    {
+      "time": 5500,
+      "variable": "x_wp",
+      "value": 80.0
+    },
+    {
+      "time": 5500,
+      "variable": "x_tp",
+      "value": 5700.0
+    }
+  ]
+}
+
