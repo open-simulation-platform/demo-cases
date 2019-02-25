@@ -1,4 +1,5 @@
 {
+  "description": "Set position and heading setpoints",
   "defaults": {
     "model": "Reference Generator",
     "causality": "input",
@@ -136,6 +137,7 @@
       "variable": "x_tp",
       "value": 5700.0
     }
-  ]
+  ],
+  "end": 6000
 }
 
