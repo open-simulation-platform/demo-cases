@@ -1,0 +1,10 @@
+<models>
+    <model name="InnerWall" rate="20" limit="10">
+        <signal name="T_room1" type="real" causality="input"/>
+        <signal name="T_room2" type="real" causality="input"/>
+    </model>
+	<model name="Room2">
+		<signal name="h_InnerWall" type="real" causality="input"/>
+		<signal name="T_room" type="real" causality="output"/>
+	</model>
+</models>
