@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ssd:SystemStructureDescription name="simple-cse-example" version="1.0">
+  <ssd:DefaultExperiment startTime="0.0" stopTime="2e-4"/>
+  <ssd:System name="cse-instance" description="An example of how to use Core Simulation Environment">
+
+      <ssd:Annotations>
+          <ssc:Annotation type="org.open-simulation-platform">
+              <osp:SimulationInformation>
+                  <osp:FixedStepMaster description="FixedStepAlgorithm" stepSize="0.01"/>
+              </osp:SimulationInformation>
+          </ssc:Annotation>
+      </ssd:Annotations>
+
+    <ssd:Elements>
+      <ssd:Component name="chassis" source="chassis.fmu"/>
+      <ssd:Component name="wheel" source="wheel.fmu"/>
+      <ssd:Component name="ground" source="ground.fmu"/>
+    </ssd:Elements>
+
+    <ssd:Connections>
+
+      <ssd:Connection startElement="chassis" startConnector="p.e" endElement="wheel" endConnector="p1.e"/>
+      <ssd:Connection startElement="wheel" startConnector="p1.f" endElement="chassis" endConnector="p.f"/>
+      <ssd:Connection startElement="wheel" startConnector="p.e" endElement="ground" endConnector="p.e"/>
+      <ssd:Connection startElement="ground" startConnector="p.f" endElement="wheel" endConnector="p.f"/>
+
+    </ssd:Connections>
+
+  </ssd:System>
+</ssd:SystemStructureDescription>
