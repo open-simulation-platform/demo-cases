@@ -2,8 +2,6 @@
   "description": "This scenario contains a couple of errors",
   "defaults": {
     "model": "Reference Generator",
-    "causality": "input",
-    "type": "real",
     "action": "override"
   },
   "events": [
@@ -58,6 +56,7 @@
       "value": 320.0
     },
     {
+      "model": "Unknown",
       "time": 330,
       "variable": "psi_wp",
       "value": -1.507

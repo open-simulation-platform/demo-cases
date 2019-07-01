@@ -1,14 +1,11 @@
 <simulators>
     <simulator name="chassis">
-        <variable name="zChassis" type="real" causality="output"/>
+        <variable name="zChassis"/>
     </simulator>
     <simulator name="wheel">
-        <variable name="zWheel" type="real" causality="output"/>
+        <variable name="zWheel"/>
     </simulator>
 	<simulator name="ground">
-        <variable name="zGround" type="real" causality="output"/>
+        <variable name="zGround"/>
     </simulator>
 </simulators>
-<!--simulators>
-    <simulator name="slave"/>
-</simulators-->

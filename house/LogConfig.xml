@@ -1,10 +1,10 @@
 <simulators>
-    <simulator name="InnerWall" decimationFactor="20" limit="10">
-        <variable name="T_room1" type="real" causality="input"/>
-        <variable name="T_room2" type="real" causality="input"/>
+    <simulator name="InnerWall" decimationFactor="20">
+        <variable name="T_room1"/>
+        <variable name="T_room2"/>
     </simulator>
     <simulator name="Room2">
-        <variable name="h_InnerWall" type="real" causality="input"/>
-        <variable name="T_room" type="real" causality="output"/>
+        <variable name="h_InnerWall"/>
+        <variable name="T_room"/>
     </simulator>
 </simulators>

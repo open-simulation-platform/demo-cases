@@ -2,8 +2,6 @@
   "description": "Set position and heading setpoints",
   "defaults": {
     "model": "Reference Generator",
-    "causality": "input",
-    "type": "real",
     "action": "override"
   },
   "events": [
