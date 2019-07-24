@@ -12,8 +12,48 @@
       </ssd:Annotations>
 
     <ssd:Elements>
-      <ssd:Component name="chassis" source="chassis.fmu"/>
-      <ssd:Component name="wheel" source="wheel.fmu"/>
+      <ssd:Component name="chassis" source="chassis.fmu">
+          <ssd:ParameterBindings>
+              <ssd:ParameterBinding>
+                  <ssd:ParameterValues>
+                      <ssv:ParameterSet version="1.0" name="initialValues">
+                          <ssv:Parameters>
+                              <ssv:Parameter name="C.mChassis">
+                                  <ssv:Real value="400" />
+                              </ssv:Parameter>
+                              <ssv:Parameter name="C.kChassis">
+                                  <ssv:Real value="15000" />
+                              </ssv:Parameter>
+                              <ssv:Parameter name="R.dChassis">
+                                  <ssv:Real value="1000" />
+                              </ssv:Parameter>
+                          </ssv:Parameters>
+                      </ssv:ParameterSet>
+                  </ssd:ParameterValues>
+              </ssd:ParameterBinding>
+          </ssd:ParameterBindings>
+      </ssd:Component>
+      <ssd:Component name="wheel" source="wheel.fmu">
+          <ssd:ParameterBindings>
+              <ssd:ParameterBinding>
+                  <ssd:ParameterValues>
+                      <ssv:ParameterSet version="1.0" name="initialValues">
+                          <ssv:Parameters>
+                              <ssv:Parameter name="C.mWheel">
+                                  <ssv:Real value="40" />
+                              </ssv:Parameter>
+                              <ssv:Parameter name="C.kWheel">
+                                  <ssv:Real value="150000" />
+                              </ssv:Parameter>
+                              <ssv:Parameter name="R.dWheel">
+                                  <ssv:Real value="0" />
+                              </ssv:Parameter>
+                          </ssv:Parameters>
+                      </ssv:ParameterSet>
+                  </ssd:ParameterValues>
+              </ssd:ParameterBinding>
+          </ssd:ParameterBindings>
+      </ssd:Component>
       <ssd:Component name="ground" source="ground.fmu"/>
     </ssd:Elements>
 
