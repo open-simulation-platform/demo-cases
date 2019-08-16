@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ssd:SystemStructureDescription name="simple-cse-house-example" version="Draft20181214">
+<ssd:SystemStructureDescription name="simple-cse-house-example" version="Draft20181214"
+                                xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon"
+                                xmlns:ssd="http://ssp-standard.org/SSP1/SystemStructureDescription"
+                                xmlns:ssv="http://ssp-standard.org/SSP1/SystemStructureParameterValues">
   <ssd:DefaultExperiment startTime="0.0" stopTime="2e10"/>
   <ssd:System name="cse-instance" description="An example of how to use Core Simulation Environment">
 
@@ -14,8 +17,36 @@
     <ssd:Elements>
       <ssd:Component name="Clock" source="fmu-proxy://localhost:9090?file=../Clock.fmu"/>
       <ssd:Component name="InnerWall" source="fmu-proxy://localhost:9090?file=../InnerWall.fmu"/>
-      <ssd:Component name="OuterWall1" source="fmu-proxy://localhost:9090?file=../OuterWall1.fmu"/>
-      <ssd:Component name="OuterWall2" source="fmu-proxy://localhost:9090?file=../OuterWall2.fmu"/>
+      <ssd:Component name="OuterWall1" source="fmu-proxy://localhost:9090?file=../OuterWall1.fmu">
+        <ssd:ParameterBindings>
+          <ssd:ParameterBinding>
+            <ssd:ParameterValues>
+              <ssv:ParameterSet version="1.0" name="initialValues">
+                <ssv:Parameters>
+                  <ssv:Parameter name="T_outside">
+                    <ssv:Real value="5.3" />
+                  </ssv:Parameter>
+                </ssv:Parameters>
+              </ssv:ParameterSet>
+            </ssd:ParameterValues>
+          </ssd:ParameterBinding>
+        </ssd:ParameterBindings>
+      </ssd:Component>
+      <ssd:Component name="OuterWall2" source="fmu-proxy://localhost:9090?file=../OuterWall2.fmu">
+        <ssd:ParameterBindings>
+          <ssd:ParameterBinding>
+            <ssd:ParameterValues>
+              <ssv:ParameterSet version="1.0" name="initialValues">
+                <ssv:Parameters>
+                  <ssv:Parameter name="T_outside">
+                    <ssv:Real value="4.9" />
+                  </ssv:Parameter>
+                </ssv:Parameters>
+              </ssv:ParameterSet>
+            </ssd:ParameterValues>
+          </ssd:ParameterBinding>
+        </ssd:ParameterBindings>
+      </ssd:Component>
       <ssd:Component name="Room1" source="fmu-proxy://localhost:9090?file=../Room1.fmu"/>
       <ssd:Component name="Room2" source="fmu-proxy://localhost:9090?file=../Room2.fmu"/>
       <ssd:Component name="TempController" source="fmu-proxy://localhost:9090?file=../TempController.fmu"/>
