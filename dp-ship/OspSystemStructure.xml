@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure">
+    <BaseStepSize>0.04</BaseStepSize>
+    <Simulators>
+        <Simulator name="DP Controller" source="DPController.fmu"/>
+        <Simulator name="Observer" source="NLPobserver.fmu"/>
+        <Simulator name="Reference Generator" source="ReferenceGenerator.fmu"/>
+        <Simulator name="Thrust Allocation" source="ThMPC.fmu"/>
+        <Simulator name="Ship" source="OSOM.fmu"/>
+    </Simulators>
+    <PlugSocketConnections/>
+    <BondConnections/>
+    <VariableConnections>
+        <ScalarConnection>
+            <Source simulator="Thrust Allocation" endpoint="F1c"/>
+            <Target simulator="Ship" endpoint="Thrust_d[1]"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Thrust Allocation" endpoint="F2c"/>
+            <Target simulator="Ship" endpoint="Thrust_d[2]"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Thrust Allocation" endpoint="F3c"/>
+            <Target simulator="Ship" endpoint="Thrust_d[3]"/>
+        </ScalarConnection>
+
+        <ScalarConnection>
+            <Source simulator="Observer" endpoint="y_hat[1]"/>
+            <Target simulator="DP Controller" endpoint="x"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Observer" endpoint="y_hat[2]"/>
+            <Target simulator="DP Controller" endpoint="y"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Observer" endpoint="y_hat[3]"/>
+            <Target simulator="DP Controller" endpoint="psi"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Observer" endpoint="v_hat[1]"/>
+            <Target simulator="DP Controller" endpoint="dx"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Observer" endpoint="v_hat[2]"/>
+            <Target simulator="DP Controller" endpoint="dy"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Observer" endpoint="v_hat[3]"/>
+            <Target simulator="DP Controller" endpoint="dpsi"/>
+        </ScalarConnection>
+
+        <ScalarConnection>
+            <Source simulator="Ship" endpoint="q[1]"/>
+            <Target simulator="Observer" endpoint="y[1]"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Ship" endpoint="q[2]"/>
+            <Target simulator="Observer" endpoint="y[2]"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Ship" endpoint="q[3]"/>
+            <Target simulator="Observer" endpoint="y[3]"/>
+        </ScalarConnection>
+
+        <ScalarConnection>
+            <Source simulator="DP Controller" endpoint="Controlx"/>
+            <Target simulator="Thrust Allocation" endpoint="refx"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="DP Controller" endpoint="Controly"/>
+            <Target simulator="Thrust Allocation" endpoint="refy"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="DP Controller" endpoint="ControlMz"/>
+            <Target simulator="Thrust Allocation" endpoint="refMz"/>
+        </ScalarConnection>
+
+        <ScalarConnection>
+            <Source simulator="Thrust Allocation" endpoint="Fxg"/>
+            <Target simulator="Observer" endpoint="tau[1]"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Thrust Allocation" endpoint="Fyg"/>
+            <Target simulator="Observer" endpoint="tau[2]"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Thrust Allocation" endpoint="Mzg"/>
+            <Target simulator="Observer" endpoint="tau[3]"/>
+        </ScalarConnection>
+
+        <ScalarConnection>
+            <Source simulator="Thrust Allocation" endpoint="alpha1"/>
+            <Target simulator="Ship" endpoint="input[1]"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Thrust Allocation" endpoint="alpha2"/>
+            <Target simulator="Ship" endpoint="input[2]"/>
+        </ScalarConnection>
+
+        <ScalarConnection>
+            <Source simulator="Reference Generator" endpoint="x_ref"/>
+            <Target simulator="DP Controller" endpoint="x_ref"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Reference Generator" endpoint="y_ref"/>
+            <Target simulator="DP Controller" endpoint="y_ref"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Reference Generator" endpoint="psi_ref"/>
+            <Target simulator="DP Controller" endpoint="psi_ref"/>
+        </ScalarConnection>
+
+        <ScalarConnection>
+            <Source simulator="Reference Generator" endpoint="dx_ref"/>
+            <Target simulator="DP Controller" endpoint="dx_ref"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Reference Generator" endpoint="dy_ref"/>
+            <Target simulator="DP Controller" endpoint="dy_ref"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="Reference Generator" endpoint="dpsi_ref"/>
+            <Target simulator="DP Controller" endpoint="dpsi_ref"/>
+        </ScalarConnection>
+    </VariableConnections>
+</OspSystemStructure>

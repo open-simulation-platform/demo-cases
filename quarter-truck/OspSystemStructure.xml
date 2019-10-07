@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure">
+    <BaseStepSize>0.01</BaseStepSize>
+
+    <Simulators>
+        <Simulator name="chassis" source="chassis.fmu">
+            <InitialValues>
+                <InitialValue variable="C.mChassis">
+                    <Real value="400"/>
+                </InitialValue>
+                <InitialValue variable="C.kChassis">
+                    <Real value="15000"/>
+                </InitialValue>
+                <InitialValue variable="R.dChassis">
+                    <Real value="1000"/>
+                </InitialValue>
+            </InitialValues>
+        </Simulator>
+        <Simulator name="wheel" source="wheel.fmu">
+            <InitialValues>
+                <InitialValue variable="C.mWheel">
+                    <Real value="40"/>
+                </InitialValue>
+                <InitialValue variable="C.kWheel">
+                    <Real value="150000"/>
+                </InitialValue>
+                <InitialValue variable="R.dWheel">
+                    <Real value="0"/>
+                </InitialValue>
+            </InitialValues>
+        </Simulator>
+        <Simulator name="ground" source="ground.fmu"/>
+    </Simulators>
+
+    <PlugSocketConnections/>
+    <BondConnections/>
+    <VariableConnections>
+        <ScalarConnection>
+            <Source simulator="chassis" endpoint="p.e"/>
+            <Target simulator="wheel" endpoint="p1.e"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="wheel" endpoint="p1.f"/>
+            <Target simulator="chassis" endpoint="p.f"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="wheel" endpoint="p.e"/>
+            <Target simulator="ground" endpoint="p.e"/>
+        </ScalarConnection>
+        <ScalarConnection>
+            <Source simulator="ground" endpoint="p.f"/>
+            <Target simulator="wheel" endpoint="p.f"/>
+        </ScalarConnection>
+    </VariableConnections>
+</OspSystemStructure>
