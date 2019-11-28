@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ssd:SystemStructureDescription name="simple-cse-example" version="Draft20180219">
-  <ssd:DefaultExperiment startTime="0.0" stopTime="2e-4"/>
+  
   <ssd:System name="cse-instance" description="An example of how to use Core Simulation Environment">
-
-      <ssd:Annotations>
-          <ssc:Annotation type="org.open-simulation-platform">
-              <osp:SimulationInformation>
-                  <osp:FixedStepMaster description="FixedStepAlgorithm" stepSize="0.04"/>
-              </osp:SimulationInformation>
-          </ssc:Annotation>
-      </ssd:Annotations>
 
     <ssd:Elements>
       <ssd:Component name="DP Controller" source="DPController.fmu"/>
@@ -56,4 +48,15 @@
     </ssd:Connections>
 
   </ssd:System>
+  
+    <ssd:DefaultExperiment>
+      <ssd:Annotations>
+          <ssc:Annotation type="com.opensimulationplatform">
+              <osp:Algorithm>
+                  <osp:FixedStepAlgorithm baseStepSize="0.04"/>
+              </osp:Algorithm>
+          </ssc:Annotation>
+      </ssd:Annotations>
+    </ssd:DefaultExperiment>
+  
 </ssd:SystemStructureDescription>
