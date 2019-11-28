@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ssd:SystemStructureDescription name="simple-cse-example" version="1.0">
-  <ssd:DefaultExperiment startTime="0.0" stopTime="2e-4"/>
+
   <ssd:System name="cse-instance" description="An example of how to use Core Simulation Environment">
 
     <ssd:Elements>
