@@ -3,7 +3,7 @@
                                 xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon"
                                 xmlns:ssd="http://ssp-standard.org/SSP1/SystemStructureDescription"
                                 xmlns:ssv="http://ssp-standard.org/SSP1/SystemStructureParameterValues">
-  <ssd:DefaultExperiment startTime="0.0" stopTime="2e10"/>
+
   <ssd:System name="cse-instance" description="An example of how to use Core Simulation Environment">
 
     <ssd:Elements>
