@@ -1,14 +1,206 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ssd:SystemStructureDescription name="simple-cse-example" version="Draft20180219">
+<ssd:SystemStructureDescription name="simple-cse-example" version="1.0"
+                                xmlns:ssd="http://ssp-standard.org/SSP1/SystemStructureDescription"
+                                xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon"
+                                xmlns:osp="http://opensimulationplatform.com/SSP/OSPAnnotations">
   
   <ssd:System name="cse-instance" description="An example of how to use Core Simulation Environment">
 
     <ssd:Elements>
-      <ssd:Component name="DP Controller" source="DPController.fmu"/>
-      <ssd:Component name="Observer" source="NLPobserver.fmu"/>
-      <ssd:Component name="Reference Generator" source="ReferenceGenerator.fmu"/>
-      <ssd:Component name="Thrust Allocation" source="ThMPC.fmu"/>
-      <ssd:Component name="Ship" source="OSOM.fmu"/>
+      <ssd:Component name="DP Controller" source="DPController.fmu">
+        <ssd:Connectors>
+          <ssd:Connector name="psi_ref" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="psi" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="x_ref" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="x" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="y_ref" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="y" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="dpsi_ref" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="dpsi" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="dx_ref" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="dx" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="dy_ref" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="dy" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="ControlMz" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="Controlx" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="Controly" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+        </ssd:Connectors>
+      </ssd:Component>
+      <ssd:Component name="Observer" source="NLPobserver.fmu">
+        <ssd:Connectors>
+          <ssd:Connector name="tau[1]" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="tau[2]" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="tau[3]" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="y[1]" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="y[2]" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="y[3]" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="y_hat[1]" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="y_hat[2]" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="y_hat[3]" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="v_hat[1]" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="v_hat[2]" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="v_hat[3]" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+        </ssd:Connectors>
+      </ssd:Component>
+      <ssd:Component name="Reference Generator" source="ReferenceGenerator.fmu">
+        <ssd:Connectors>
+          <ssd:Connector name="psi_wp" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="psi_tp" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="x_wp" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="x_tp" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="y_wp" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="y_tp" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="psi_ref" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="x_ref" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="y_ref" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="dpsi_ref" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="dx_ref" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="dy_ref" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+        </ssd:Connectors>
+      </ssd:Component>
+      <ssd:Component name="Thrust Allocation" source="ThMPC.fmu">
+        <ssd:Connectors>
+          <ssd:Connector name="refMz" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="refx" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="refy" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="F1c" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="F2c" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="F3c" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="Fxg" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="Fyg" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="Mzg" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="alpha1" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="alpha2" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+        </ssd:Connectors>
+      </ssd:Component>
+      <ssd:Component name="Ship" source="OSOM.fmu">
+        <ssd:Connectors>
+          <ssd:Connector name="Thrust_d[1]" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="Thrust_d[2]" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="Thrust_d[3]" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="input[1]" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="input[2]" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="q[1]" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="q[2]" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="q[3]" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+        </ssd:Connectors>
+      </ssd:Component>
     </ssd:Elements>
 
     <ssd:Connections>
