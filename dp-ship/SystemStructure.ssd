@@ -3,7 +3,7 @@
                                 xmlns:ssd="http://ssp-standard.org/SSP1/SystemStructureDescription"
                                 xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon"
                                 xmlns:osp="http://opensimulationplatform.com/SSP/OSPAnnotations">
-  
+
   <ssd:System name="cse-instance" description="An example of how to use Core Simulation Environment">
 
     <ssd:Elements>
