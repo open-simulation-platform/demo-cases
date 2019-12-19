@@ -1,0 +1,32 @@
+{
+  "plots": [
+    {
+      "label": "Room temp trend",
+      "plotType": "trend",
+      "variables": [
+        {
+          "simulator": "Room1",
+          "variable": "T_room"
+        },
+        {
+          "simulator": "Room2",
+          "variable": "T_room"
+        }
+      ]
+    },
+    {
+      "label": "Room temp XY",
+      "plotType": "scatter",
+      "variables": [
+        {
+          "simulator": "Room1",
+          "variable": "T_room"
+        },
+        {
+          "simulator": "Room2",
+          "variable": "T_room"
+        }
+      ]
+    }
+  ]
+}
