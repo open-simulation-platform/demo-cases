@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ssd:SystemStructureDescription name="simple-cse-house-example" version="Draft20181214"
+<ssd:SystemStructureDescription name="simple-cse-house-example" version="1.0"
                                 xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon"
                                 xmlns:ssd="http://ssp-standard.org/SSP1/SystemStructureDescription"
                                 xmlns:ssv="http://ssp-standard.org/SSP1/SystemStructureParameterValues">
