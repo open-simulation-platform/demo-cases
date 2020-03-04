@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure">
     <BaseStepSize>0.01</BaseStepSize>
-
     <Simulators>
         <Simulator name="chassis" source="chassis.fmu">
             <InitialValues>
