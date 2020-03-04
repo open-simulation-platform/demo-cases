@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription"
+                     msmiVersion="0.1">
+    <UnitDefinitions>
+        <Unit name="distance~m">
+            <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="radians~rad">
+            <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="velocity~m_s">
+            <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="angularVelocity~rad_s">
+            <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="force~N">
+            <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="torque~Nm">
+            <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+    </UnitDefinitions>
+    <VariableGroups>
+        <!-- INPUTS -->
+        <VariableGroup type="generic" name="thrust">
+            <Variable name="refx" unit="force~N"/>
+            <Variable name="refy" unit="force~N"/>
+            <Variable name="refMz" unit="torque~Nm"/>
+        </VariableGroup>
+        <!-- OUTPUTS -->
+        <VariableGroup type="generic" name="azimuthAngleCommand">
+            <Variable name="alpha1" unit="radians~rad"/>
+            <Variable name="alpha2" unit="radians~rad"/>
+        </VariableGroup>
+        <VariableGroup type="generic" name="thrustGlobalCommand">
+            <Variable name="Fxg" unit="force~N"/>
+            <Variable name="Fyg" unit="force~N"/>
+            <Variable name="Mzg" unit="torque~Nm"/>
+        </VariableGroup>
+        <VariableGroup type="generic" name="thrustLocalCommand">
+            <Variable name="F1c" unit="force~N"/>
+            <Variable name="F2c" unit="force~N"/>
+            <Variable name="F3c" unit="torque~Nm"/>
+        </VariableGroup>
+    </VariableGroups>
+</OspModelDescription>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription"
+                     msmiVersion="0.1">
+    <UnitDefinitions>
+        <Unit name="distance~m">
+            <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="radians~rad">
+            <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="velocity~m_s">
+            <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="angularVelocity~rad_s">
+            <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="force~N">
+            <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="torque~Nm">
+            <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+    </UnitDefinitions>
+    <VariableGroups>
+        <!-- INPUTS -->
+        <VariableGroup type="generic" name="vesselPosition">
+            <Variable name="x" unit="distance~m"/>
+            <Variable name="y" unit="distance~m"/>
+            <Variable name="psi" unit="radians~rad"/>
+        </VariableGroup>
+        <VariableGroup type="generic" name="vesselVelocity">
+            <Variable name="dx" unit="velocity~m_s"/>
+            <Variable name="dy" unit="velocity~m_s"/>
+            <Variable name="dpsi" unit="angularVelocity~rad_s"/>
+        </VariableGroup>
+        <VariableGroup type="generic" name="vesselPositionReference">
+            <Variable name="x_ref" unit="distance~m"/>
+            <Variable name="y_ref" unit="distance~m"/>
+            <Variable name="psi_ref" unit="radians~rad"/>
+        </VariableGroup>
+        <VariableGroup type="generic" name="vesselVelocityReference">
+            <Variable name="dx_ref" unit="velocity~m_s"/>
+            <Variable name="dy_ref" unit="velocity~m_s"/>
+            <Variable name="dpsi_ref" unit="angularVelocity~rad_s"/>
+        </VariableGroup>
+        <!-- OUTPUTS -->
+        <VariableGroup type="generic" name="ThrustCommand">
+            <Variable name="Controlx" unit="force~N"/>
+            <Variable name="Controly" unit="force~N"/>
+            <Variable name="ControlMz" unit="torque~Nm"/>
+        </VariableGroup>
+    </VariableGroups>
+</OspModelDescription>

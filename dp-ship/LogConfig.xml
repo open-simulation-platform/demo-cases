@@ -1,0 +1,6 @@
+<simulators>
+    <simulator name="Ship" decimationFactor="25">
+        <variable name="q[1]"/>
+        <variable name="q[2]"/>
+    </simulator>
+</simulators>

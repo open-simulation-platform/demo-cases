@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription"
+                     msmiVersion="0.1">
+    <UnitDefinitions>
+        <Unit name="distance~m">
+            <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="radians~rad">
+            <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="velocity~m_s">
+            <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="angularVelocity~rad_s">
+            <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="force~N">
+            <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="torque~Nm">
+            <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+    </UnitDefinitions>
+    <VariableGroups>
+        <!-- INPUTS -->
+        <VariableGroup type="generic" name="vesselPosition">
+            <Variable name="y[1]" unit="distance~m"/>
+            <Variable name="y[2]" unit="distance~m"/>
+            <Variable name="y[3]" unit="radians~rad"/>
+        </VariableGroup>
+        <VariableGroup type="generic" name="thrustForce">
+            <Variable name="tau[1]" unit="force~N"/>
+            <Variable name="tau[2]" unit="force~N"/>
+            <Variable name="tau[3]" unit="torque~Nm"/>
+        </VariableGroup>
+        <!-- OUTPUTS -->
+        <VariableGroup type="generic" name="filteredPosition">
+            <Variable name="y_hat[1]" unit="distance~m"/>
+            <Variable name="y_hat[2]" unit="distance~m"/>
+            <Variable name="y_hat[3]" unit="radians~rad"/>
+        </VariableGroup>
+        <VariableGroup type="generic" name="filteredVelocity">
+            <Variable name="v_hat[1]" unit="velocity~m_s"/>
+            <Variable name="v_hat[2]" unit="velocity~m_s"/>
+            <Variable name="v_hat[3]" unit="angularVelocity~rad_s"/>
+        </VariableGroup>
+    </VariableGroups>
+</OspModelDescription>
