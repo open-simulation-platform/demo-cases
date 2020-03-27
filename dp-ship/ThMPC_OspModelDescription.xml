@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription"
-                     msmiVersion="0.1">
+                     version="0.1">
     <UnitDefinitions>
-        <Unit name="distance~m">
+        <Unit name="m">
             <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
         </Unit>
-        <Unit name="radians~rad">
+        <Unit name="rad">
             <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
         </Unit>
-        <Unit name="velocity~m_s">
+        <Unit name="m/s">
             <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
         </Unit>
-        <Unit name="angularVelocity~rad_s">
+        <Unit name="rad/s">
             <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
         </Unit>
-        <Unit name="force~N">
+        <Unit name="N">
             <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
         </Unit>
-        <Unit name="torque~Nm">
+        <Unit name="N.m">
             <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
         </Unit>
     </UnitDefinitions>
     <VariableGroups>
         <!-- INPUTS -->
-        <VariableGroup type="generic" name="thrust">
-            <Variable name="refx" unit="force~N"/>
-            <Variable name="refy" unit="force~N"/>
-            <Variable name="refMz" unit="torque~Nm"/>
-        </VariableGroup>
-        <!-- OUTPUTS -->
-        <VariableGroup type="generic" name="azimuthAngleCommand">
-            <Variable name="alpha1" unit="radians~rad"/>
-            <Variable name="alpha2" unit="radians~rad"/>
-        </VariableGroup>
-        <VariableGroup type="generic" name="thrustGlobalCommand">
-            <Variable name="Fxg" unit="force~N"/>
-            <Variable name="Fyg" unit="force~N"/>
-            <Variable name="Mzg" unit="torque~Nm"/>
-        </VariableGroup>
-        <VariableGroup type="generic" name="thrustLocalCommand">
-            <Variable name="F1c" unit="force~N"/>
-            <Variable name="F2c" unit="force~N"/>
-            <Variable name="F3c" unit="torque~Nm"/>
-        </VariableGroup>
+        <Generic name="thrust">
+            <Variable ref="refx" unit="N"/>
+            <Variable ref="refy" unit="N"/>
+            <Variable ref="refMz" unit="N.m"/>
+        </Generic>
+        <!-- OUTPS -->
+        <Generic name="azimuthAngleCommand">
+            <Variable ref="alpha1" unit="rad"/>
+            <Variable ref="alpha2" unit="rad"/>
+        </Generic>
+        <Generic name="thrustGlobalCommand">
+            <Variable ref="Fxg" unit="N"/>
+            <Variable ref="Fyg" unit="N"/>
+            <Variable ref="Mzg" unit="N.m"/>
+        </Generic>
+        <Generic name="thrustLocalCommand">
+            <Variable ref="F1c" unit="N"/>
+            <Variable ref="F2c" unit="N"/>
+            <Variable ref="F3c" unit="N.m"/>
+        </Generic>
     </VariableGroups>
 </OspModelDescription>

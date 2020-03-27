@@ -1,42 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription"
-                     msmiVersion="0.1">
+                     version="0.1">
     <UnitDefinitions>
-        <Unit name="distance~m">
+        <Unit name="m">
             <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
         </Unit>
-        <Unit name="radians~rad">
+        <Unit name="rad">
             <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
         </Unit>
-        <Unit name="velocity~m_s">
-            <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
-        </Unit>
-        <Unit name="angularVelocity~rad_s">
-            <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
-        </Unit>
-        <Unit name="force~N">
+        <Unit name="N">
             <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
         </Unit>
-        <Unit name="torque~Nm">
+        <Unit name="N.m">
             <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
         </Unit>
     </UnitDefinitions>
     <VariableGroups>
         <!-- INPUTS -->
-        <VariableGroup type="generic" name="thrust">
-            <Variable name="Thrust_d[1]" unit="force~N"/>
-            <Variable name="Thrust_d[2]" unit="force~N"/>
-            <Variable name="Thrust_d[3]" unit="torque~Nm"/>
-        </VariableGroup>
-        <VariableGroup type="generic" name="azimuthAngle">
-            <Variable name="input[1]" unit="radians~rad"/>
-            <Variable name="input[2]" unit="radians~rad"/>
-        </VariableGroup>
+        <Force name="thrust">
+            <Variable ref="Thrust_d[1]" unit="N"/>
+            <Variable ref="Thrust_d[2]" unit="N"/>
+            <Variable ref="Thrust_d[3]" unit="N.m"/>
+        </Force>
+        <Generic name="azimuthAngle">
+            <Variable ref="input[1]" unit="rad"/>
+            <Variable ref="input[2]" unit="rad"/>
+        </Generic>
         <!-- OUTPUTS -->
-        <VariableGroup type="generic" name="position">
-            <Variable name="q[1]" unit="distance~m"/>
-            <Variable name="q[2]" unit="distance~m"/>
-            <Variable name="q[3]" unit="radians~rad"/>
-        </VariableGroup>
+        <Generic name="position">
+            <Variable ref="q[1]" unit="m"/>
+            <Variable ref="q[2]" unit="m"/>
+            <Variable ref="q[3]" unit="rad"/>
+        </Generic>
     </VariableGroups>
 </OspModelDescription>

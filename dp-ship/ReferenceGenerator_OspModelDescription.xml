@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription"
-                     msmiVersion="0.1">
+                     version="0.1">
     <UnitDefinitions>
-        <Unit name="distance~m">
+        <Unit name="m">
             <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
         </Unit>
-        <Unit name="radians~rad">
+        <Unit name="rad">
             <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
         </Unit>
-        <Unit name="velocity~m_s">
+        <Unit name="m/s">
             <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
         </Unit>
-        <Unit name="angularVelocity~rad_s">
+        <Unit name="rad/s">
             <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
         </Unit>
     </UnitDefinitions>
     <VariableGroups>
         <!-- OUTPUTS -->
-        <VariableGroup type="generic" name="positionReference">
-            <Variable name="x_ref" unit="distance~m"/>
-            <Variable name="y_ref" unit="distance~m"/>
-            <Variable name="psi_ref" unit="radians~rad"/>
-        </VariableGroup>
-        <VariableGroup type="generic" name="velocityReference">
-            <Variable name="dx_ref" unit="velocity~m_s"/>
-            <Variable name="dy_ref" unit="velocity~m_s"/>
-            <Variable name="dpsi_ref" unit="angularVelocity~rad_s"/>
-        </VariableGroup>
+        <Generic name="positionReference">
+            <Variable ref="x_ref" unit="m"/>
+            <Variable ref="y_ref" unit="m"/>
+            <Variable ref="psi_ref" unit="rad"/>
+        </Generic>
+        <Generic name="velocityReference">
+            <Variable ref="dx_ref" unit="m/s"/>
+            <Variable ref="dy_ref" unit="m/s"/>
+            <Variable ref="dpsi_ref" unit="rad/s"/>
+        </Generic>
     </VariableGroups>
 </OspModelDescription>
