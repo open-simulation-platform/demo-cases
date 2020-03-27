@@ -1,0 +1,36 @@
+{
+  "plots": [
+    {
+      "label": "north position",
+      "plotType": "trend",
+      "variables": [
+        {
+          "simulator": "Reference Generator",
+          "variable": "x_wp"
+        },
+        {
+          "simulator": "Reference Generator",
+          "variable": "x_ref"
+        },
+        {
+          "simulator": "Ship",
+          "variable": "q[1]"
+        }
+      ]
+    },
+    {
+      "label": "Vessel position",
+      "plotType": "scatter",
+      "variables": [
+        {
+          "simulator": "Ship",
+          "variable": "q[2]"
+        },
+        {
+          "simulator": "Room2",
+          "variable": "q[1]"
+        }
+      ]
+    }
+  ]
+}
