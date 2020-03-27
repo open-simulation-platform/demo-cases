@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure">
+<OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure"
+                    version="0.1">
     <BaseStepSize>0.01</BaseStepSize>
     <Simulators>
         <Simulator name="chassis" source="chassis.fmu">
@@ -30,25 +31,22 @@
         </Simulator>
         <Simulator name="ground" source="ground.fmu"/>
     </Simulators>
-
-    <PlugSocketConnections/>
-    <BondConnections/>
-    <VariableConnections>
-        <ScalarConnection>
-            <Source simulator="chassis" endpoint="p.e"/>
-            <Target simulator="wheel" endpoint="p1.e"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="wheel" endpoint="p1.f"/>
-            <Target simulator="chassis" endpoint="p.f"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="wheel" endpoint="p.e"/>
-            <Target simulator="ground" endpoint="p.e"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="ground" endpoint="p.f"/>
-            <Target simulator="wheel" endpoint="p.f"/>
-        </ScalarConnection>
-    </VariableConnections>
+    <Connections>
+        <VariableConnection>
+            <Variable simulator="chassis" name="p.e"/>
+            <Variable simulator="wheel" name="p1.e"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="wheel" name="p1.f"/>
+            <Variable simulator="chassis" name="p.f"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="wheel" name="p.e"/>
+            <Variable simulator="ground" name="p.e"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="ground" name="p.f"/>
+            <Variable simulator="wheel" name="p.f"/>
+        </VariableConnection>
+    </Connections>
 </OspSystemStructure>
