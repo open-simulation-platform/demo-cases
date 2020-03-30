@@ -16,6 +16,16 @@
         </Unit>
     </UnitDefinitions>
     <VariableGroups>
+        <!-- OUTPUTS -->
+        <Generic name="position">
+            <LinearDisplacement name="linearPosition">
+                <Variable ref="q[1]" unit="m"/>
+                <Variable ref="q[2]" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularPosition">
+                <Variable ref="q[3]" unit="rad"/>
+            </AngularDisplacement>
+        </Generic>
         <!-- INPUTS -->
         <Generic name="thrust">
             <Force name="thrustForce">
@@ -30,15 +40,5 @@
             <Variable ref="input[1]" unit="rad"/>
             <Variable ref="input[2]" unit="rad"/>
         </AngularDisplacement>
-        <!-- OUTPUTS -->
-        <Generic name="position">
-            <LinearDisplacement name="linearPosition">
-                <Variable ref="q[1]" unit="m"/>
-                <Variable ref="q[2]" unit="m"/>
-            </LinearDisplacement>
-            <AngularDisplacement name="angularPosition">
-                <Variable ref="q[3]" unit="rad"/>
-            </AngularDisplacement>
-        </Generic>
     </VariableGroups>
 </OspModelDescription>

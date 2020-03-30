@@ -33,10 +33,6 @@
             </Torque>
         </Generic>
         <!-- OUTPUTS -->
-        <AngularDisplacement name="azimuthAngleCommand">
-            <Variable ref="alpha1" unit="rad"/>
-            <Variable ref="alpha2" unit="rad"/>
-        </AngularDisplacement>
         <Generic name="thrustGlobalCommand">
             <Force name="linearThrustGlobalCommand">
                 <Variable ref="Fxg" unit="N"/>
@@ -55,5 +51,9 @@
                 <Variable ref="F3c" unit="N.m"/>
             </Torque>
         </Generic>
+        <AngularDisplacement name="azimuthAngleCommand">
+            <Variable ref="alpha1" unit="rad"/>
+            <Variable ref="alpha2" unit="rad"/>
+        </AngularDisplacement>
     </VariableGroups>
 </OspModelDescription>
