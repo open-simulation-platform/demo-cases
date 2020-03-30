@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ssd:SystemStructureDescription name="simple-cse-example" version="1.0">
+<ssd:SystemStructureDescription name="simple-cse-example" version="1.0"
+                                xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon"
+                                xmlns:ssd="http://ssp-standard.org/SSP1/SystemStructureDescription"
+                                xmlns:ssv="http://ssp-standard.org/SSP1/SystemStructureParameterValues">
 
   <ssd:System name="cse-instance" description="An example of how to use Core Simulation Environment">
 
@@ -59,7 +62,7 @@
     </ssd:Connections>
 
   </ssd:System>
-  
+
     <ssd:DefaultExperiment>
       <ssd:Annotations>
           <ssc:Annotation type="com.opensimulationplatform">
@@ -69,5 +72,5 @@
           </ssc:Annotation>
       </ssd:Annotations>
     </ssd:DefaultExperiment>
-  
+
 </ssd:SystemStructureDescription>

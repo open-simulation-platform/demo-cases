@@ -1,0 +1,10 @@
+<simulators>
+    <simulator name="Ship" decimationFactor="25">
+        <variable name="q[1]"/>
+        <variable name="q[2]"/>
+    </simulator>
+    <simulator name="Reference Generator" decimationFactor="25">
+        <variable name="x_wp"/>
+        <variable name="x_ref"/> 
+    </simulator>
+</simulators>

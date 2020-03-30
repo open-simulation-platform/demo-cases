@@ -3,11 +3,11 @@
                     version="0.1">
     <BaseStepSize>0.04</BaseStepSize>
     <Simulators>
-        <Simulator name="DP Controller" source="DPController.fmu"/>
-        <Simulator name="Observer" source="NLPobserver.fmu"/>
-        <Simulator name="Reference Generator" source="ReferenceGenerator.fmu"/>
-        <Simulator name="Thrust Allocation" source="ThMPC.fmu"/>
-        <Simulator name="Ship" source="OSOM.fmu"/>
+        <Simulator name="DP Controller" source="fmu-proxy://localhost:9090?file=../DPController.fmu"/>
+        <Simulator name="Observer" source="fmu-proxy://localhost:9090?file=../NLPobserver.fmu"/>
+        <Simulator name="Reference Generator" source="fmu-proxy://localhost:9090?file=../ReferenceGenerator.fmu"/>
+        <Simulator name="Thrust Allocation" source="fmu-proxy://localhost:9090?file=../ThMPC.fmu"/>
+        <Simulator name="Ship" source="fmu-proxy://localhost:9090?file=../OSOM.fmu"/>
     </Simulators>
     <Connections>
         <VariableGroupConnection>
@@ -46,5 +46,7 @@
             <VariableGroup simulator="DP Controller" name="ThrustCommand"/>
             <VariableGroup simulator="Thrust Allocation" name="thrust"/>
         </VariableGroupConnection>
+        <Variable simulator="Thrust Allocation" name="F2c"/>
+        <Variable simulator="Ship" name="Thrust_d[2]"/>
     </Connections>
 </OspSystemStructure>

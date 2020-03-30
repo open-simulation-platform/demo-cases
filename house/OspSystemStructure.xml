@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure">
+<OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure"
+                    version="0.1">
     <BaseStepSize>0.01</BaseStepSize>
-
     <Simulators>
         <Simulator name="Clock" source="Clock.fmu"/>
         <Simulator name="InnerWall" source="InnerWall.fmu"/>
@@ -23,61 +23,58 @@
         <Simulator name="Room2" source="Room2.fmu"/>
         <Simulator name="TempController" source="TempController.fmu"/>
     </Simulators>
-
-    <PlugSocketConnections/>
-    <BondConnections/>
-    <VariableConnections>
-        <ScalarConnection>
-            <Source simulator="OuterWall1" endpoint="h_wall"/>
-            <Target simulator="Room1" endpoint="h_OuterWall"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="InnerWall" endpoint="h_wall"/>
-            <Target simulator="Room1" endpoint="h_InnerWall"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="TempController" endpoint="h_room1"/>
-            <Target simulator="Room1" endpoint="h_powerHeater"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="Room1" endpoint="T_room"/>
-            <Target simulator="OuterWall1" endpoint="T_room1"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="InnerWall" endpoint="h_wall"/>
-            <Target simulator="Room2" endpoint="h_InnerWall"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="OuterWall2" endpoint="h_wall"/>
-            <Target simulator="Room2" endpoint="h_OuterWall"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="TempController" endpoint="h_room2"/>
-            <Target simulator="Room2" endpoint="h_powerHeater"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="Room2" endpoint="T_room"/>
-            <Target simulator="TempController" endpoint="T_room2"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="Room1" endpoint="T_room"/>
-            <Target simulator="TempController" endpoint="T_room1"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="Clock" endpoint="Clock"/>
-            <Target simulator="TempController" endpoint="T_clock"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="Room1" endpoint="T_room"/>
-            <Target simulator="InnerWall" endpoint="T_room1"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="Room2" endpoint="T_room"/>
-            <Target simulator="InnerWall" endpoint="T_room2"/>
-        </ScalarConnection>
-        <ScalarConnection>
-            <Source simulator="Room2" endpoint="T_room"/>
-            <Target simulator="OuterWall2" endpoint="T_room2"/>
-        </ScalarConnection>
-    </VariableConnections>
+    <Connections>
+        <VariableConnection>
+            <Variable simulator="OuterWall1" name="h_wall"/>
+            <Variable simulator="Room1" name="h_OuterWall"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="InnerWall" name="h_wall"/>
+            <Variable simulator="Room1" name="h_InnerWall"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="TempController" name="h_room1"/>
+            <Variable simulator="Room1" name="h_powerHeater"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="Room1" name="T_room"/>
+            <Variable simulator="OuterWall1" name="T_room1"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="InnerWall" name="h_wall"/>
+            <Variable simulator="Room2" name="h_InnerWall"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="OuterWall2" name="h_wall"/>
+            <Variable simulator="Room2" name="h_OuterWall"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="TempController" name="h_room2"/>
+            <Variable simulator="Room2" name="h_powerHeater"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="Room2" name="T_room"/>
+            <Variable simulator="TempController" name="T_room2"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="Room1" name="T_room"/>
+            <Variable simulator="TempController" name="T_room1"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="Clock" name="Clock"/>
+            <Variable simulator="TempController" name="T_clock"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="Room1" name="T_room"/>
+            <Variable simulator="InnerWall" name="T_room1"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="Room2" name="T_room"/>
+            <Variable simulator="InnerWall" name="T_room2"/>
+        </VariableConnection>
+        <VariableConnection>
+            <Variable simulator="Room2" name="T_room"/>
+            <Variable simulator="OuterWall2" name="T_room2"/>
+        </VariableConnection>
+    </Connections>
 </OspSystemStructure>

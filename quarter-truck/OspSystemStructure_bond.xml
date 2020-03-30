@@ -32,21 +32,13 @@
         <Simulator name="ground" source="ground.fmu"/>
     </Simulators>
     <Connections>
-        <VariableConnection>
-            <Variable simulator="chassis" name="p.e"/>
-            <Variable simulator="wheel" name="p1.e"/>
-        </VariableConnection>
-        <VariableConnection>
-            <Variable simulator="wheel" name="p1.f"/>
-            <Variable simulator="chassis" name="p.f"/>
-        </VariableConnection>
-        <VariableConnection>
-            <Variable simulator="wheel" name="p.e"/>
-            <Variable simulator="ground" name="p.e"/>
-        </VariableConnection>
-        <VariableConnection>
-            <Variable simulator="ground" name="p.f"/>
-            <Variable simulator="wheel" name="p.f"/>
-        </VariableConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="chassis" name="linear mechanical port"/>
+            <VariableGroup simulator="wheel" name="chassis port"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="wheel" name="ground port"/>
+            <VariableGroup simulator="ground" name="linear mechanical port"/>
+        </VariableGroupConnection>
     </Connections>
 </OspSystemStructure>

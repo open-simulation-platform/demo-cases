@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription"
+                     version="0.1">
+    <UnitDefinitions>
+        <Unit name="m">
+            <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad">
+            <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="m/s">
+            <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad/s">
+            <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N">
+            <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N.m">
+            <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+    </UnitDefinitions>
+    <VariableGroups>
+        <!-- INPUTS -->
+        <Generic name="vesselPosition">
+            <Variable ref="x" unit="m"/>
+            <Variable ref="y" unit="m"/>
+            <Variable ref="psi" unit="rad"/>
+        </Generic>
+        <Generic name="vesselVelocity">
+            <Variable ref="dx" unit="m/s"/>
+            <Variable ref="dy" unit="m/s"/>
+            <Variable ref="dpsi" unit="rad/s"/>
+        </Generic>
+        <Generic name="vesselPositionReference">
+            <Variable ref="x_ref" unit="m"/>
+            <Variable ref="y_ref" unit="m"/>
+            <Variable ref="psi_ref" unit="rad"/>
+        </Generic>
+        <Generic name="vesselVelocityReference">
+            <Variable ref="dx_ref" unit="m/s"/>
+            <Variable ref="dy_ref" unit="m/s"/>
+            <Variable ref="dpsi_ref" unit="rad/s"/>
+        </Generic>
+        <!-- OUTPUTS -->
+        <Generic name="ThrustCommand">
+            <Variable ref="Controlx" unit="N"/>
+            <Variable ref="Controly" unit="N"/>
+            <Variable ref="ControlMz" unit="N.m"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

@@ -1,0 +1,21 @@
+{
+  "description": "Set position and heading setpoints a bit faster",
+  "defaults": {
+    "model": "Reference Generator",
+    "action": "override"
+  },
+  "events": [
+    {
+      "time": 300,
+      "variable": "x_wp",
+      "value": 10.0
+    },
+    {
+      "time": 300,
+      "variable": "x_tp",
+      "value": 500.0
+    }
+  ],
+  "end": 700
+}
+
