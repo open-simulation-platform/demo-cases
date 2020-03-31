@@ -24,24 +24,36 @@
     <VariableGroups>
         <!-- INPUTS -->
         <Generic name="thrust">
-            <Variable ref="refx" unit="N"/>
-            <Variable ref="refy" unit="N"/>
-            <Variable ref="refMz" unit="N.m"/>
+            <Force name="linearThrust">
+                <Variable ref="refx" unit="N"/>
+                <Variable ref="refy" unit="N"/>
+            </Force>
+            <Torque name="angularThrust">
+                <Variable ref="refMz" unit="N.m"/>
+            </Torque>
         </Generic>
-        <!-- OUTPS -->
-        <Generic name="azimuthAngleCommand">
-            <Variable ref="alpha1" unit="rad"/>
-            <Variable ref="alpha2" unit="rad"/>
-        </Generic>
+        <!-- OUTPUTS -->
         <Generic name="thrustGlobalCommand">
-            <Variable ref="Fxg" unit="N"/>
-            <Variable ref="Fyg" unit="N"/>
-            <Variable ref="Mzg" unit="N.m"/>
+            <Force name="linearThrustGlobalCommand">
+                <Variable ref="Fxg" unit="N"/>
+                <Variable ref="Fyg" unit="N"/>
+            </Force>
+            <Torque name="angularThrustGlobalCommand">
+                <Variable ref="Mzg" unit="N.m"/>
+            </Torque>
         </Generic>
         <Generic name="thrustLocalCommand">
-            <Variable ref="F1c" unit="N"/>
-            <Variable ref="F2c" unit="N"/>
-            <Variable ref="F3c" unit="N.m"/>
+            <Force name="linearThrustLocalCommand">
+                <Variable ref="F1c" unit="N"/>
+                <Variable ref="F2c" unit="N"/>
+            </Force>
+            <Torque name="angularThrustLocalCommand">
+                <Variable ref="F3c" unit="N.m"/>
+            </Torque>
         </Generic>
+        <AngularDisplacement name="azimuthAngleCommand">
+            <Variable ref="alpha1" unit="rad"/>
+            <Variable ref="alpha2" unit="rad"/>
+        </AngularDisplacement>
     </VariableGroups>
 </OspModelDescription>

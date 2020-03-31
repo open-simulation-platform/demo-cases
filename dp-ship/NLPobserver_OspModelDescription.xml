@@ -24,25 +24,41 @@
     <VariableGroups>
         <!-- INPUTS -->
         <Generic name="vesselPosition">
-            <Variable ref="y[1]" unit="m"/>
-            <Variable ref="y[2]" unit="m"/>
-            <Variable ref="y[3]" unit="rad"/>
+            <LinearDisplacement name="linearVesselPosition">
+                <Variable ref="y[1]" unit="m"/>
+                <Variable ref="y[2]" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularVesselPosition">
+                <Variable ref="y[3]" unit="rad"/>
+            </AngularDisplacement>
         </Generic>
         <Generic name="thrustForce">
-            <Variable ref="tau[1]" unit="N"/>
-            <Variable ref="tau[2]" unit="N"/>
-            <Variable ref="tau[3]" unit="N.m"/>
+            <Force name="linearThrustForce">
+                <Variable ref="tau[1]" unit="N"/>
+                <Variable ref="tau[2]" unit="N"/>
+            </Force>
+            <Torque name="angularThrustForce">
+                <Variable ref="tau[3]" unit="N.m"/>
+            </Torque>
         </Generic>
         <!-- OUTPUTS -->
         <Generic name="filteredPosition">
-            <Variable ref="y_hat[1]" unit="m"/>
-            <Variable ref="y_hat[2]" unit="m"/>
-            <Variable ref="y_hat[3]" unit="rad"/>
+            <LinearDisplacement name="linearFilteredPosition">
+                <Variable ref="y_hat[1]" unit="m"/>
+                <Variable ref="y_hat[2]" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularFilteredPosition">
+                <Variable ref="y_hat[3]" unit="rad"/>
+            </AngularDisplacement>
         </Generic>
         <Generic name="filteredVelocity">
-            <Variable ref="v_hat[1]" unit="m/s"/>
-            <Variable ref="v_hat[2]" unit="m/s"/>
-            <Variable ref="v_hat[3]" unit="rad/s"/>
+            <LinearVelocity name="linearFilteredVelocity">
+                <Variable ref="v_hat[1]" unit="m/s"/>
+                <Variable ref="v_hat[2]" unit="m/s"/>
+            </LinearVelocity>
+            <AngularVelocity name="angularFilteredVelocity">
+                <Variable ref="v_hat[3]" unit="rad/s"/>
+            </AngularVelocity>
         </Generic>
     </VariableGroups>
 </OspModelDescription>

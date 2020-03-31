@@ -24,30 +24,50 @@
     <VariableGroups>
         <!-- INPUTS -->
         <Generic name="vesselPosition">
-            <Variable ref="x" unit="m"/>
-            <Variable ref="y" unit="m"/>
-            <Variable ref="psi" unit="rad"/>
+            <LinearDisplacement name="linearVesselPosition">
+                <Variable ref="x" unit="m"/>
+                <Variable ref="y" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularVesselPosition">
+                <Variable ref="psi" unit="rad"/>
+            </AngularDisplacement>
         </Generic>
         <Generic name="vesselVelocity">
-            <Variable ref="dx" unit="m/s"/>
-            <Variable ref="dy" unit="m/s"/>
-            <Variable ref="dpsi" unit="rad/s"/>
+            <LinearVelocity name="linearVesselVelocity">
+                <Variable ref="dx" unit="m/s"/>
+                <Variable ref="dy" unit="m/s"/>
+            </LinearVelocity>
+            <AngularVelocity name="angularVesselVelocity">
+                <Variable ref="dpsi" unit="rad/s"/>
+            </AngularVelocity>
         </Generic>
         <Generic name="vesselPositionReference">
-            <Variable ref="x_ref" unit="m"/>
-            <Variable ref="y_ref" unit="m"/>
-            <Variable ref="psi_ref" unit="rad"/>
+            <LinearDisplacement name="linearVesselPositionReference">
+                <Variable ref="x_ref" unit="m"/>
+                <Variable ref="y_ref" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularVesselPositionReference">
+                <Variable ref="psi_ref" unit="rad"/>
+            </AngularDisplacement>
         </Generic>
         <Generic name="vesselVelocityReference">
-            <Variable ref="dx_ref" unit="m/s"/>
-            <Variable ref="dy_ref" unit="m/s"/>
-            <Variable ref="dpsi_ref" unit="rad/s"/>
+            <LinearVelocity name="linearVesselVelocityReference">
+                <Variable ref="dx_ref" unit="m/s"/>
+                <Variable ref="dy_ref" unit="m/s"/>
+            </LinearVelocity>
+            <AngularVelocity name="angularVesselVelocityReference">
+                <Variable ref="dpsi_ref" unit="rad/s"/>
+            </AngularVelocity>
         </Generic>
         <!-- OUTPUTS -->
         <Generic name="ThrustCommand">
-            <Variable ref="Controlx" unit="N"/>
-            <Variable ref="Controly" unit="N"/>
-            <Variable ref="ControlMz" unit="N.m"/>
+            <Force name="linearThrustCommand">
+                <Variable ref="Controlx" unit="N"/>
+                <Variable ref="Controly" unit="N"/>
+            </Force>
+            <Torque name="angularThrustCommand">
+                <Variable ref="ControlMz" unit="N.m"/>
+            </Torque>
         </Generic>
     </VariableGroups>
 </OspModelDescription>

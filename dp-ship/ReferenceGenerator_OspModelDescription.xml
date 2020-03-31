@@ -18,14 +18,22 @@
     <VariableGroups>
         <!-- OUTPUTS -->
         <Generic name="positionReference">
-            <Variable ref="x_ref" unit="m"/>
-            <Variable ref="y_ref" unit="m"/>
-            <Variable ref="psi_ref" unit="rad"/>
+            <LinearDisplacement name="linearPositionReference">
+                <Variable ref="x_ref" unit="m"/>
+                <Variable ref="y_ref" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularPositionReference">
+                <Variable ref="psi_ref" unit="rad"/>
+            </AngularDisplacement>
         </Generic>
         <Generic name="velocityReference">
-            <Variable ref="dx_ref" unit="m/s"/>
-            <Variable ref="dy_ref" unit="m/s"/>
-            <Variable ref="dpsi_ref" unit="rad/s"/>
+            <LinearVelocity name="linearVelocityReference">
+                <Variable ref="dx_ref" unit="m/s"/>
+                <Variable ref="dy_ref" unit="m/s"/>
+            </LinearVelocity>
+            <AngularVelocity name="angularVelocityReference">
+                <Variable ref="dpsi_ref" unit="rad/s"/>
+            </AngularVelocity>
         </Generic>
     </VariableGroups>
 </OspModelDescription>

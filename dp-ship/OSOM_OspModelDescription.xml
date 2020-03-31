@@ -16,21 +16,29 @@
         </Unit>
     </UnitDefinitions>
     <VariableGroups>
-        <!-- INPUTS -->
-        <Force name="thrust">
-            <Variable ref="Thrust_d[1]" unit="N"/>
-            <Variable ref="Thrust_d[2]" unit="N"/>
-            <Variable ref="Thrust_d[3]" unit="N.m"/>
-        </Force>
-        <Generic name="azimuthAngle">
-            <Variable ref="input[1]" unit="rad"/>
-            <Variable ref="input[2]" unit="rad"/>
-        </Generic>
         <!-- OUTPUTS -->
         <Generic name="position">
-            <Variable ref="q[1]" unit="m"/>
-            <Variable ref="q[2]" unit="m"/>
-            <Variable ref="q[3]" unit="rad"/>
+            <LinearDisplacement name="linearPosition">
+                <Variable ref="q[1]" unit="m"/>
+                <Variable ref="q[2]" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularPosition">
+                <Variable ref="q[3]" unit="rad"/>
+            </AngularDisplacement>
         </Generic>
+        <!-- INPUTS -->
+        <Generic name="thrust">
+            <Force name="thrustForce">
+                <Variable ref="Thrust_d[1]" unit="N"/>
+                <Variable ref="Thrust_d[2]" unit="N"/>
+            </Force>
+            <Torque name="thrustTorque">
+                <Variable ref="Thrust_d[3]" unit="N.m"/>
+            </Torque>
+        </Generic>
+        <AngularDisplacement name="azimuthAngle">
+            <Variable ref="input[1]" unit="rad"/>
+            <Variable ref="input[2]" unit="rad"/>
+        </AngularDisplacement>
     </VariableGroups>
 </OspModelDescription>
