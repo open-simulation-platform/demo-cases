@@ -1,0 +1,22 @@
+{
+  "plots": [
+    {
+      "label": "Displacements",
+      "plotType": "trend",
+      "variables": [
+        {
+          "simulator": "chassis",
+          "variable": "zChassis"
+        },
+        {
+          "simulator": "ground",
+          "variable": "zGround"
+        },
+        {
+          "simulator": "wheel",
+          "variable": "zWheel"
+        }
+      ]
+    }
+  ]
+}
