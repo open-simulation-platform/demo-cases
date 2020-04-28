@@ -46,7 +46,5 @@
             <VariableGroup simulator="DP Controller" name="ThrustCommand"/>
             <VariableGroup simulator="Thrust Allocation" name="thrust"/>
         </VariableGroupConnection>
-        <Variable simulator="Thrust Allocation" name="F2c"/>
-        <Variable simulator="Ship" name="Thrust_d[2]"/>
     </Connections>
 </OspSystemStructure>
