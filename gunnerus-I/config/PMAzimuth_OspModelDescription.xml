@@ -1,26 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
-    
-    <UnitDefinitions>
-        <Unit name="m">
-            <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
-        </Unit>
-        <Unit name="rad">
-            <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
-        </Unit>
-        <Unit name="m/s">
-            <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
-        </Unit>
-        <Unit name="rad/s">
-            <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
-        </Unit>
-        <Unit name="N">
-            <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
-        </Unit>
-        <Unit name="N.m">
-            <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
-        </Unit>
-    </UnitDefinitions>
 
     <VariableGroups>
         <Generic name="rpm">
@@ -42,27 +21,19 @@
         </Generic>
 
         <Generic name="velocity_3dof">
-            <LinearVelocity name="vessel_linear_velocity">
-                <Variable ref="input_cg_surge_vel" unit="m/s"/>
-                <Variable ref="input_cg_sway_vel" unit="m/s"/>
-            </LinearVelocity>
-            <AngularVelocity name="vessel_angular_velocity">
-                <Variable ref="input_yaw_vel" unit="rad/s"/>
-            </AngularVelocity>
+            <Variable ref="input_cg_surge_vel" />
+            <Variable ref="input_cg_sway_vel" />
+            <Variable ref="input_yaw_vel" />
         </Generic>
 
         <Generic name="torque">
-            <Torque name="torque">
-                <Variable ref="output_torque" unit="N.m"/>
-            </Torque>
+            <Variable ref="output_torque"/>
         </Generic>
 
         <Generic name="force">
-            <Force name="force_components">
-                <Variable ref="output_force_surge" unit="N"/>
-                <Variable ref="output_force_sway" unit="N"/>
-                <Variable ref="output_force_heave" unit="N"/>
-            </Force>
+            <Variable ref="output_force_surge"/>
+            <Variable ref="output_force_sway" />
+            <Variable ref="output_force_heave"/>
             <Variable ref="output_x_rel_ap"/>
             <Variable ref="output_y_rel_cl"/>
             <Variable ref="output_z_rel_bl"/>
