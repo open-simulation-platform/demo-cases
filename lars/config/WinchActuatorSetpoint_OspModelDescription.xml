@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="winch_setpoint">
+            <Variable ref="winchSetpoint"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>

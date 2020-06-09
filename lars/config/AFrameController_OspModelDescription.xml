@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="a_frame_setpoint">
+            <Variable ref="aFrameSetpoint"/>
+        </Generic>
+
+        <Generic name="cylinder_gain">
+            <Variable ref="cylinderGain"/>
+        </Generic>
+
+        <Generic name="cylinder_speed">
+            <Variable ref="cylinderSpeed"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>

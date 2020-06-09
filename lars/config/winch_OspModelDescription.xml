@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="load_depth">
+            <Variable ref="loadDepth"/>
+        </Generic>
+
+        <Generic name="torque_motor_1">
+            <Variable ref="motorTorque1"/>
+        </Generic>
+        
+        <Generic name="torque_motor_2">
+            <Variable ref="motorTorque2"/>
+        </Generic>
+
+        <Generic name="torque_motor_3">
+            <Variable ref="motorTorque3"/>
+        </Generic>
+
+        <Generic name="vessel_heave">
+            <Variable ref="vesselHeave.x"/>
+        </Generic>
+
+        <Generic name="motor_speed">
+            <Variable ref="motorSpeed"/>
+        </Generic>
+
+        <Generic name="drum_F1">
+            <Variable ref="winchForce"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>
