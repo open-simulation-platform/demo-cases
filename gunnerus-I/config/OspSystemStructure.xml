@@ -25,7 +25,7 @@
                     <Real value="0"/>
                 </InitialValue>
 				<InitialValue variable="vesselZipFile">
-                    <String value="C:\Users\thomas.evang\Repositories\demo-cases\gunnerus-I\fmus\resources\ShipModel.zip"/>
+                    <String value=""/>
                 </InitialValue>
 
             </InitialValues>
