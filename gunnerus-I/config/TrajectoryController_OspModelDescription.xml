@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="position_3dof">
+            <Variable ref="northPosition"/>
+            <Variable ref="eastPosition"/>
+            <Variable ref="headingAngle"/>
+        </Generic>
+
+        <Generic name="velocity_2dof">
+            <Variable ref="surgeVelocity"/>
+            <Variable ref="swayVelocity"/>
+        </Generic>
+
+        <Generic name="target_wp">
+            <Variable ref="targetWP.north"/>
+            <Variable ref="targetWP.east"/>
+            <Variable ref="targetWP.speed"/>
+        </Generic>
+
+        <Generic name="previous_wp">
+            <Variable ref="prevWP.north"/>
+            <Variable ref="prevWP.east"/>
+            <Variable ref="prevWP.speed"/>
+        </Generic>
+
+        <Generic name="force_command">
+            <Variable ref="forceCommand"/>
+        </Generic>
+        
+        <Generic name="rudder_command">
+            <Variable ref="rudderCommand"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

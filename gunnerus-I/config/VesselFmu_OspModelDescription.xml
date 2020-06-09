@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="position_3dof">
+            <Variable ref="cgShipMotion.ned.north"/>
+            <Variable ref="cgShipMotion.ned.east"/>
+            <Variable ref="cgShipMotion.angularDisplacement.yaw"/>
+        </Generic>
+
+        <Generic name="velocity_2dof">
+            <Variable ref="cgShipMotion.linearVelocity.surge"/>
+            <Variable ref="cgShipMotion.linearVelocity.sway"/>
+        </Generic>
+
+        <Generic name="velocity_3dof">
+            <Variable ref="cgShipMotion.linearVelocity.surge"/>
+            <Variable ref="cgShipMotion.linearVelocity.sway"/>
+            <Variable ref="cgShipMotion.angularVelocity.yaw"/>
+        </Generic>
+
+        <Generic name="center_of_gravity">
+            <Variable ref="cg_x_rel_ap"/>
+            <Variable ref="cg_y_rel_cl"/>
+            <Variable ref="cg_z_rel_bl"/>
+        </Generic>
+
+        <Generic name="azimuth_force_0">
+            <Variable ref="additionalBodyForce[0].force.surge"/>
+            <Variable ref="additionalBodyForce[0].force.sway"/>
+            <Variable ref="additionalBodyForce[0].force.heave"/>
+            <Variable ref="additionalBodyForce[0].pointOfAttackRel2APAndBL.xpos"/>
+            <Variable ref="additionalBodyForce[0].pointOfAttackRel2APAndBL.ypos"/>
+            <Variable ref="additionalBodyForce[0].pointOfAttackRel2APAndBL.zpos"/>
+        </Generic>
+
+        <Generic name="azimuth_force_1">
+            <Variable ref="additionalBodyForce[1].force.surge"/>
+            <Variable ref="additionalBodyForce[1].force.sway"/>
+            <Variable ref="additionalBodyForce[1].force.heave"/>
+            <Variable ref="additionalBodyForce[1].pointOfAttackRel2APAndBL.xpos"/>
+            <Variable ref="additionalBodyForce[1].pointOfAttackRel2APAndBL.ypos"/>
+            <Variable ref="additionalBodyForce[1].pointOfAttackRel2APAndBL.zpos"/>
+        </Generic>
+
+        <Generic name="lpp">
+            <Variable ref="length_between_perpendiculars"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>
