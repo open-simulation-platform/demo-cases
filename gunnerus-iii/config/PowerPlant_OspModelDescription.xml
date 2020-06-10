@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription" version="0.1">
+	<UnitDefinitions>
+		<Unit name="V">
+			<BaseUnit kg="1" m="2" s="-3" A="-1" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+	</UnitDefinitions>
+	<VariableGroups>
+		<Current name="azimuth0Current">
+			<Variable ref="p.f[1]" unit="A"/>			
+			<Variable ref="p.f[2]" unit="A"/>			
+		</Current>
+		<Current name="azimuth1Current">
+			<Variable ref="p1.f[1]" unit="A"/>			
+			<Variable ref="p1.f[2]" unit="A"/>			
+		</Current>
+		<Current name="tunnelThCurrent">
+			<Variable ref="p2.f[1]" unit="A"/>			
+			<Variable ref="p2.f[2]" unit="A"/>			
+		</Current>
+		<Voltage name="azimuth0Voltage">
+			<Variable ref="p.e[1]" unit="V"/>			
+			<Variable ref="p.e[2]" unit="V"/>			
+		</Voltage>
+		<Voltage name="azimuth1Voltage">
+			<Variable ref="p1.e[1]" unit="V"/>			
+			<Variable ref="p1.e[2]" unit="V"/>			
+		</Voltage>
+		<Voltage name="tunnelThVoltage">
+			<Variable ref="p2.e[1]" unit="V"/>			
+			<Variable ref="p2.e[2]" unit="V"/>			
+		</Voltage>
+	</VariableGroups>
+</OspModelDescription>

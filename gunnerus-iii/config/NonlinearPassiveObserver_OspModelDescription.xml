@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription" version="0.1">
+	<UnitDefinitions>
+		<Unit name="N">
+			<BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="Nm">
+			<BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+	</UnitDefinitions>
+	<VariableGroups>
+		<LinearDisplacement name="shipPosSensor">
+			<Variable ref="sensor.northPosition" unit="m"/>			
+			<Variable ref="sensor.eastPosition" unit="m"/>			
+		</LinearDisplacement>
+		<AngularDisplacement name="shipPosSensorYaw">
+			<Variable ref="sensor.headingAngle" unit="rad"/>			
+		</AngularDisplacement>
+		<Force name="shipForce">
+			<Variable ref="force.surge" unit="N"/>			
+			<Variable ref="force.sway" unit="N"/>			
+		</Force>
+		<Torque name="shipTorque">
+			<Variable ref="torque.yaw" unit="Nm"/>			
+		</Torque>
+		<Generic name="shipPosEstimateNEY">
+			<Variable ref="est.north" unit="m"/>			
+			<Variable ref="est.east" unit="m"/>			
+			<Variable ref="est.yaw" unit="rad"/>			
+		</Generic>
+	</VariableGroups>
+</OspModelDescription>

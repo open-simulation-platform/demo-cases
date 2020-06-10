@@ -1,0 +1,54 @@
+{
+  "plots": [
+    {
+      "label": "Crane Tip Position",
+      "plotType": "trend",
+      "variables": [
+        {
+          "simulator": "crane",
+          "variable": "tipPosition[1]"
+        },
+		{
+          "simulator": "crane",
+          "variable": "tipPosition[2]"
+        },
+		{
+          "simulator": "crane",
+          "variable": "tipPosition[3]"
+        }
+      ]
+    },
+	   {
+      "label": "Crane Tip Position - Vessel Frame",
+      "plotType": "trend",
+      "variables": [
+        {
+          "simulator": "crane",
+          "variable": "tipPositionShipFrame[1]"
+        },
+		{
+          "simulator": "crane",
+          "variable": "tipPositionShipFrame[2]"
+        },
+		{
+          "simulator": "crane",
+          "variable": "tipPositionShipFrame[3]"
+        }
+      ]
+    },
+    {
+      "label": "Vessel position",
+      "plotType": "scatter",
+      "variables": [
+        {
+          "simulator": "vesselModel",
+          "variable": "cgShipMotion.ned.north"
+        },
+        {
+          "simulator": "vesselModel",
+          "variable": "cgShipMotion.ned.east"
+        }
+      ]
+    }
+  ]
+}

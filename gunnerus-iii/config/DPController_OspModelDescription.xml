@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription" version="0.1">
+	<UnitDefinitions>
+		<Unit name="N">
+			<BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="Nm">
+			<BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="m/s">
+			<BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="m/s2">
+			<BaseUnit kg="0" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="rad/s">
+			<BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="rad/s2">
+			<BaseUnit kg="0" m="0" s="-2" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="1.0"/>			
+		</Unit>
+	</UnitDefinitions>
+	<VariableGroups>
+		<Generic name="shipPosSensorNEY">
+			<Variable ref="sensor.northPosition" unit="m"/>			
+			<Variable ref="sensor.eastPosition" unit="m"/>			
+			<Variable ref="sensor.headingAngle" unit="rad"/>			
+		</Generic>
+		<LinearVelocity name="shipVelocitySensor">
+			<Variable ref="sensor.surgeVelocity" unit="m/s"/>			
+			<Variable ref="sensor.swayVelocity" unit="m/s"/>			
+		</LinearVelocity>
+		<AngularVelocity name="shipVelocitySensorYaw">
+			<Variable ref="sensor.yawVelocity" unit="rad/s"/>			
+		</AngularVelocity>
+		<Generic name="shipAccelSensorSSY">
+			<Variable ref="sensor.surgeAcceleration" unit="m/s2"/>			
+			<Variable ref="sensor.swayAcceleration" unit="m/s2"/>			
+			<Variable ref="sensor.yawAcceleration" unit="rad/s2"/>			
+		</Generic>
+		<Generic name="dpCommand">
+			<Variable ref="cmd.force.x" unit="N"/>			
+			<Variable ref="cmd.force.y" unit="N"/>			
+			<Variable ref="cmd.force.psi" unit="Nm"/>			
+		</Generic>
+		<Generic name="refPositionNEY">
+			<Variable ref="ref.north" unit="m"/>			
+			<Variable ref="ref.east" unit="m"/>			
+			<Variable ref="ref.psi" unit="rad"/>			
+		</Generic>
+	</VariableGroups>
+</OspModelDescription>

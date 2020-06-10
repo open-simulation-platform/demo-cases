@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription" version="0.1">
+	<UnitDefinitions>
+		<Unit name="m/s">
+			<BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="rad/s">
+			<BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="Nm">
+			<BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="1.0"/>			
+		</Unit>
+	</UnitDefinitions>
+	<VariableGroups>
+		<LinearDisplacement name="shipCgPos">
+			<Variable ref="input_cg_x_rel_ap" unit="m"/>			
+			<Variable ref="input_cg_y_rel_cl" unit="m"/>			
+			<Variable ref="input_cg_z_rel_bl" unit="m"/>			
+		</LinearDisplacement>
+		<LinearVelocity name="shipCgVel">
+			<Variable ref="input_cg_surge_vel" unit="m/s"/>			
+			<Variable ref="input_cg_sway_vel" unit="m/s"/>			
+		</LinearVelocity>
+		<AngularVelocity name="shipYawVel">
+			<Variable ref="input_yaw_vel" unit="rad/s"/>			
+		</AngularVelocity>
+		<AngularVelocity name="shaftSpeed">
+			<Variable ref="input_act_revs" unit="rad/s"/>			
+		</AngularVelocity>
+		<Torque name="shaftTorque">
+			<Variable ref="output_torque" unit="Nm"/>			
+		</Torque>
+		<Force name="thrusterForce">
+			<Variable ref="output_force_surge" unit="N"/>			
+			<Variable ref="output_force_sway" unit="N"/>			
+			<Variable ref="output_force_heave" unit="N"/>			
+		</Force>
+		<LinearDisplacement name="thrusterPos">
+			<Variable ref="output_x_rel_ap" unit="m"/>			
+			<Variable ref="output_y_rel_cl" unit="m"/>			
+			<Variable ref="output_z_rel_bl" unit="m"/>			
+		</LinearDisplacement>
+	</VariableGroups>
+</OspModelDescription>

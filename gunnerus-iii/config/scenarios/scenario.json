@@ -1,0 +1,81 @@
+{
+	"defaults": {
+	"action": "override"
+	},
+	"events": [
+		{
+		  "time": 49,
+		  "model": "vesselModel",
+		  "variable": "reset_position",
+		  "value": true
+		},
+		{
+		  "time": 50,
+		  "model": "vesselModel",
+		  "variable": "reset_position",
+		  "value": false
+		},
+		{
+		  "time": 50,
+		  "model": "dpController",
+		  "variable": "enable",
+		  "value": true
+		},
+		{
+		  "time": 50,
+		  "model": "allocator",
+		  "variable": "enable",
+		  "value": true
+		},
+		{
+		  "time": 200,
+		  "model": "crane",
+		  "variable": "craneSetPoint1[2]",
+		  "value": 1
+		},
+		{
+		  "time": 270,
+		  "model": "crane",
+		  "variable": "craneSetPoint1[2]",
+		  "value": 0
+		},
+		{
+		  "time": 275,
+		  "model": "crane",
+		  "variable": "craneSetPoint1[3]",
+		  "value": 1
+		},
+		{
+		  "time": 345,
+		  "model": "crane",
+		  "variable": "craneSetPoint1[3]",
+		  "value": 0
+		},
+		{
+		  "time": 350,
+		  "model": "crane",
+		  "variable": "craneSetPoint1[4]",
+		  "value": 1
+		},
+		{
+		  "time": 550,
+		  "model": "crane",
+		  "variable": "craneSetPoint1[4]",
+		  "value": 0
+		},
+
+		{
+		  "time": 555,
+		  "model": "crane",
+		  "variable": "winchSetPoint",
+		  "value": 1
+		},
+		{
+		  "time": 700,
+		  "model": "crane",
+		  "variable": "winchSetPoint",
+		  "value": 0
+		}
+	],
+	"end": 1000
+}

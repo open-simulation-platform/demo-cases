@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription" version="0.1">
+	<UnitDefinitions>
+		<Unit name="N">
+			<BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="Nm">
+			<BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+	</UnitDefinitions>
+	<VariableGroups>
+		<Generic name="desiredForce">
+			<Variable ref="desiredGenForce.north" unit="N"/>			
+			<Variable ref="desiredGenForce.east" unit="N"/>			
+			<Variable ref="desiredGenForce.yaw" unit="Nm"/>			
+		</Generic>
+		<LinearDisplacement name="shipCgPos">
+			<Variable ref="vessel.cg_x_rel_ap" unit="m"/>			
+			<Variable ref="vessel.cg_y_rel_cl" unit="m"/>			
+		</LinearDisplacement>
+		<AngularDisplacement name="azi0Angle">
+			<Variable ref="azimuth0.angle" unit="rad"/>			
+		</AngularDisplacement>
+		<AngularDisplacement name="azi1Angle">
+			<Variable ref="azimuth1.angle" unit="rad"/>			
+		</AngularDisplacement>
+		<Force name="azi0Force">
+			<Variable ref="azimuth0.force" unit="N"/>			
+		</Force>
+		<Force name="azi1Force">
+			<Variable ref="azimuth1.force" unit="N"/>			
+		</Force>
+		<Force name="allocatedForce">
+			<Variable ref="alloc.force.north" unit="N"/>			
+			<Variable ref="alloc.force.east" unit="N"/>			
+		</Force>
+		<Force name="tunnelForce">
+			<Variable ref="tunnel.force" unit="N"/>			
+		</Force>
+		<Torque name="allocatedTorque">
+			<Variable ref="alloc.torque.yaw" unit="Nm"/>			
+		</Torque>
+	</VariableGroups>
+</OspModelDescription>
