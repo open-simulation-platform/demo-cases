@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+
+        <Generic name="tunnel_thruster_1_command">
+            <Variable ref="thrust_command.tunnel_thruster_1.rpm"/>
+        </Generic>
+        <Generic name="tunnel_thruster_2_command">
+            <Variable ref="thrust_command.tunnel_thruster_2.rpm"/>
+        </Generic>
+        <Generic name="tunnel_thruster_3_command">
+            <Variable ref="thrust_command.tunnel_thruster_3.rpm"/>
+        </Generic>
+        <Generic name="main_propeller_port_command">
+            <Variable ref="thrust_command.main_propeller_port.rpm"/>
+            <Variable ref="thrust_command.main_propeller_port.azimuth"/>
+        </Generic>
+        <Generic name="main_propeller_starboard_command">
+            <Variable ref="thrust_command.main_propeller_starboard.rpm"/>
+            <Variable ref="thrust_command.main_propeller_starboard.azimuth"/>
+        </Generic>
+
+        <Generic name="tunnel_thruster_1_state">
+            <Variable ref="thruster_states.tunnel_thruster_1.power_consumption"/>
+            <Variable ref="thruster_states.tunnel_thruster_1.thrust"/>
+        </Generic>
+        
+        <Generic name="tunnel_thruster_2_state">
+            <Variable ref="thruster_states.tunnel_thruster_2.power_consumption"/>
+            <Variable ref="thruster_states.tunnel_thruster_2.thrust"/>
+        </Generic>
+        
+        <Generic name="tunnel_thruster_3_state">
+            <Variable ref="thruster_states.tunnel_thruster_3.power_consumption"/>
+            <Variable ref="thruster_states.tunnel_thruster_3.thrust"/>
+        </Generic>
+
+        <Generic name="main_propeller_port_state">
+            <Variable ref="thruster_states.main_propeller_port.power_consumption"/>
+            <Variable ref="thruster_states.main_propeller_port.thrust"/>
+            <Variable ref="thruster_states.main_propeller_port.azimuth"/>
+        </Generic>
+
+        <Generic name="main_propeller_starboard_state">
+            <Variable ref="thruster_states.main_propeller_starboard.power_consumption"/>
+            <Variable ref="thruster_states.main_propeller_starboard.thrust"/>
+            <Variable ref="thruster_states.main_propeller_starboard.azimuth"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

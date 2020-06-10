@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="ned_position">
+            <Variable ref="vessel_position.north"/>
+            <Variable ref="vessel_position.east"/>
+            <Variable ref="vessel_position.down"/>
+            <Variable ref="vessel_position.roll"/>
+            <Variable ref="vessel_position.pitch"/>
+            <Variable ref="vessel_position.yaw"/>
+        </Generic>
+
+        <Generic name="vessel_setpoint">
+            <Variable ref="vessel_setpoint.north"/>
+            <Variable ref="vessel_setpoint.east"/>
+            <Variable ref="vessel_setpoint.yaw"/>
+        </Generic>
+
+        <Generic name="force_command">
+            <Variable ref="force_command.surge"/>
+            <Variable ref="force_command.sway"/>
+            <Variable ref="force_command.yaw"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="first_order_disturbances">
+            <Variable ref="first_order_disturbances.north"/>
+            <Variable ref="first_order_disturbances.east"/>
+            <Variable ref="first_order_disturbances.down"/>
+            <Variable ref="first_order_disturbances.roll"/>
+            <Variable ref="first_order_disturbances.pitch"/>
+            <Variable ref="first_order_disturbances.yaw"/>
+        </Generic>
+
+        <Generic name="drift_disturbances">
+            <Variable ref="drift_disturbances.north"/>
+            <Variable ref="drift_disturbances.east"/>
+            <Variable ref="drift_disturbances.down"/>
+            <Variable ref="drift_disturbances.roll"/>
+            <Variable ref="drift_disturbances.pitch"/>
+            <Variable ref="drift_disturbances.yaw"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

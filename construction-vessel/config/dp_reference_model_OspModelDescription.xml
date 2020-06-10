@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="vessel_setpoint">
+            <Variable ref="setpoint.north"/>
+            <Variable ref="setpoint.east"/>
+            <Variable ref="setpoint.yaw"/>
+        </Generic>
+
+        <Generic name="filtered_vessel_setpoint">
+            <Variable ref="filtered_setpoint.north"/>
+            <Variable ref="filtered_setpoint.east"/>
+            <Variable ref="filtered_setpoint.yaw"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>
