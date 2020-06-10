@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspSystemStructure
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://opensimulationplatform.com/MSMI/OSPSystemStructure ../../../src/cpp/xsd/OspSystemStructure.xsd"
+        xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure" version="0.1">
+    <StartTime>0.0</StartTime>
+    <BaseStepSize>0.05</BaseStepSize>
+    <Algorithm>fixedStep</Algorithm>
+    <Simulators>
+        <Simulator name="vessel_model" source="fmu-proxy://localhost:9090?guid=b71f76f7-b51e-40d5-affb-f63905622e2b" stepSize="0.05">
+            <InitialValues>
+                <InitialValue variable="wave_height">
+                    <Real value="0"/>
+                </InitialValue>
+                <InitialValue variable="peak_period">
+                    <Real value="0"/>
+                </InitialValue>
+                <InitialValue variable="wave_direction">
+                    <Real value="0"/>
+                </InitialValue>
+                <InitialValue variable="global_cur_dir">
+                    <Real value="0"/>
+                </InitialValue>
+                <InitialValue variable="global_cur_vel">
+                    <Real value="0"/>
+                </InitialValue>
+				<InitialValue variable="vesselZipFile">
+                    <String value=""/>
+                </InitialValue>
+
+            </InitialValues>
+        </Simulator>	
+        <Simulator name="azimuth_0" source="fmu-proxy://localhost:9091?guid=74b8f036-accc-45b5-b0ba-44f19fff776a" stepSize="0.05">
+            <InitialValues>
+                <InitialValue variable="input_enabled">
+                    <Boolean value="true"/>
+                </InitialValue>
+                <InitialValue variable="input_is_main_propulsion">
+                    <Boolean value="true"/>
+                </InitialValue>
+                <InitialValue variable="input_x_rel_ap">
+                    <Real value="1.5"/>
+                </InitialValue>
+                <InitialValue variable="input_y_rel_cl">
+                    <Real value="-2"/>
+                </InitialValue>
+                <InitialValue variable="input_z_rel_bl">
+                    <Real value="0"/>
+                </InitialValue>
+                <InitialValue variable="input_prop_diam">
+                    <Real value="1.9"/>
+                </InitialValue>
+                <InitialValue variable="input_t">
+                    <Real value="0.2"/>
+                </InitialValue>
+                <InitialValue variable="input_distancetohull">
+                    <Real value="1.5"/>
+                </InitialValue>
+                <InitialValue variable="input_bilgeradius">
+                    <Real value="3"/>
+                </InitialValue>
+                <InitialValue variable="input_rho">
+                    <Real value="1025"/>
+                </InitialValue>
+            </InitialValues>
+        </Simulator>
+        <Simulator name="azimuth_1" source="fmu-proxy://localhost:9092?guid=74b8f036-accc-45b5-b0ba-44f19fff776a" stepSize="0.05">
+            <InitialValues>
+                <InitialValue variable="input_enabled">
+                    <Boolean value="true"/>
+                </InitialValue>
+                <InitialValue variable="input_is_main_propulsion">
+                    <Boolean value="true"/>
+                </InitialValue>
+                <InitialValue variable="input_x_rel_ap">
+                    <Real value="1.5"/>
+                </InitialValue>
+                <InitialValue variable="input_y_rel_cl">
+                    <Real value="2"/>
+                </InitialValue>
+                <InitialValue variable="input_z_rel_bl">
+                    <Real value="0"/>
+                </InitialValue>
+                <InitialValue variable="input_prop_diam">
+                    <Real value="1.9"/>
+                </InitialValue>
+                <InitialValue variable="input_t">
+                    <Real value="0.2"/>
+                </InitialValue>
+                <InitialValue variable="input_distancetohull">
+                    <Real value="1.5"/>
+                </InitialValue>
+                <InitialValue variable="input_bilgeradius">
+                    <Real value="3"/>
+                </InitialValue>
+                <InitialValue variable="input_rho">
+                    <Real value="1025"/>
+                </InitialValue>
+            </InitialValues>
+        </Simulator>
+		
+<!-- 		<Simulator name="azimuth_0_rpm_actuator" source="fmu-proxy://localhost:9093?guid=ee01d8dd-b2af-441b-9e0d-3f11bc4d1668" stepSize="0.05"/>
+        <Simulator name="azimuth_1_rpm_actuator" source="fmu-proxy://localhost:9094?guid=ee01d8dd-b2af-441b-9e0d-3f11bc4d1668" stepSize="0.05"/> -->
+        <Simulator name="azimuth_0_rpm_actuator" source="fmu-proxy://localhost:9093?file=../fmus/ThrusterDrive.fmu" stepSize="0.05"/>
+        <Simulator name="azimuth_1_rpm_actuator" source="fmu-proxy://localhost:9094?file=../fmus/ThrusterDrive.fmu" stepSize="0.05"/>
+        <Simulator name="power_plant" source="../fmus/PowerPlant.fmu" stepSize="0.1"/>
+        <Simulator name="track_controller" source="../fmus/TrajectoryController.fmu" stepSize="0.1">
+            <InitialValues>
+                <InitialValue variable="autopilot.heading.kp">
+                    <Real value="2"/>
+                </InitialValue>
+                <InitialValue variable="autopilot.heading.ki">
+                    <Real value="0.1"/>
+                </InitialValue>
+                <InitialValue variable="autopilot.heading.kd">
+                    <Real value="5"/>
+                </InitialValue>
+                <InitialValue variable="autopilot.speed.kp">
+                    <Real value="1000"/>
+                </InitialValue>
+                <InitialValue variable="autopilot.speed.ki">
+                    <Real value="100"/>
+                </InitialValue>
+                <InitialValue variable="autopilot.speed.kd">
+                    <Real value="500"/>
+                </InitialValue>
+                <InitialValue variable="lookaheadDistance">
+                    <Real value="50"/>
+                </InitialValue>
+                <InitialValue variable="enable">
+                    <Boolean value="false"/>
+                </InitialValue>
+                <InitialValue variable="shouldLog">
+                    <Boolean value="false"/>
+                </InitialValue>
+            </InitialValues>
+        </Simulator>
+        <Simulator name="waypoint_provider" source="../fmus/WaypointProvider2DOF.fmu" stepSize="0.05">
+            <InitialValues>
+                <InitialValue variable="shouldLog">
+                    <Boolean value="false"/>
+                </InitialValue>
+                <InitialValue variable="wpSwitchDistance">
+                    <Real value="20"/>
+                </InitialValue>
+            </InitialValues>
+        </Simulator>
+        <Simulator name="converter_0" source="../fmus/Converter.fmu" stepSize="0.05"/>
+        <Simulator name="converter_1" source="../fmus/Converter.fmu" stepSize="0.05"/>
+    </Simulators>
+    <Connections>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="position_3dof"/>
+            <VariableGroup simulator="track_controller" name="position_3dof"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="velocity_2dof"/>
+            <VariableGroup simulator="track_controller" name="velocity_2dof"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="waypoint_provider" name="target_wp"/>
+            <VariableGroup simulator="track_controller" name="target_wp"/>
+        </VariableGroupConnection>
+        
+        <VariableGroupConnection>
+            <VariableGroup simulator="waypoint_provider" name="previous_wp"/>
+            <VariableGroup simulator="track_controller" name="previous_wp"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="position_3dof"/>
+            <VariableGroup simulator="waypoint_provider" name="position_3dof"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="azimuth_0_rpm_actuator" name="power_consumption"/>
+            <VariableGroup simulator="power_plant" name="azimuth_0_power_consumption"/>
+        </VariableGroupConnection>
+        
+        <VariableGroupConnection>
+            <VariableGroup simulator="azimuth_1_rpm_actuator" name="power_consumption"/>
+            <VariableGroup simulator="power_plant" name="azimuth_1_power_consumption"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="power_plant" name="azimuth_0_available_power"/>
+            <VariableGroup simulator="azimuth_0_rpm_actuator" name="available_power"/>
+        </VariableGroupConnection>
+        
+        <VariableGroupConnection>
+            <VariableGroup simulator="track_controller" name="force_command"/>
+            <VariableGroup simulator="azimuth_0_rpm_actuator" name="force_command"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="azimuth_0" name="torque"/>
+            <VariableGroup simulator="azimuth_0_rpm_actuator" name="torque"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="power_plant" name="azimuth_1_available_power"/>
+            <VariableGroup simulator="azimuth_1_rpm_actuator" name="available_power"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="track_controller" name="force_command"/>
+            <VariableGroup simulator="azimuth_1_rpm_actuator" name="force_command"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="azimuth_1" name="torque"/>
+            <VariableGroup simulator="azimuth_1_rpm_actuator" name="torque"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="azimuth_0_rpm_actuator" name="speed"/>
+            <VariableGroup simulator="converter_0" name="rad_per_sec"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="converter_0" name="rpm"/>
+            <VariableGroup simulator="azimuth_0" name="rpm"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="azimuth_1_rpm_actuator" name="speed"/>
+            <VariableGroup simulator="converter_1" name="rad_per_sec"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="converter_1" name="rpm"/>
+            <VariableGroup simulator="azimuth_1" name="rpm"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="track_controller" name="rudder_command"/>
+            <VariableGroup simulator="azimuth_0" name="angle"/>
+        </VariableGroupConnection>
+        
+        <VariableGroupConnection>
+            <VariableGroup simulator="track_controller" name="rudder_command"/>
+            <VariableGroup simulator="azimuth_1" name="angle"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="center_of_gravity"/>
+            <VariableGroup simulator="azimuth_0" name="center_of_gravity"/>
+        </VariableGroupConnection>
+        
+        <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="center_of_gravity"/>
+            <VariableGroup simulator="azimuth_1" name="center_of_gravity"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="velocity_3dof"/>
+            <VariableGroup simulator="azimuth_0" name="velocity_3dof"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="velocity_3dof"/>
+            <VariableGroup simulator="azimuth_1" name="velocity_3dof"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="lpp"/>
+            <VariableGroup simulator="azimuth_0" name="lpp"/>
+        </VariableGroupConnection>
+        
+        <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="lpp"/>
+            <VariableGroup simulator="azimuth_1" name="lpp"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="azimuth_0" name="force"/>
+            <VariableGroup simulator="vessel_model" name="azimuth_force_0"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="azimuth_1" name="force"/>
+            <VariableGroup simulator="vessel_model" name="azimuth_force_1"/>
+        </VariableGroupConnection>
+    </Connections>
+</OspSystemStructure>

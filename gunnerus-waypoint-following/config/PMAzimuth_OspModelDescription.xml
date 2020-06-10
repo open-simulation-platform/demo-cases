@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+
+    <VariableGroups>
+        <Generic name="rpm">
+            <Variable ref="input_act_revs"/>
+        </Generic>
+        
+        <Generic name="angle">
+            <Variable ref="input_act_angle"/>
+        </Generic>
+
+        <Generic name="lpp">
+            <Variable ref="input_lpp"/>
+        </Generic>
+        
+        <Generic name="center_of_gravity">
+            <Variable ref="input_cg_x_rel_ap"/>
+            <Variable ref="input_cg_y_rel_cl"/>
+            <Variable ref="input_cg_z_rel_bl"/>
+        </Generic>
+
+        <Generic name="velocity_3dof">
+            <Variable ref="input_cg_surge_vel" />
+            <Variable ref="input_cg_sway_vel" />
+            <Variable ref="input_yaw_vel" />
+        </Generic>
+
+        <Generic name="torque">
+            <Variable ref="output_torque"/>
+        </Generic>
+
+        <Generic name="force">
+            <Variable ref="output_force_surge"/>
+            <Variable ref="output_force_sway" />
+            <Variable ref="output_force_heave"/>
+            <Variable ref="output_x_rel_ap"/>
+            <Variable ref="output_y_rel_cl"/>
+            <Variable ref="output_z_rel_bl"/>
+        </Generic>
+
+        
+    </VariableGroups>
+</OspModelDescription>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    
+    <VariableGroups>
+        <Generic name="power_consumption">
+            <Variable ref="d_in.f"/>
+            <Variable ref="q_in.f"/>
+        </Generic>
+
+        <Generic name="available_power">
+            <Variable ref="d_in.e"/>
+            <Variable ref="q_in.e"/>
+        </Generic>
+
+        <Generic name="torque">
+            <Variable ref="Shaft.e"/>
+        </Generic>
+
+        <Generic name="speed">
+            <Variable ref="Shaft.f"/>
+        </Generic>
+
+        <Generic name="force_command">
+            <Variable ref="ThrustCom"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

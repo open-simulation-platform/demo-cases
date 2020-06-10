@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+
+    <VariableGroups>        
+        <Generic name="rad_per_sec">
+            <Variable ref="input.radPerSec"/>
+        </Generic>
+
+        <Generic name="rpm">
+            <Variable ref="output.rpm"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

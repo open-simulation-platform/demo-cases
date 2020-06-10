@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="target_wp">
+            <Variable ref="targetWP.north"/>
+            <Variable ref="targetWP.east"/>
+            <Variable ref="targetWP.speed"/>
+        </Generic>
+
+        <Generic name="previous_wp">
+            <Variable ref="prevWP.north"/>
+            <Variable ref="prevWP.east"/>
+            <Variable ref="prevWP.speed"/>
+        </Generic>
+
+        <Generic name="position_3dof">
+            <Variable ref="northPosition"/>
+            <Variable ref="eastPosition"/>
+            <Variable ref="headingAngle"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

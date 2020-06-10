@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="azimuth_0_available_power">
+            <Variable ref="p1.e[1]"/>
+            <Variable ref="p1.e[2]"/>
+        </Generic>
+
+        <Generic name="azimuth_1_available_power">
+            <Variable ref="p2.e[1]"/>
+            <Variable ref="p2.e[2]"/>
+        </Generic>
+
+        <Generic name="azimuth_0_power_consumption">
+            <Variable ref="p1.f[1]"/>
+            <Variable ref="p1.f[2]"/>
+        </Generic>
+
+        <Generic name="azimuth_1_power_consumption">
+            <Variable ref="p2.f[1]"/>
+            <Variable ref="p2.f[2]"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>
