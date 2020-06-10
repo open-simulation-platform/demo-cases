@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        <Generic name="vru_input">
+            <Variable ref="roll"/>
+            <Variable ref="pitch"/>
+        </Generic>
+
+        <Generic name="nmea_sxn">
+            <Variable ref="roll_measurement"/>
+            <Variable ref="pitch_measurement"/>
+            <Variable ref="sensor_ok"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OspSystemStructure
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://opensimulationplatform.com/MSMI/OSPSystemStructure ../../../src/cpp/xsd/OspSystemStructure.xsd"
+        xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure"
+        version="0.1">    
+    <StartTime>0.0</StartTime>
+    <BaseStepSize>0.25</BaseStepSize>
+    <Algorithm>fixedStep</Algorithm>
+    <Simulators>
+        <Simulator name="gps_sensor" source="../fmus/gps_sensor.fmu" stepSize="0.25"/>
+        <Simulator name="gps_sender" source="../fmus/gps_sender.fmu" stepSize="0.25"/>
+
+        <Simulator name="vru_sensor" source="../fmus/vru_sensor.fmu" stepSize="0.25"/>
+        <Simulator name="vru_sender" source="../fmus/vru_sender.fmu" stepSize="0.25"/>
+
+        <Simulator name="wind_sensor" source="../fmus/wind_sensor.fmu" stepSize="0.25"/>
+        <Simulator name="wind_sensor_sender" source="../fmus/wind_sensor_sender.fmu" stepSize="0.25"/>
+
+        <Simulator name="gyro_sensor" source="../fmus/gyro_sensor.fmu" stepSize="0.25"/>
+        <Simulator name="gyro_sender" source="../fmus/gyro_sender.fmu" stepSize="0.25"/>
+    </Simulators>
+
+    <Connections>
+        <VariableGroupConnection>
+            <VariableGroup simulator="gps_sensor" name="nmea_gga"/>
+            <VariableGroup simulator="gps_sender" name="nmea_gga"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="gps_sensor" name="nmea_gst"/>
+            <VariableGroup simulator="gps_sender" name="nmea_gst"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="gyro_sensor" name="nmea_gyro"/>
+            <VariableGroup simulator="gyro_sender" name="nmea_gyro"/>
+        </VariableGroupConnection>
+        
+        <VariableGroupConnection>
+            <VariableGroup simulator="vru_sensor" name="nmea_sxn"/>
+            <VariableGroup simulator="vru_sender" name="nmea_sxn"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="wind_sensor" name="nmea_mwv"/>
+            <VariableGroup simulator="wind_sensor_sender" name="nmea_mwv"/>
+        </VariableGroupConnection>
+
+    </Connections>
+</OspSystemStructure>

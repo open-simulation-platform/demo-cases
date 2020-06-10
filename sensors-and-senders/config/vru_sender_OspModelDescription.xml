@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        <Generic name="nmea_sxn">
+            <Variable ref="Roll"/>
+            <Variable ref="Pitch"/>
+            <Variable ref="SensorOk"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

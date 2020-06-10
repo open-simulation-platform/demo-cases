@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+
+        <Generic name="gnss_input">
+            <Variable ref="north"/>
+            <Variable ref="east"/>
+            <Variable ref="down"/>
+            <Variable ref="roll"/>
+            <Variable ref="pitch"/>
+            <Variable ref="yaw"/>
+        </Generic>
+
+        <Generic name="nmea_gga">
+            <Variable ref="utc_time"/>
+            <Variable ref="latitude"/>
+            <Variable ref="latitude_direction"/>
+            <Variable ref="longitude"/>
+            <Variable ref="longitude_direction"/>
+            <Variable ref="quality"/>
+            <Variable ref="number_of_satellites"/>
+            <Variable ref="horizontal_dilution"/>
+            <Variable ref="altitude"/>
+            <Variable ref="altitude_unit"/>
+            <Variable ref="height_geo_id"/>
+            <Variable ref="height_unit"/>
+            <Variable ref="update_time"/>
+            <Variable ref="station_id"/>
+        </Generic>
+
+        <Generic name="nmea_gst">
+            <Variable ref="rms_residual"/>
+            <Variable ref="error_ellipse_major"/>
+            <Variable ref="error_ellipse_minor"/>
+            <Variable ref="ellipse_orientation"/>
+            <Variable ref="lat_sigma_error"/>
+            <Variable ref="long_sigma_error"/>
+            <Variable ref="height_sigma_error"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>
