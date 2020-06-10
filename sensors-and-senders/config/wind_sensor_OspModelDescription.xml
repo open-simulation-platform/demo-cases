@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        <Generic name="windsensor_in">
+            <Variable ref="wind_speed"/>
+            <Variable ref="wind_direction"/>
+        </Generic>
+
+        <Generic name="nmea_mwv">
+            <Variable ref="direction"/>
+            <Variable ref="direction_reference"/>
+            <Variable ref="speed"/>
+            <Variable ref="speed_reference"/>
+            <Variable ref="sensor_ok"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>

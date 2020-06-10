@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+
+        <Generic name="nmea_mwv">
+            <Variable ref="Direction"/>
+            <Variable ref="Reference"/>
+            <Variable ref="Speed"/>
+            <Variable ref="SpeedUnit"/>
+            <Variable ref="Status"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>

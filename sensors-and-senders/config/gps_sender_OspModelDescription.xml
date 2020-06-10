@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+
+        <Generic name="nmea_gga">
+            <Variable ref="UTCTime"/>
+            <Variable ref="Latitude"/>
+            <Variable ref="LatitudeDirection"/>
+            <Variable ref="Longitude"/>
+            <Variable ref="LongitudeDirection"/>
+            <Variable ref="Quality"/>
+            <Variable ref="NumberOfSatellites"/>
+            <Variable ref="HorizontalDilution"/>
+            <Variable ref="AntennaAltitude"/>
+            <Variable ref="AntennaUnits"/>
+            <Variable ref="GeoidalSeperation"/>
+            <Variable ref="GeoidalSeperationUnits"/>
+            <Variable ref="GpsAge"/>
+            <Variable ref="StationId"/>
+        </Generic>
+
+        <Generic name="nmea_gst">
+            <Variable ref="SigmaRms"/>
+            <Variable ref="SigmaMajorAxis"/>
+            <Variable ref="SigmaMinorAxis"/>
+            <Variable ref="EllipseOrientation"/>
+            <Variable ref="SigmaLongitude"/>
+            <Variable ref="SigmaLatitude"/>
+            <Variable ref="SigmaAltitude"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>

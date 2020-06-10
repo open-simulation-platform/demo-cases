@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+    
+        <Generic name="gyro_input">
+            <Variable ref="heading"/>
+        </Generic>
+
+        <Generic name="nmea_gyro">
+            <Variable ref="heading_measurement"/>
+            <Variable ref="heading_ok"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>
