@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="force_command">
+            <Variable ref="force_command.surge"/>
+            <Variable ref="force_command.sway"/>
+            <Variable ref="force_command.yaw"/>
+        </Generic>
+        <Generic name="tunnel_thruster_1_command">
+            <Variable ref="thrust_command.tunnel_thruster_1.rpm"/>        
+        </Generic>
+        <Generic name="tunnel_thruster_2_command">
+            <Variable ref="thrust_command.tunnel_thruster_2.rpm"/>        
+        </Generic>
+        <Generic name="tunnel_thruster_3_command">
+            <Variable ref="thrust_command.tunnel_thruster_3.rpm"/>        
+        </Generic>
+        <Generic name="main_propeller_port_command">
+            <Variable ref="thrust_command.main_propeller_port.rpm"/>
+            <Variable ref="thrust_command.main_propeller_port.azimuth"/>
+        </Generic>
+        <Generic name="main_propeller_starboard_command">
+            <Variable ref="thrust_command.main_propeller_starboard.rpm"/>
+            <Variable ref="thrust_command.main_propeller_starboard.azimuth"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

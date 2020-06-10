@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription"
+                    version="0.1">
+    <VariableGroups>
+        <Generic name="wind_forces">
+            <Variable ref="wind_forces.surge"/>
+            <Variable ref="wind_forces.sway"/>
+            <Variable ref="wind_forces.heave"/>
+            <Variable ref="wind_forces.roll"/>
+            <Variable ref="wind_forces.pitch"/>
+            <Variable ref="wind_forces.yaw"/>
+        </Generic>
+        
+        <Generic name="wave_forces">
+            <Variable ref="wave_forces.surge"/>
+            <Variable ref="wave_forces.sway"/>
+            <Variable ref="wave_forces.heave"/>
+            <Variable ref="wave_forces.roll"/>
+            <Variable ref="wave_forces.pitch"/>
+            <Variable ref="wave_forces.yaw"/>
+        </Generic>
+
+        <Generic name="tunnel_thruster_1">
+            <Variable ref="thruster_states.tunnel_thruster_1.power_consumption"/>
+            <Variable ref="thruster_states.tunnel_thruster_1.thrust"/>
+        </Generic>
+        
+        <Generic name = "tunnel_thruster_2">
+            <Variable ref="thruster_states.tunnel_thruster_2.power_consumption"/>
+            <Variable ref="thruster_states.tunnel_thruster_2.thrust"/>
+        </Generic>
+        
+        <Generic name="tunnel_thruster_3">
+            <Variable ref="thruster_states.tunnel_thruster_3.power_consumption"/>
+            <Variable ref="thruster_states.tunnel_thruster_3.thrust"/>
+        </Generic>
+        
+        <Generic name="main_propeller_port">
+            <Variable ref="thruster_states.main_propeller_port.power_consumption"/>
+            <Variable ref="thruster_states.main_propeller_port.thrust"/>
+            <Variable ref="thruster_states.main_propeller_port.azimuth"/>
+        </Generic>
+        
+        <Generic name="main_propeller_starboard">
+            <Variable ref="thruster_states.main_propeller_starboard.power_consumption"/>
+            <Variable ref="thruster_states.main_propeller_starboard.thrust"/>
+            <Variable ref="thruster_states.main_propeller_starboard.azimuth"/>
+        </Generic>
+        
+        <Generic name="ned_position">
+            <Variable ref="ned_position.north"/>
+            <Variable ref="ned_position.east"/>
+            <Variable ref="ned_position.down"/>
+            <Variable ref="ned_position.roll"/>
+            <Variable ref="ned_position.pitch"/>
+            <Variable ref="ned_position.yaw"/>
+        </Generic>
+
+        <Generic name="body_velocity">
+            <Variable ref="body_velocity.surge"/>
+            <Variable ref="body_velocity.sway"/>
+            <Variable ref="body_velocity.heave"/>
+            <Variable ref="body_velocity.roll"/>
+            <Variable ref="body_velocity.pitch"/>
+            <Variable ref="body_velocity.yaw"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>

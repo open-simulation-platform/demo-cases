@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspSystemStructure
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://opensimulationplatform.com/MSMI/OSPSystemStructure ../../../src/cpp/xsd/OspSystemStructure.xsd"
+        xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure"
+        version="0.1">
+    <StartTime>0.0</StartTime>
+    <BaseStepSize>0.01</BaseStepSize>
+    <Algorithm>fixedStep</Algorithm>
+    <Simulators>
+        <Simulator name="winch" source="../fmus/winch.fmu" stepSize="0.1"/>
+        <Simulator name="wind_model" source="../fmus/wind_model.fmu" stepSize="0.1"/>
+        <Simulator name="dp_controller" source="../fmus/dp_controller.fmu" stepSize="0.01"/>
+        <Simulator name="vessel_model" source="../fmus/vessel_model.fmu" stepSize="0.2"/>
+        <Simulator name="reference_model" source="../fmus/dp_reference_model.fmu" stepSize="0.1"/>
+        <Simulator name="thruster_model" source="../fmus/thruster_model.fmu" stepSize="0.01"/>
+        <Simulator name="thrust_allocator" source="../fmus/thrust_allocation.fmu" stepSize="0.01"/>
+        <Simulator name="power_system" source="../fmus/power_system.fmu" stepSize="0.1"/>
+        <Simulator name="wave_model" source="../fmus/linearized_wave_model.fmu" stepSize="0.1"/>
+    </Simulators>
+
+    <Functions>
+        <VectorSum name="winch_input" inputCount="2" dimension="6"/>
+    </Functions>
+
+    <Connections>
+        <VariableGroupConnection>   
+            <VariableGroup simulator="reference_model" name="filtered_vessel_setpoint"/>
+            <VariableGroup simulator="dp_controller" name="vessel_setpoint"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="dp_controller" name="force_command"/>
+            <VariableGroup simulator="thrust_allocator" name="force_command"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="ned_position"/>
+            <VariableGroup simulator="wind_model" name="ned_position"/>
+        </VariableGroupConnection>
+        
+        <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="body_velocity"/>
+            <VariableGroup simulator="wind_model" name="vessel_velocity"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="wind_model" name="wind_forces"/>
+            <VariableGroup simulator="vessel_model" name="wind_forces"/>
+        </VariableGroupConnection>
+    
+        <VariableGroupConnection>
+            <VariableGroup simulator="thrust_allocator" name="tunnel_thruster_1_command"/>
+            <VariableGroup simulator="thruster_model" name="tunnel_thruster_1_command"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="thrust_allocator" name="tunnel_thruster_2_command"/>
+            <VariableGroup simulator="thruster_model" name="tunnel_thruster_2_command"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="thrust_allocator" name="tunnel_thruster_3_command"/>
+            <VariableGroup simulator="thruster_model" name="tunnel_thruster_3_command"/>
+        </VariableGroupConnection>
+        
+        <VariableGroupConnection>
+            <VariableGroup simulator="thrust_allocator" name="main_propeller_port_command"/>
+            <VariableGroup simulator="thruster_model" name="main_propeller_port_command"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="thrust_allocator" name="main_propeller_starboard_command"/>
+            <VariableGroup simulator="thruster_model" name="main_propeller_starboard_command"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup  simulator="thruster_model" name="tunnel_thruster_1_state"/>
+            <VariableGroup  simulator="vessel_model" name="tunnel_thruster_1"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup  simulator="thruster_model" name="tunnel_thruster_2_state"/>
+            <VariableGroup  simulator="vessel_model" name="tunnel_thruster_2"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup  simulator="thruster_model" name="tunnel_thruster_3_state"/>
+            <VariableGroup  simulator="vessel_model" name="tunnel_thruster_3"/>
+        </VariableGroupConnection>
+        
+        <VariableGroupConnection>
+            <VariableGroup  simulator="thruster_model" name="main_propeller_port_state"/>
+            <VariableGroup  simulator="vessel_model" name="main_propeller_port"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup  simulator="thruster_model" name="main_propeller_starboard_state"/>
+            <VariableGroup  simulator="vessel_model" name="main_propeller_starboard"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="winch" name="power_consumption"/>
+            <VariableGroup simulator="power_system" name="winch_power"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="thruster_model" name="tunnel_thruster_1_state"/>
+            <VariableGroup simulator="power_system" name="tunnel_thruster_1"/>
+        </VariableGroupConnection>        
+        <VariableGroupConnection>
+            <VariableGroup simulator="thruster_model" name="tunnel_thruster_2_state"/>
+            <VariableGroup simulator="power_system" name="tunnel_thruster_2"/>
+        </VariableGroupConnection>        
+        <VariableGroupConnection>
+            <VariableGroup simulator="thruster_model" name="tunnel_thruster_3_state"/>
+            <VariableGroup simulator="power_system" name="tunnel_thruster_3"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="thruster_model" name="main_propeller_port_state"/>
+            <VariableGroup simulator="power_system" name="main_propeller_port"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="thruster_model" name="main_propeller_starboard_state"/>
+            <VariableGroup simulator="power_system" name="main_propeller_starboard"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="ned_position"/>
+            <VariableGroup simulator="dp_controller" name="ned_position"/>
+        </VariableGroupConnection>
+
+        <SignalGroupConnection>
+            <VariableGroup simulator="vessel_model" name="ned_position"/>
+            <SignalGroup function="winch_input" name="in[0]"/>
+        </SignalGroupConnection>
+
+        <SignalGroupConnection>
+            <VariableGroup simulator="wave_model" name="first_order_disturbances"/>
+            <SignalGroup function="winch_input" name="in[1]"/>
+        </SignalGroupConnection>
+
+        <SignalGroupConnection>
+            <SignalGroup function="winch_input" name="out"/>
+            <VariableGroup simulator="winch" name="ned_position"/>
+        </SignalGroupConnection>
+        
+    </Connections>
+</OspSystemStructure>

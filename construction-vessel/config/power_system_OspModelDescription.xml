@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="bus_1_loads">
+            <Variable ref="bus_1_loads.active_power"/>
+            <Variable ref="bus_1_loads.reactive_power"/>
+        </Generic>
+        <Generic name="bus_2_loads">
+            <Variable ref="bus_2_loads.active_power"/>
+            <Variable ref="bus_2_loads.reactive_power"/>
+        </Generic>
+        
+        <Generic name="winch_power">
+            <Variable ref="bus_1_loads.active_power"/>
+        </Generic>
+
+        <Generic name="tunnel_thruster_1">
+            <Variable ref="thruster_states.tunnel_thruster_1.power_consumption"/>
+            <Variable ref="thruster_states.tunnel_thruster_1.thrust"/>
+        </Generic>
+        <Generic name="tunnel_thruster_2">
+            <Variable ref="thruster_states.tunnel_thruster_2.power_consumption"/>
+            <Variable ref="thruster_states.tunnel_thruster_2.thrust"/>
+        </Generic>
+        <Generic name="tunnel_thruster_3">
+            <Variable ref="thruster_states.tunnel_thruster_3.power_consumption"/>
+            <Variable ref="thruster_states.tunnel_thruster_3.thrust"/>
+        </Generic>
+        <Generic name="main_propeller_port">
+            <Variable ref="thruster_states.main_propeller_port.power_consumption"/>
+            <Variable ref="thruster_states.main_propeller_port.thrust"/>
+            <Variable ref="thruster_states.main_propeller_port.azimuth"/>
+        </Generic>
+        <Generic name="main_propeller_starboard">
+            <Variable ref="thruster_states.main_propeller_starboard.power_consumption"/>
+            <Variable ref="thruster_states.main_propeller_starboard.thrust"/>
+            <Variable ref="thruster_states.main_propeller_starboard.azimuth"/>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>
