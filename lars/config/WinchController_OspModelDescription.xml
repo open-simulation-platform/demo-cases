@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="load_depth">
+            <Variable ref="loadDepth"/>
+        </Generic>
+
+        <Generic name="motor_speed">
+            <Variable ref="motorSpeed"/>
+        </Generic>
+
+        <Generic name="winch_setpoint">
+            <Variable ref="winchSetpoint"/>
+        </Generic>
+
+        <Generic name="motor_gain">
+            <Variable ref="motorGain"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>

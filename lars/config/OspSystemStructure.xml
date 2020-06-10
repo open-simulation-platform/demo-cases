@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspSystemStructure
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://opensimulationplatform.com/MSMI/OSPSystemStructure ../../../src/cpp/xsd/OspSystemStructure.xsd"
+        xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure"
+        version="0.1">
+    <StartTime>0.0</StartTime>
+    <BaseStepSize>0.001</BaseStepSize>
+    <Algorithm>fixedStep</Algorithm>
+    <Simulators>
+        <Simulator name="a_frame" source="../fmus/AFrame.fmu" stepSize="0.001"/>
+        <Simulator name="a_frame_actuator" source="../fmus/AFrameActuator.fmu" stepSize="0.001"/>
+        <Simulator name="a_frame_controller" source="../fmus/AFrameController.fmu" stepSize="0.001"/>
+        <Simulator name="a_frame_actuator_setpoint" source="../fmus/AFrameActuatorSetpoint.fmu" stepSize="0.001"/>
+        <Simulator name="fiber_rope_winch" source="../fmus/Winch.fmu" stepSize="0.001"/>
+        <Simulator name="winch_actuator" source="../fmus/WinchActuator.fmu" stepSize="0.001"/>
+        <Simulator name="winch_actuator_setpoint" source="../fmus/WinchActuatorSetpoint.fmu" stepSize="0.001"/>
+        <Simulator name="winch_controller" source="../fmus/WinchController.fmu" stepSize="0.001"/>
+    </Simulators>
+
+    <Connections>
+        <VariableGroupConnection>
+            <VariableGroup simulator="winch_actuator_setpoint" name="winch_setpoint"/>
+            <VariableGroup simulator="winch_controller" name="winch_setpoint"/>
+        </VariableGroupConnection>
+
+        
+        <VariableGroupConnection>
+            <VariableGroup simulator="winch_controller" name="motor_gain"/>
+            <VariableGroup simulator="winch_actuator" name="motor_gain"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="a_frame_actuator_setpoint" name="a_frame_setpoint"/>
+            <VariableGroup simulator="a_frame_controller" name="a_frame_setpoint"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="a_frame_controller" name="cylinder_gain"/>
+            <VariableGroup simulator="a_frame_actuator" name="cylinder_gain"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="a_frame_actuator" name="cylinder_force"/>
+            <VariableGroup simulator="a_frame" name="cylinder_force"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="a_frame" name="cylinder_speed"/>
+            <VariableGroup simulator="a_frame_actuator" name="cylinder_speed"/>
+        </VariableGroupConnection>
+        
+        <VariableGroupConnection>
+            <VariableGroup simulator="a_frame" name="cylinder_speed"/>
+            <VariableGroup simulator="a_frame_controller" name="cylinder_speed"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="fiber_rope_winch" name="load_depth"/>
+            <VariableGroup simulator="winch_controller" name="load_depth"/>
+        </VariableGroupConnection>
+
+        
+        <VariableGroupConnection>
+            <VariableGroup simulator="winch_actuator" name="motor_torque"/>
+            <VariableGroup simulator="fiber_rope_winch" name="torque_motor_1"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="winch_actuator" name="motor_torque"/>
+            <VariableGroup simulator="fiber_rope_winch" name="torque_motor_2"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="winch_actuator" name="motor_torque"/>
+            <VariableGroup simulator="fiber_rope_winch" name="torque_motor_3"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="fiber_rope_winch" name="motor_speed"/>
+            <VariableGroup simulator="winch_actuator" name="motor_speed"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="fiber_rope_winch" name="motor_speed"/>
+            <VariableGroup simulator="winch_controller" name="motor_speed"/>
+        </VariableGroupConnection>
+
+        <VariableGroupConnection>
+            <VariableGroup simulator="fiber_rope_winch" name="drum_F1"/>
+            <VariableGroup simulator="a_frame" name="winch_force"/>
+        </VariableGroupConnection>
+        
+        
+        
+        
+        
+    </Connections>
+</OspSystemStructure>

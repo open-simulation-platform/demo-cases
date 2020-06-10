@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="cylinder_force">
+            <Variable ref="cylinderForce"/>
+        </Generic>
+
+        <Generic name="winch_force">
+            <Variable ref="winchForce"/>
+        </Generic>
+
+        <Generic name="cylinder_speed">
+            <Variable ref="cylinderSpeed"/>
+        </Generic>
+
+        <Generic name="tilt_angle">
+            <Variable ref="tiltAngleDeg"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>

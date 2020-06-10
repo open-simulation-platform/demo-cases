@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+        <Generic name="motor_gain">
+            <Variable ref="motorGain"/>
+        </Generic>
+
+        <Generic name="motor_speed">
+            <Variable ref="motorSpeed"/>
+        </Generic>
+
+        <Generic name="motor_torque">
+            <Variable ref="motorTorque"/>
+        </Generic>
+
+    </VariableGroups>
+</OspModelDescription>
