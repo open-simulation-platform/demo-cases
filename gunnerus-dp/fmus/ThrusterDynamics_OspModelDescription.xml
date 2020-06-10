@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    
+     <UnitDefinitions>
+        <Unit name="m">
+            <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad">
+            <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="m/s">
+            <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad/s">
+            <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N">
+            <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N.m">
+            <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+    </UnitDefinitions>
+    
+    <VariableGroups>
+        
+        <Generic name="thrust_command">
+            <Force name="linear_thrust_command">
+                <Variable ref="Commanded_Thrust[1]" unit="N"/>
+                <Variable ref="Commanded_Thrust[2]" unit="N"/>
+            </Force>
+            <Torque name="angular_torque_command">
+                <Variable ref="Commanded_Thrust[3]" unit="N.m"/>
+            </Torque>
+        </Generic>
+
+        <Generic name="thrust">
+            <Force name="linear_thrust">
+                <Variable ref="Thrust[1]" unit="N"/>
+                <Variable ref="Thrust[2]" unit="N"/>
+                <Variable ref="Thrust[3]" unit="N"/>
+            </Force>
+            <Torque name="angular_thrust">
+                <Variable ref="Thrust[4]" unit="N.m"/>
+                <Variable ref="Thrust[5]" unit="N.m"/>
+                <Variable ref="Thrust[6]" unit="N.m"/>
+            </Torque>
+        </Generic>
+        
+    </VariableGroups>
+</OspModelDescription>

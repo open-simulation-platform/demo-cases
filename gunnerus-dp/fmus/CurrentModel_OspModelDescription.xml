@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+        
+    <UnitDefinitions>
+        <Unit name="m">
+            <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad">
+            <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="m/s">
+            <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad/s">
+            <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N">
+            <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N.m">
+            <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+    </UnitDefinitions>
+    
+    <VariableGroups>
+        <Generic name="current_velocity" type="current_velocity_6dof">
+            <LinearVelocity name="linear_current_velocity">
+                <Variable ref="Current_Velocity[1]" unit="m/s"/>
+                <Variable ref="Current_Velocity[2]" unit="m/s"/>
+                <Variable ref="Current_Velocity[3]" unit="m/s"/>
+            </LinearVelocity>
+            <AngularVelocity name="angular_current_velocity">
+                <Variable ref="Current_Velocity[4]" unit="rad/s"/>
+                <Variable ref="Current_Velocity[5]" unit="rad/s"/>
+                <Variable ref="Current_Velocity[6]" unit="rad/s"/>
+            </AngularVelocity>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

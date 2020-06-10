@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+    <VariableGroups>
+        
+    <UnitDefinitions>
+        <Unit name="m">
+            <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad">
+            <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="m/s">
+            <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad/s">
+            <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N">
+            <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N.m">
+            <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+    </UnitDefinitions>
+
+        <Generic name="thrust">
+            <Force name="linear_thrust">
+                <Variable ref="Thrust[1]" unit="N"/>
+                <Variable ref="Thrust[2]" unit="N"/>
+                <Variable ref="Thrust[3]" unit="N"/>
+            </Force>
+            <Torque name="angular_thrust">
+                <Variable ref="Thrust[4]" unit="N.m"/>
+                <Variable ref="Thrust[5]" unit="N.m"/>
+                <Variable ref="Thrust[6]" unit="N.m"/>
+            </Torque>
+        </Generic>
+
+        <Generic name="wave_forces">
+            <Force name="linear_wave_force">
+                <Variable ref="Wave_Forces[1]" unit="N"/>
+                <Variable ref="Wave_Forces[2]" unit="N"/>
+                <Variable ref="Wave_Forces[3]" unit="N"/>
+            </Force>
+            <Torque name="angular_wave_force">
+                <Variable ref="Wave_Forces[4]" unit="N.m"/>
+                <Variable ref="Wave_Forces[5]" unit="N.m"/>
+                <Variable ref="Wave_Forces[6]" unit="N.m"/>
+            </Torque>
+        </Generic>
+        
+        <Generic name="current_velocity">
+            <LinearVelocity name="linear_current_velocity">
+                <Variable ref="Current_Velocity[1]" unit="m/s"/>
+                <Variable ref="Current_Velocity[2]" unit="m/s"/>
+                <Variable ref="Current_Velocity[3]" unit="m/s"/>
+            </LinearVelocity>
+            <AngularVelocity name="anuglar_current_velocity">    
+                <Variable ref="Current_Velocity[4]" unit="rad/s"/>
+                <Variable ref="Current_Velocity[5]" unit="rad/s"/>
+                <Variable ref="Current_Velocity[6]" unit="rad/s"/>
+            </AngularVelocity>
+        </Generic>
+        
+        <Generic name="position_6dof">
+            <LinearDisplacement name="linear_position">
+                <Variable ref="Vessel_Position[1]" unit="m"/>
+                <Variable ref="Vessel_Position[2]" unit="m"/>
+                <Variable ref="Vessel_Position[3]" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angular_position">
+                <Variable ref="Vessel_Position[4]" unit="rad"/>
+                <Variable ref="Vessel_Position[5]" unit="rad"/>
+                <Variable ref="Vessel_Position[6]" unit="rad"/>
+            </AngularDisplacement>
+        </Generic>
+        
+        <Generic name="position_3dof">
+            <LinearDisplacement name="linear_position">
+                <Variable ref="Vessel_Position[1]" unit="m"/>
+                <Variable ref="Vessel_Position[2]" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angular_position">
+                <Variable ref="Vessel_Position[6]" unit="rad"/>
+            </AngularDisplacement>
+        </Generic>
+
+        <Generic name="velocity_6dof">
+            <LinearVelocity name="linear_vessel_velocity">
+                <Variable ref="Vessel_Velocity[1]" unit="m/s"/>
+                <Variable ref="Vessel_Velocity[2]" unit="m/s"/>
+                <Variable ref="Vessel_Velocity[3]" unit="m/s"/>
+            </LinearVelocity>
+            <AngularVelocity name="angular_vessel_velocity">
+                <Variable ref="Vessel_Velocity[4]" unit="rad/s"/>
+                <Variable ref="Vessel_Velocity[5]" unit="rad/s"/>
+                <Variable ref="Vessel_Velocity[6]" unit="rad/s"/>
+            </AngularVelocity>
+        </Generic>
+        
+        <Generic name="velocity_3dof">
+            <LinearVelocity name="linear_vessel_velocity">
+                <Variable ref="Vessel_Velocity[1]" unit="m/s"/>
+                <Variable ref="Vessel_Velocity[2]" unit="m/s"/>
+            </LinearVelocity>
+            <AngularVelocity name="angular_vessel_velocity">
+                <Variable ref="Vessel_Velocity[6]" unit="rad/s"/>
+            </AngularVelocity>
+        </Generic>
+
+        <Generic name="acceleration_6dof">
+            
+            <Variable ref="Vessel_Acceleration[1]"/>
+            <Variable ref="Vessel_Acceleration[2]"/>
+            <Variable ref="Vessel_Acceleration[3]"/>
+            <Variable ref="Vessel_Acceleration[4]"/>
+            <Variable ref="Vessel_Acceleration[5]"/>
+            <Variable ref="Vessel_Acceleration[6]"/>
+        </Generic>
+        
+        <Generic name="acceleration_3dof">
+            <Variable ref="Vessel_Acceleration[1]"/>
+            <Variable ref="Vessel_Acceleration[2]"/>
+            <Variable ref="Vessel_Acceleration[6]"/>
+        </Generic>
+        
+    </VariableGroups>
+</OspModelDescription>

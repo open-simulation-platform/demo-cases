@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspSystemStructure
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://opensimulationplatform.com/MSMI/OSPSystemStructure ../../../src/cpp/xsd/OspSystemStructure.xsd"
+        xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure"
+        version="0.1">
+    <StartTime>0.0</StartTime>
+    <BaseStepSize>0.01</BaseStepSize>
+    <Algorithm>fixedStep</Algorithm>
+    <Simulators>
+        <Simulator name="box_reference" source="../../fmus/BoxReference.fmu" stepSize="0.1"/>
+        <Simulator name="reference_model" source="../../fmus/ReferenceModel.fmu" stepSize="0.1"/>
+        <Simulator name="dp_controller" source="../../fmus/DPController.fmu" stepSize="0.1"/>
+        <Simulator name="thruster_dynamics" source="../../fmus/ThrusterDynamics.fmu" stepSize="0.1"/>
+        <Simulator name="current_model" source="../../fmus/CurrentModel.fmu" stepSize="0.1"/>
+        <Simulator name="vessel_model" source="../../fmus/VesselModel.fmu" stepSize="0.1"/>
+    </Simulators>
+
+    <Connections>
+
+    <VariableGroupConnection>
+            <VariableGroup simulator="box_reference" name="position_setpoint"/>
+            <VariableGroup simulator="reference_model" name="position_setpoint"/>
+        </VariableGroupConnection>
+        
+       <VariableGroupConnection>
+            <VariableGroup simulator="reference_model" name="desired_position"/>
+            <VariableGroup simulator="dp_controller" name="position_setpoint"/>
+        </VariableGroupConnection>
+
+       <VariableGroupConnection>
+            <VariableGroup simulator="reference_model" name="desired_velocity"/>
+            <VariableGroup simulator="dp_controller" name="velocity_setpoint"/>
+        </VariableGroupConnection>
+
+       <VariableGroupConnection>
+            <VariableGroup simulator="reference_model" name="desired_acceleration"/>
+            <VariableGroup simulator="dp_controller" name="acceleration_setpoint"/>
+        </VariableGroupConnection>
+
+       <VariableGroupConnection>
+            <VariableGroup simulator="dp_controller" name="thrust_command"/>
+            <VariableGroup simulator="thruster_dynamics" name="thrust_command"/>
+        </VariableGroupConnection>
+        
+       <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="position_3dof"/>
+            <VariableGroup simulator="dp_controller" name="position_3dof"/>
+        </VariableGroupConnection>
+
+       <VariableGroupConnection>
+            <VariableGroup simulator="vessel_model" name="velocity_3dof"/>
+            <VariableGroup simulator="dp_controller" name="velocity_3dof"/>
+        </VariableGroupConnection>
+
+       <VariableGroupConnection>
+            <VariableGroup simulator="thruster_dynamics" name="thrust"/>
+            <VariableGroup simulator="vessel_model" name="thrust"/>
+        </VariableGroupConnection>
+        
+       <VariableGroupConnection>
+            <VariableGroup simulator="current_model" name="current_velocity"/>
+            <VariableGroup simulator="vessel_model" name="current_velocity"/>
+        </VariableGroupConnection>
+             
+    </Connections>
+</OspSystemStructure>
