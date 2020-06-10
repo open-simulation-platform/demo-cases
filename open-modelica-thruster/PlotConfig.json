@@ -1,0 +1,38 @@
+{
+    "plots": [
+      {
+        "label": "Consumed Power",
+        "plotType": "trend",
+        "variables": [
+          {
+            "simulator": "Thruster",
+            "variable": "power"
+          }
+        ]
+      },
+      {
+        "label": "Produced Thrust",
+        "plotType": "trend",
+        "variables": [
+          {
+            "simulator": "Thruster",
+            "variable": "tau_actual"
+          }
+        ]
+      },
+      {
+        "label": "Desired Vs. Produced Thrust",
+        "plotType": "trend",
+        "variables": [
+            {
+                "simulator": "Thruster",
+                "variable": "DesiredFractionOfMaxThrust"
+            },
+          {
+            "simulator": "Thruster",
+            "variable": "tau_estimated"
+          }
+        ]
+      }
+    ]
+  }
