@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription" version="0.1">
+	<UnitDefinitions>
+		<Unit name="N">
+			<BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="m/s">
+			<BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="m/s2">
+			<BaseUnit kg="0" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="rad/s">
+			<BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="1.0"/>			
+		</Unit>
+		<Unit name="rad/s2">
+			<BaseUnit kg="0" m="0" s="-2" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="1.0"/>			
+		</Unit>
+	</UnitDefinitions>
+	<VariableGroups>
+		<Force name="craneForce">
+			<Variable ref="additionalNedForce[0].force.north" unit="N"/>			
+			<Variable ref="additionalNedForce[0].force.east" unit="N"/>			
+			<Variable ref="additionalNedForce[0].force.down" unit="N"/>			
+		</Force>
+		<Torque name="loadForce">
+			<Variable ref="additionalNedForce[1].force.north" unit="N"/>			
+			<Variable ref="additionalNedForce[1].force.east" unit="N"/>			
+			<Variable ref="additionalNedForce[1].force.down" unit="N"/>			
+		</Torque>
+		<Force name="tunnelThrForce">
+			<Variable ref="additionalBodyForce[2].force.surge" unit="N"/>			
+			<Variable ref="additionalBodyForce[2].force.sway" unit="N"/>			
+			<Variable ref="additionalBodyForce[2].force.heave" unit="N"/>			
+		</Force>
+		<Force name="azi0ThrForce">
+			<Variable ref="additionalBodyForce[0].force.surge" unit="N"/>			
+			<Variable ref="additionalBodyForce[0].force.sway" unit="N"/>			
+			<Variable ref="additionalBodyForce[0].force.heave" unit="N"/>			
+		</Force>
+		<Force name="azi1ThrForce">
+			<Variable ref="additionalBodyForce[1].force.surge" unit="N"/>			
+			<Variable ref="additionalBodyForce[1].force.sway" unit="N"/>			
+			<Variable ref="additionalBodyForce[1].force.heave" unit="N"/>			
+		</Force>
+		<LinearDisplacement name="cranePos">
+			<Variable ref="additionalNedForce[0].pointOfAttackRel2APAndBL.xpos" unit="m"/>			
+			<Variable ref="additionalNedForce[0].pointOfAttackRel2APAndBL.ypos" unit="m"/>			
+			<Variable ref="additionalNedForce[0].pointOfAttackRel2APAndBL.zpos" unit="m"/>			
+		</LinearDisplacement>
+		<LinearDisplacement name="loadPos">
+			<Variable ref="additionalNedForce[1].pointOfAttackRel2APAndBL.xpos" unit="m"/>			
+			<Variable ref="additionalNedForce[1].pointOfAttackRel2APAndBL.ypos" unit="m"/>			
+			<Variable ref="additionalNedForce[1].pointOfAttackRel2APAndBL.zpos" unit="m"/>			
+		</LinearDisplacement>
+		<LinearDisplacement name="tunnelThrPos">
+			<Variable ref="additionalBodyForce[2].pointOfAttackRel2APAndBL.xpos" unit="m"/>			
+			<Variable ref="additionalBodyForce[2].pointOfAttackRel2APAndBL.ypos" unit="m"/>			
+			<Variable ref="additionalBodyForce[2].pointOfAttackRel2APAndBL.zpos" unit="m"/>			
+		</LinearDisplacement>
+		<LinearDisplacement name="azi1ThrPos">
+			<Variable ref="additionalBodyForce[1].pointOfAttackRel2APAndBL.xpos" unit="m"/>			
+			<Variable ref="additionalBodyForce[1].pointOfAttackRel2APAndBL.ypos" unit="m"/>			
+			<Variable ref="additionalBodyForce[1].pointOfAttackRel2APAndBL.zpos" unit="m"/>			
+		</LinearDisplacement>
+		<LinearDisplacement name="azi0ThrPos">
+			<Variable ref="additionalBodyForce[0].pointOfAttackRel2APAndBL.xpos" unit="m"/>			
+			<Variable ref="additionalBodyForce[0].pointOfAttackRel2APAndBL.ypos" unit="m"/>			
+			<Variable ref="additionalBodyForce[0].pointOfAttackRel2APAndBL.zpos" unit="m"/>			
+		</LinearDisplacement>
+		<LinearDisplacement name="shipCgPosXYZ">
+			<Variable ref="cg_x_rel_ap" unit="m"/>			
+			<Variable ref="cg_y_rel_cl" unit="m"/>			
+			<Variable ref="cg_z_rel_bl" unit="m"/>			
+		</LinearDisplacement>
+		<LinearDisplacement name="shipPositionNED">
+			<Variable ref="cgShipMotion.ned.north" unit="m"/>			
+			<Variable ref="cgShipMotion.ned.east" unit="m"/>			
+			<Variable ref="cgShipMotion.ned.down" unit="m"/>			
+		</LinearDisplacement>
+		<AngularDisplacement name="shipPositionRPY">
+			<Variable ref="cgShipMotion.angularDisplacement.roll" unit="rad"/>			
+			<Variable ref="cgShipMotion.angularDisplacement.pitch" unit="rad"/>			
+			<Variable ref="cgShipMotion.angularDisplacement.yaw" unit="rad"/>			
+		</AngularDisplacement>
+		<LinearVelocity name="shipVelocity ">
+			<Variable ref="cgShipMotion.linearVelocity.surge" unit="m/s"/>			
+			<Variable ref="cgShipMotion.linearVelocity.sway" unit="m/s"/>			
+		</LinearVelocity>
+		<AngularVelocity name="shipVelocityYaw">
+			<Variable ref="cgShipMotion.angularVelocity.yaw" unit="rad/s"/>			
+		</AngularVelocity>
+		<Generic name="shipAccelerationSSY">
+			<Variable ref="cgShipMotion.linearAcceleration.surge" unit="m/s2"/>			
+			<Variable ref="cgShipMotion.linearAcceleration.sway" unit="m/s2"/>			
+			<Variable ref="cgShipMotion.angularAcceleration.yaw" unit="rad/s2"/>			
+		</Generic>
+		<LinearDisplacement name="shipCgPosXY">
+			<Variable ref="cg_x_rel_ap" unit="m"/>			
+			<Variable ref="cg_y_rel_cl" unit="m"/>			
+		</LinearDisplacement>
+		<AngularDisplacement name="shipPosYaw">
+			<Variable ref="cgShipMotion.angularDisplacement.yaw" unit="rad"/>			
+		</AngularDisplacement>
+		<LinearDisplacement name="shipPosNE">
+			<Variable ref="cgShipMotion.ned.north" unit="m"/>			
+			<Variable ref="cgShipMotion.ned.east" unit="m"/>			
+		</LinearDisplacement>
+	</VariableGroups>
+</OspModelDescription>

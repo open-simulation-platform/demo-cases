@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure" version="0.1">
+	<StartTime>0.0</StartTime>
+	<BaseStepSize>1e-3</BaseStepSize>
+	<Algorithm>fixedStep</Algorithm>
+	<Simulators>
+		<Simulator name="VesselFmu" source="fmu-proxy://localhost:9094?guid=b71f76f7-b51e-40d5-affb-f63905622e2b" stepSize="0.05">
+		  <InitialValues>
+                <InitialValue variable="wave_height">
+                    <Real value="0"/>
+                </InitialValue>
+                <InitialValue variable="peak_period">
+                    <Real value="10"/>
+                </InitialValue>
+                <InitialValue variable="wave_direction">
+                    <Real value="135"/>
+                </InitialValue>
+				<InitialValue variable="wave_spectrum">
+                    <Real value="2"/>
+                </InitialValue>
+                <InitialValue variable="global_cur_dir">
+                    <Real value="135"/>
+                </InitialValue>
+                <InitialValue variable="global_cur_vel">
+                    <Real value="0"/>
+                </InitialValue>
+				<InitialValue variable="input_global_wind_dir">
+                    <Real value="135"/>
+                </InitialValue>
+                <InitialValue variable="input_global_wind_vel">
+                    <Real value="0"/>
+                </InitialValue>		
+				<InitialValue variable="vesselZipFile">
+                    <String value="ShipModel.zip"/>
+                </InitialValue>		
+            </InitialValues>
+		</Simulator>
+		<Simulator name="azimuth0" source="fmu-proxy://localhost:9090?guid=74b8f036-accc-45b5-b0ba-44f19fff776a" stepSize="0.05">		
+			<InitialValues>
+                <InitialValue variable="input_enabled">
+                    <Boolean value="true"/>
+                </InitialValue>
+                <InitialValue variable="input_is_main_propulsion">
+                    <Boolean value="true"/>
+                </InitialValue>
+                <InitialValue variable="input_x_rel_ap">
+                    <Real value="1.5"/>
+                </InitialValue>
+				<InitialValue variable="input_y_rel_cl">
+                    <Real value="-2"/>
+                </InitialValue>
+                <InitialValue variable="input_z_rel_bl">
+                    <Real value="0"/>
+                </InitialValue>
+                <InitialValue variable="input_prop_diam">
+                    <Real value="1.9"/>
+                </InitialValue>
+				<InitialValue variable="input_t">
+                    <Real value="0.2"/>
+                </InitialValue>
+                <InitialValue variable="input_distancetohull">
+                    <Real value="1.5"/>
+                </InitialValue>
+				<InitialValue variable="input_bilgeradius">
+                    <Real value="3"/>
+                </InitialValue>
+				<InitialValue variable="input_rho">
+                    <Real value="1025"/>
+                </InitialValue>
+            </InitialValues>
+		</Simulator>
+		<Simulator name="TunnelThruster" source="fmu-proxy://localhost:9093?guid=0b7d74f0-e32e-484d-83c1-edb5fd052cc8" stepSize="0.05">
+			<InitialValues>
+                <InitialValue variable="input_enabled">
+                    <Boolean value="true"/>
+                </InitialValue>
+                <InitialValue variable="input_x_rel_ap">
+                    <Real value="30"/>
+                </InitialValue>
+				<InitialValue variable="input_y_rel_cl">
+                    <Real value="0"/>
+                </InitialValue>
+                <InitialValue variable="input_z_rel_bl">
+                    <Real value="0"/>
+                </InitialValue>
+                <InitialValue variable="input_prop_diam">
+                    <Real value="1"/>
+                </InitialValue>
+				<InitialValue variable="input_max_pitch">
+                    <Real value="1"/>
+                </InitialValue>
+				<InitialValue variable="input_rho">
+                    <Real value="1025"/>
+                </InitialValue>
+            </InitialValues>
+		</Simulator>
+		<Simulator name="azimuth0_drive" source="fmu-proxy://localhost:9090?file=../fmus/ThrusterDrive.fmu" stepSize="0.05">
+		</Simulator>
+		<Simulator name="powerPlant" source="../fmus/PowerPlant.fmu" stepSize="0.05">
+		</Simulator>
+		<Simulator name="dpController" source="../fmus/DPController.fmu" stepSize="0.05">
+			<InitialValues>
+                <InitialValue variable="autopilot.surge.kp">
+                    <Real value="1000"/>
+                </InitialValue>
+                <InitialValue variable="autopilot.surge.ki">
+                    <Real value="10"/>
+                </InitialValue>
+                <InitialValue variable="autopilot.surge.kd">
+                    <Real value="30000"/>
+                </InitialValue>
+				<InitialValue variable="autopilot.sway.kp">
+                    <Real value="500"/>
+                </InitialValue>
+                <InitialValue variable="autopilot.sway.ki">
+                    <Real value="10"/>
+                </InitialValue>
+                <InitialValue variable="autopilot.sway.kd">
+                    <Real value="20000"/>
+                </InitialValue>
+				<InitialValue variable="autopilot.heading.kp">
+                    <Real value="1000"/>
+                </InitialValue>
+                <InitialValue variable="autopilot.heading.ki">
+                    <Real value="10"/>
+                </InitialValue>
+				<InitialValue variable="autopilot.heading.kd">
+                    <Real value="50000"/>
+                </InitialValue>
+				<InitialValue variable="autotune">
+                    <Boolean value="false"/>
+                </InitialValue>
+				<InitialValue variable="enable">
+                    <Boolean value="true"/>
+                </InitialValue>
+				<InitialValue variable="shouldLog">
+                    <Boolean value="false"/>
+                </InitialValue>
+            </InitialValues>
+		</Simulator>
+		<Simulator name="allocator" source="../fmus/ControlAllocatorGIFixedAngles.fmu" stepSize="0.05">
+			<InitialValues>
+          		<InitialValue variable="shouldLog">
+                    <Boolean value="false"/>
+                </InitialValue>
+				<InitialValue variable="enable">
+                    <Boolean value="false"/>
+                </InitialValue>
+            </InitialValues>
+		</Simulator>
+		<Simulator name="waypointProvider" source="../fmus/WaypointProvider3DOF.fmu" stepSize="0.05">
+			<InitialValues>
+                <InitialValue variable="mode">
+                    <Integer value="0"/>
+            	</InitialValue>
+				<InitialValue variable="shouldLog">
+                    <Boolean value="false"/>
+                </InitialValue>
+				<InitialValue variable="input.targetWP.north">
+                    <Real value="0"/>
+                </InitialValue>
+				<InitialValue variable="input.targetWP.east">
+                    <Real value="0"/>
+                </InitialValue>
+                <InitialValue variable="input.targetWP.yaw">
+                    <Real value="0"/>
+                </InitialValue>
+            </InitialValues>
+		</Simulator>
+		<Simulator name="crane" source="../fmus/PalfingerCrane.fmu" stepSize="1e-3">
+			<InitialValues>
+			  <!-- set cog of the crane relative to the ap/cl/bl of the vessel cog -->
+                <InitialValue variable="input_x_rel_ap">
+                    <Real value="5.5166"/>
+                </InitialValue>
+                <InitialValue variable="input_y_rel_cl">
+                    <Real value="-2"/>
+                </InitialValue>
+                <InitialValue variable="input_z_rel_bl">
+                    <Real value="6.624"/>
+                </InitialValue>
+				<!-- set initials the crane actuators --> 
+				<InitialValue variable="input_theta1_init">
+                    <Real value="-1.57"/>
+                </InitialValue>
+				<!-- min/max length of the cylinder from 1.1m to 1.8m 		 -->
+                <InitialValue variable="input_cl1_init">
+                    <Real value="1.1"/>
+                </InitialValue>
+				<!-- min/max length of the cylinder from 1.2m to 1.9m 		 -->
+                <InitialValue variable="input_cl2_init">
+                    <Real value="1.2"/>
+                </InitialValue>
+				<!-- min/max length of the cylinder from 1.5m to 11.5m 		 -->
+				<InitialValue variable="input_cl3_init">
+                    <Real value="1.5"/>
+                </InitialValue>
+            </InitialValues>
+		</Simulator>
+		<Simulator name="observer" source="../fmus/NonlinearPassiveObserver.fmu" stepSize="0.05">
+			<InitialValues>
+                <InitialValue variable="shouldLog">
+                    <Boolean value="false"/>
+                </InitialValue>
+			</InitialValues>
+		</Simulator>
+		<Simulator name="azimuth1_drive" source="fmu-proxy://localhost:9091?file=../fmus/ThrusterDrive.fmu" stepSize="0.05">
+		</Simulator>
+		<Simulator name="tunnel_drive" source="fmu-proxy://localhost:9093?file=../fmus/ThrusterDrive.fmu" stepSize="0.05">
+		</Simulator>
+		<Simulator name="azimuth1" source="fmu-proxy://localhost:9091?guid=74b8f036-accc-45b5-b0ba-44f19fff776a" stepSize="0.05">
+			<InitialValues>
+                <InitialValue variable="input_enabled">
+                    <Boolean value="true"/>
+                </InitialValue>
+                <InitialValue variable="input_is_main_propulsion">
+                    <Boolean value="true"/>
+                </InitialValue>
+                <InitialValue variable="input_x_rel_ap">
+                    <Real value="1.5"/>
+                </InitialValue>
+				<InitialValue variable="input_y_rel_cl">
+                    <Real value="2"/>
+                </InitialValue>
+                <InitialValue variable="input_z_rel_bl">
+                    <Real value="0"/>
+                </InitialValue>
+                <InitialValue variable="input_prop_diam">
+                    <Real value="1.9"/>
+                </InitialValue>
+				<InitialValue variable="input_t">
+                    <Real value="0.2"/>
+                </InitialValue>
+                <InitialValue variable="input_distancetohull">
+                    <Real value="1.5"/>
+                </InitialValue>
+				<InitialValue variable="input_bilgeradius">
+                    <Real value="3"/>
+                </InitialValue>
+				<InitialValue variable="input_rho">
+                    <Real value="1025"/>
+                </InitialValue>
+            </InitialValues>
+		</Simulator>
+	</Simulators>
+	<Connections>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipCgPosXYZ"/>			
+			<VariableGroup simulator="TunnelThruster" name="shipCgPos"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipCgPosXYZ"/>			
+			<VariableGroup simulator="crane" name="shipCgPos"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="waypointProvider" name="refPositionSSY"/>			
+			<VariableGroup simulator="dpController" name="refPositionNEY"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="observer" name="shipPosEstimateNEY"/>			
+			<VariableGroup simulator="dpController" name="shipPosSensorNEY"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipAccelerationSSY"/>			
+			<VariableGroup simulator="dpController" name="shipAccelSensorSSY"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipVelocityYaw"/>			
+			<VariableGroup simulator="dpController" name="shipVelocitySensorYaw"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipVelocity "/>			
+			<VariableGroup simulator="dpController" name="shipVelocitySensor"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="dpController" name="dpCommand"/>			
+			<VariableGroup simulator="allocator" name="desiredForce"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="allocator" name="azi0Angle"/>			
+			<VariableGroup simulator="azimuth0" name="aziAngle"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipVelocityYaw"/>			
+			<VariableGroup simulator="azimuth0" name="shipVelocityYaw"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="azimuth0_drive" name="shaftSpeed"/>			
+			<VariableGroup simulator="azimuth0" name="shaftSpeed"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="azimuth0_drive" name="driveCurrent"/>			
+			<VariableGroup simulator="powerPlant" name="azimuth0Current"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="crane" name="craneForce"/>			
+			<VariableGroup simulator="VesselFmu" name="craneForce"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="crane" name="cranePosition"/>			
+			<VariableGroup simulator="VesselFmu" name="cranePos"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipPositionRPY"/>			
+			<VariableGroup simulator="crane" name="shipPositionRPY"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipPositionNED"/>			
+			<VariableGroup simulator="crane" name="shipPositionNED"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="crane" name="tipPositionShipFrame"/>			
+			<VariableGroup simulator="VesselFmu" name="loadPos"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="TunnelThruster" name="thrusterForce"/>			
+			<VariableGroup simulator="VesselFmu" name="tunnelThrForce"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="azimuth0" name="thrusterForce"/>			
+			<VariableGroup simulator="VesselFmu" name="azi0ThrForce"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="azimuth0" name="thrusterPos"/>			
+			<VariableGroup simulator="VesselFmu" name="azi0ThrPos"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="TunnelThruster" name="thrusterPos"/>			
+			<VariableGroup simulator="VesselFmu" name="tunnelThrPos"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="azimuth1" name="thrusterPos"/>			
+			<VariableGroup simulator="VesselFmu" name="azi1ThrPos"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="azimuth1" name="thrusterForce"/>			
+			<VariableGroup simulator="VesselFmu" name="azi1ThrForce"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="azimuth1" name="shaftTorque"/>			
+			<VariableGroup simulator="azimuth1_drive" name="shaftTorque"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipVelocity "/>			
+			<VariableGroup simulator="TunnelThruster" name="shipCgVel"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipVelocityYaw"/>			
+			<VariableGroup simulator="TunnelThruster" name="shipYawVel"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="tunnel_drive" name="shaftSpeed"/>			
+			<VariableGroup simulator="TunnelThruster" name="shaftSpeed"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="tunnel_drive" name="driveCurrent"/>			
+			<VariableGroup simulator="powerPlant" name="tunnelThCurrent"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="azimuth1_drive" name="driveCurrent"/>			
+			<VariableGroup simulator="powerPlant" name="azimuth1Current"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="powerPlant" name="azimuth0Voltage"/>			
+			<VariableGroup simulator="azimuth0_drive" name="driveVoltage"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="powerPlant" name="azimuth1Voltage"/>			
+			<VariableGroup simulator="azimuth1_drive" name="driveVoltage"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="azimuth0" name="shaftTorque"/>			
+			<VariableGroup simulator="azimuth0_drive" name="shaftTorque"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="TunnelThruster" name="shaftTorque"/>			
+			<VariableGroup simulator="tunnel_drive" name="shaftTorque"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="allocator" name="azi1Angle"/>			
+			<VariableGroup simulator="azimuth1" name="aziAngle"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="allocator" name="azi0Force"/>			
+			<VariableGroup simulator="azimuth0_drive" name="thrustCommand"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="allocator" name="azi1Force"/>			
+			<VariableGroup simulator="azimuth1_drive" name="thrustCommand"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="azimuth1_drive" name="shaftSpeed"/>			
+			<VariableGroup simulator="azimuth1" name="shaftSpeed"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipVelocity "/>			
+			<VariableGroup simulator="azimuth1" name="shipVelocity"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipVelocityYaw"/>			
+			<VariableGroup simulator="azimuth1" name="shipVelocityYaw"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipVelocity "/>			
+			<VariableGroup simulator="azimuth0" name="shipVelocity"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipCgPosXYZ"/>			
+			<VariableGroup simulator="azimuth0" name="shipCgPos"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="allocator" name="allocatedForce"/>			
+			<VariableGroup simulator="observer" name="shipForce"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="allocator" name="allocatedTorque"/>			
+			<VariableGroup simulator="observer" name="shipTorque"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipCgPosXY"/>			
+			<VariableGroup simulator="allocator" name="shipCgPos"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="powerPlant" name="tunnelThVoltage"/>			
+			<VariableGroup simulator="tunnel_drive" name="driveVoltage"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="allocator" name="tunnelForce"/>			
+			<VariableGroup simulator="tunnel_drive" name="thrustCommand"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipPosYaw"/>			
+			<VariableGroup simulator="observer" name="shipPosSensorYaw"/>			
+		</VariableGroupConnection>
+		<VariableGroupConnection>
+			<VariableGroup simulator="VesselFmu" name="shipPosNE"/>			
+			<VariableGroup simulator="observer" name="shipPosSensor"/>			
+		</VariableGroupConnection>
+	</Connections>
+</OspSystemStructure>

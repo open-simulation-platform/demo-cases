@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription" version="0.1">
+	<UnitDefinitions>
+	</UnitDefinitions>
+	<VariableGroups>
+		<Generic name="refPositionSSY">
+			<Variable ref="targetWP.north" unit="m"/>			
+			<Variable ref="targetWP.east" unit="m"/>			
+			<Variable ref="targetWP.yaw" unit="rad"/>			
+		</Generic>
+	</VariableGroups>
+</OspModelDescription>
