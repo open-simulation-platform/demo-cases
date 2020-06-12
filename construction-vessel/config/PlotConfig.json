@@ -1,0 +1,64 @@
+{
+    "plots": [
+      {
+        "label": "Vessel position",
+        "plotType": "scatter",
+        "variables": [
+          {
+            "simulator": "vessel_model",
+            "variable": "ned_position.east"
+          },
+          {
+            "simulator": "vessel_model",
+            "variable": "ned_position.north"
+          }
+        ]
+      },
+      {
+        "label": "DP Force Command",
+        "plotType": "trend",
+        "variables": [
+          {
+            "simulator": "dp_controller",
+            "variable": "force_command.surge"
+          },
+          {
+            "simulator": "dp_controller",
+            "variable": "force_command.sway"
+          },
+          {
+            "simulator": "dp_controller",
+            "variable": "force_command.yaw"
+          }
+        ]
+      },
+      {
+        "label": "Bus Power",
+        "plotType": "trend",
+        "variables": [
+          {
+            "simulator": "power_system",
+            "variable": "total_bus_power[1,1]"
+          },
+          {
+            "simulator": "power_system",
+            "variable": "total_bus_power[1,2]"
+          }
+        ]
+      },
+      {
+        "label": "Winch Load Depth",
+        "plotType": "trend",
+        "variables": [
+          {
+            "simulator": "winch",
+            "variable": "load_depth_setpoint"
+          },
+          {
+            "simulator": "winch",
+            "variable": "load_depth"
+          }
+        ]
+      }
+    ]
+  }
