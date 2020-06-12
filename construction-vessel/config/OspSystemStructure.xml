@@ -11,8 +11,8 @@
         <Simulator name="winch" source="../fmus/winch.fmu" stepSize="0.1"/>
         <Simulator name="wind_model" source="../fmus/wind_model.fmu" stepSize="0.1"/>
         <Simulator name="dp_controller" source="../fmus/dp_controller.fmu" stepSize="0.01"/>
-        <Simulator name="vessel_model" source="../fmus/vessel_model.fmu" stepSize="0.2"/>
-        <Simulator name="reference_model" source="../fmus/dp_reference_model.fmu" stepSize="0.1"/>
+        <Simulator name="vessel_model" source="../fmus/vessel_model.fmu" stepSize="0.01"/>
+        <Simulator name="reference_model" source="../fmus/dp_reference_model.fmu" stepSize="0.01"/>
         <Simulator name="thruster_model" source="../fmus/thruster_model.fmu" stepSize="0.01"/>
         <Simulator name="thrust_allocator" source="../fmus/thrust_allocation.fmu" stepSize="0.01"/>
         <Simulator name="power_system" source="../fmus/power_system.fmu" stepSize="0.1"/>
