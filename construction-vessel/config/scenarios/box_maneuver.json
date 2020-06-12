@@ -1,0 +1,32 @@
+{
+	"defaults": {
+	"action": "override"
+	},
+	"events": [
+		{
+		  "time": 20,
+		  "model": "reference_model",
+		  "variable": "setpoint.north",
+		  "value": 40
+		},
+		{
+		  "time": 120,
+		  "model": "reference_model",
+		  "variable": "setpoint.east",
+		  "value": 40
+		},
+		{
+		  "time": 220,
+		  "model": "reference_model",
+		  "variable": "setpoint.north",
+		  "value": 0
+        },
+		{
+            "time": 320,
+            "model": "reference_model",
+            "variable": "setpoint.east",
+            "value": 0
+        }
+	],
+	"end": 500
+}
