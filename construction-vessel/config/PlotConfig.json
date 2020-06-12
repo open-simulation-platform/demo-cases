@@ -11,6 +11,14 @@
           {
             "simulator": "vessel_model",
             "variable": "ned_position.north"
+          }, 
+          {
+            "simulator": "reference_model",
+            "variable": "filtered_setpoint.east"
+          },
+          {
+            "simulator": "reference_model",
+            "variable": "filtered_setpoint.north"
           }
         ]
       },
