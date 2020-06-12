@@ -1,0 +1,74 @@
+{
+    "plots": [
+      {
+        "label": "Vessel position",
+        "plotType": "scatter",
+        "variables": [
+          {
+            "simulator": "vessel_model",
+            "variable": "Vessel_Position[2]"
+          },
+          {
+            "simulator": "vessel_model",
+            "variable": "Vessel_Position[1]"
+          }, 
+          {
+            "simulator": "reference_model",
+            "variable": "Position_Setpoint[2]"
+          },
+          {
+            "simulator": "reference_model",
+            "variable": "Position_Setpoint[1]"
+          }
+        ]
+      },
+      {
+        "label": "DP Force Command",
+        "plotType": "trend",
+        "variables": [
+          {
+            "simulator": "dp_controller",
+            "variable": "Commanded_Thrust[1]"
+          },
+          {
+            "simulator": "dp_controller",
+            "variable": "Commanded_Thrust[2]"
+          },
+          {
+            "simulator": "dp_controller",
+            "variable": "Commanded_Thrust[3]"
+          }
+        ]
+      },
+      {
+        "label": "Desired Vs. Produced Thrust",
+        "plotType": "trend",
+        "variables": [
+          {
+            "simulator": "dp_controller",
+            "variable": "Commanded_Thrust[1]"
+          },
+          {
+            "simulator": "dp_controller",
+            "variable": "Commanded_Thrust[2]"
+          },
+          {
+            "simulator": "dp_controller",
+            "variable": "Commanded_Thrust[3]"
+          },
+          {
+            "simulator": "thruster_dynamics",
+            "variable": "Thrust[1]"
+          },
+          {
+            "simulator": "thruster_dynamics",
+            "variable": "Thrust[2]"
+          },
+          {
+            "simulator": "thruster_dynamics",
+            "variable": "Thrust[6]"
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,48 @@
+{
+    "plots": [
+      {
+        "label": "Vessel position",
+        "plotType": "scatter",
+        "variables": [
+          {
+            "simulator": "vessel_model",
+            "variable": "Vessel_Position[2]"
+          },
+          {
+            "simulator": "vessel_model",
+            "variable": "Vessel_Position[1]"
+          } 
+        ]
+      },
+      {
+        "label": "Desired Vs. Produced Thrust",
+        "plotType": "trend",
+        "variables": [
+          {
+            "simulator": "control_system_communication",
+            "variable": "Commanded_Thrust[1]"
+          },
+          {
+            "simulator": "control_system_communication",
+            "variable": "Commanded_Thrust[2]"
+          },
+          {
+            "simulator": "control_system_communication",
+            "variable": "Commanded_Thrust[3]"
+          },
+          {
+            "simulator": "thruster_dynamics",
+            "variable": "Thrust[1]"
+          },
+          {
+            "simulator": "thruster_dynamics",
+            "variable": "Thrust[2]"
+          },
+          {
+            "simulator": "thruster_dynamics",
+            "variable": "Thrust[6]"
+          }
+        ]
+      }
+    ]
+  }
