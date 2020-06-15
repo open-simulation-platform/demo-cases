@@ -1,0 +1,28 @@
+{
+    "plots": [
+      {
+        "label": "Winch Speed",
+        "plotType": "trend",
+        "variables": [
+          {
+            "simulator": "winch",
+            "variable": "motorSpeed.om"
+          },
+          {
+            "simulator": "winch_actuator_setpoint",
+            "variable": "winchSetpoint"
+          }
+        ]
+      },
+      {
+        "label": "Load Depth",
+        "plotType": "trend",
+        "variables": [
+          {
+            "simulator": "winch",
+            "variable": "loadDepth.y"
+          }
+        ]
+      }
+    ]
+  }
