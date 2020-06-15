@@ -12,7 +12,31 @@
         <Simulator name="a_frame_actuator" source="../fmus/AFrameActuator.fmu" stepSize="0.001"/>
         <Simulator name="a_frame_controller" source="../fmus/AFrameController.fmu" stepSize="0.001"/>
         <Simulator name="a_frame_actuator_setpoint" source="../fmus/AFrameActuatorSetpoint.fmu" stepSize="0.001"/>
-        <Simulator name="fiber_rope_winch" source="../fmus/Winch.fmu" stepSize="0.001"/>
+        <Simulator name="winch" source="../fmus/Winch.fmu" stepSize="0.001">
+            <InitialValues>
+                    <InitialValue variable="lm">
+                        <Real value="500"/>
+                    </InitialValue>
+                            <InitialValue variable="D">
+                        <Real value="1.36"/>
+                    </InitialValue>
+                <InitialValue variable="gr">
+                        <Real value="141"/>
+                    </InitialValue>
+                <InitialValue variable="dI">
+                        <Real value="1600"/>
+                    </InitialValue>
+                <InitialValue variable="ild">
+                        <Real value="200"/>
+                    </InitialValue>
+                <InitialValue variable="geff">
+                        <Real value="0.925"/>
+                    </InitialValue>
+                <InitialValue variable="sD">
+                        <Real value="1.1"/>
+                    </InitialValue>						
+            </InitialValues>
+        </Simulator>
         <Simulator name="winch_actuator" source="../fmus/WinchActuator.fmu" stepSize="0.001"/>
         <Simulator name="winch_actuator_setpoint" source="../fmus/WinchActuatorSetpoint.fmu" stepSize="0.001"/>
         <Simulator name="winch_controller" source="../fmus/WinchController.fmu" stepSize="0.001"/>
@@ -56,38 +80,38 @@
         </VariableGroupConnection>
 
         <VariableGroupConnection>
-            <VariableGroup simulator="fiber_rope_winch" name="load_depth"/>
+            <VariableGroup simulator="winch" name="load_depth"/>
             <VariableGroup simulator="winch_controller" name="load_depth"/>
         </VariableGroupConnection>
 
         
         <VariableGroupConnection>
             <VariableGroup simulator="winch_actuator" name="motor_torque"/>
-            <VariableGroup simulator="fiber_rope_winch" name="torque_motor_1"/>
+            <VariableGroup simulator="winch" name="torque_motor_1"/>
         </VariableGroupConnection>
 
         <VariableGroupConnection>
             <VariableGroup simulator="winch_actuator" name="motor_torque"/>
-            <VariableGroup simulator="fiber_rope_winch" name="torque_motor_2"/>
+            <VariableGroup simulator="winch" name="torque_motor_2"/>
         </VariableGroupConnection>
 
         <VariableGroupConnection>
             <VariableGroup simulator="winch_actuator" name="motor_torque"/>
-            <VariableGroup simulator="fiber_rope_winch" name="torque_motor_3"/>
+            <VariableGroup simulator="winch" name="torque_motor_3"/>
         </VariableGroupConnection>
 
         <VariableGroupConnection>
-            <VariableGroup simulator="fiber_rope_winch" name="motor_speed"/>
+            <VariableGroup simulator="winch" name="motor_speed"/>
             <VariableGroup simulator="winch_actuator" name="motor_speed"/>
         </VariableGroupConnection>
 
         <VariableGroupConnection>
-            <VariableGroup simulator="fiber_rope_winch" name="motor_speed"/>
+            <VariableGroup simulator="winch" name="motor_speed"/>
             <VariableGroup simulator="winch_controller" name="motor_speed"/>
         </VariableGroupConnection>
 
         <VariableGroupConnection>
-            <VariableGroup simulator="fiber_rope_winch" name="drum_F1"/>
+            <VariableGroup simulator="winch" name="drum_F1"/>
             <VariableGroup simulator="a_frame" name="winch_force"/>
         </VariableGroupConnection>
         

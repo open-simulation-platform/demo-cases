@@ -3,19 +3,19 @@
     <VariableGroups>
         
         <Generic name="load_depth">
-            <Variable ref="loadDepth"/>
+            <Variable ref="loadDepth.y"/>
         </Generic>
 
         <Generic name="torque_motor_1">
-            <Variable ref="motorTorque1"/>
+            <Variable ref="torqueMotor1.in1"/>
         </Generic>
         
         <Generic name="torque_motor_2">
-            <Variable ref="motorTorque2"/>
+            <Variable ref="torqueMotor2.in1"/>
         </Generic>
 
         <Generic name="torque_motor_3">
-            <Variable ref="motorTorque3"/>
+            <Variable ref="torqueMotor3.in1"/>
         </Generic>
 
         <Generic name="vessel_heave">
@@ -23,11 +23,11 @@
         </Generic>
 
         <Generic name="motor_speed">
-            <Variable ref="motorSpeed"/>
+            <Variable ref="motorSpeed.om"/>
         </Generic>
 
         <Generic name="drum_F1">
-            <Variable ref="winchForce"/>
+            <Variable ref="drum.F1"/>
         </Generic>
 
     </VariableGroups>
