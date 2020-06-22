@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
     <VariableGroups>
         
         <Generic name="force_command">
-            <Variable ref="force_command.surge"/>
-            <Variable ref="force_command.sway"/>
-            <Variable ref="force_command.yaw"/>
+            <Force name="linear_force_command">
+                <Variable ref="force_command.surge"/>
+                <Variable ref="force_command.sway"/>
+            </Force>
+            <Torque name="angular_torque_command">
+                <Variable ref="force_command.yaw"/>
+            </Torque>
         </Generic>
+
         <Generic name="tunnel_thruster_1_command">
             <Variable ref="thrust_command.tunnel_thruster_1.rpm"/>        
         </Generic>
@@ -18,11 +23,15 @@
         </Generic>
         <Generic name="main_propeller_port_command">
             <Variable ref="thrust_command.main_propeller_port.rpm"/>
-            <Variable ref="thrust_command.main_propeller_port.azimuth"/>
+            <AzimuthAngle name="main_propeller_port_azimuth">
+                <Variable ref="thrust_command.main_propeller_port.azimuth"/>
+            </AzimuthAngle>
         </Generic>
         <Generic name="main_propeller_starboard_command">
             <Variable ref="thrust_command.main_propeller_starboard.rpm"/>
-            <Variable ref="thrust_command.main_propeller_starboard.azimuth"/>
-        </Generic>
+            <AzimuthAngle name="main_propeller_starboard_azimuth">
+                <Variable ref="thrust_command.main_propeller_starboard.azimuth"/>
+            </AzimuthAngle>        
+            </Generic>
     </VariableGroups>
 </OspModelDescription>

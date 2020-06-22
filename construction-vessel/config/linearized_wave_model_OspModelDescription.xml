@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
     <VariableGroups>
         
         <Generic name="first_order_disturbances">
-            <Variable ref="first_order_disturbances.north"/>
-            <Variable ref="first_order_disturbances.east"/>
-            <Variable ref="first_order_disturbances.down"/>
-            <Variable ref="first_order_disturbances.roll"/>
-            <Variable ref="first_order_disturbances.pitch"/>
-            <Variable ref="first_order_disturbances.yaw"/>
+            <LinearDisplacement name="first_order_linear_disturbance">
+                <Variable ref="first_order_disturbances.north"/>
+                <Variable ref="first_order_disturbances.east"/>
+                <Variable ref="first_order_disturbances.down"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="first_order_angular_displacement">
+                <Variable ref="first_order_disturbances.roll"/>
+                <Variable ref="first_order_disturbances.pitch"/>
+                <Variable ref="first_order_disturbances.yaw"/>
+            </AngularDisplacement>
         </Generic>
 
         <Generic name="drift_disturbances">
-            <Variable ref="drift_disturbances.north"/>
-            <Variable ref="drift_disturbances.east"/>
-            <Variable ref="drift_disturbances.down"/>
-            <Variable ref="drift_disturbances.roll"/>
-            <Variable ref="drift_disturbances.pitch"/>
-            <Variable ref="drift_disturbances.yaw"/>
+            <LinearDisplacement name="drift_linear_disturbance">
+                <Variable ref="drift_disturbances.north"/>
+                <Variable ref="drift_disturbances.east"/>
+                <Variable ref="drift_disturbances.down"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="drift_angular_displacement">
+                <Variable ref="drift_disturbances.roll"/>
+                <Variable ref="drift_disturbances.pitch"/>
+                <Variable ref="drift_disturbances.yaw"/>
+            </AngularDisplacement>
         </Generic>
     </VariableGroups>
 </OspModelDescription>

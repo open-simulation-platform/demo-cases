@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
     <VariableGroups>
         
         <Generic name="vessel_setpoint">
-            <Variable ref="setpoint.north"/>
-            <Variable ref="setpoint.east"/>
-            <Variable ref="setpoint.yaw"/>
+            <LinearDisplacement name="linear_setpoint">
+                <Variable ref="setpoint.north"/>
+                <Variable ref="setpoint.east"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angular_setpoint">
+                <Variable ref="setpoint.yaw"/>
+            </AngularDisplacement>
         </Generic>
 
         <Generic name="filtered_vessel_setpoint">
-            <Variable ref="filtered_setpoint.north"/>
-            <Variable ref="filtered_setpoint.east"/>
-            <Variable ref="filtered_setpoint.yaw"/>
+            <LinearDisplacement name="filtered_linear_setpoint">
+                <Variable ref="filtered_setpoint.north"/>
+                <Variable ref="filtered_setpoint.east"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="filtered_angular_setpoint">
+                <Variable ref="filtered_setpoint.yaw"/>
+            </AngularDisplacement>
         </Generic>
     </VariableGroups>
 </OspModelDescription>

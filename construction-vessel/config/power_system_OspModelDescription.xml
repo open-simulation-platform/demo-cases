@@ -1,41 +1,73 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
     <VariableGroups>
-        
+    
         <Generic name="bus_1_loads">
-            <Variable ref="bus_1_loads.active_power"/>
             <Variable ref="bus_1_loads.reactive_power"/>
-        </Generic>
-        <Generic name="bus_2_loads">
-            <Variable ref="bus_2_loads.active_power"/>
-            <Variable ref="bus_2_loads.reactive_power"/>
-        </Generic>
-        
-        <Generic name="winch_power">
-            <Variable ref="bus_1_loads.active_power"/>
+            <ElectricPower name="bus_1_active_power">
+                <Variable ref="bus_1_loads.active_power"/>
+            </ElectricPower>
         </Generic>
 
+        <Generic name="bus_2_loads">
+            <Variable ref="bus_2_loads.reactive_power"/>
+            <ElectricPower name="bus_2_active_power">
+                <Variable ref="bus_2_loads.active_power"/>
+            </ElectricPower>
+        </Generic>
+        
         <Generic name="tunnel_thruster_1">
-            <Variable ref="thruster_states.tunnel_thruster_1.power_consumption"/>
-            <Variable ref="thruster_states.tunnel_thruster_1.thrust"/>
+            <Force name="tunnel_thruster_1_thrust">
+                <Variable ref="thruster_states.tunnel_thruster_1.thrust"/>
+            </Force>
+            <ElectricPower name="tunnel_thruster_1_power_consumption">
+                <Variable ref="thruster_states.tunnel_thruster_1.power_consumption"/>
+            </ElectricPower>
         </Generic>
         <Generic name="tunnel_thruster_2">
-            <Variable ref="thruster_states.tunnel_thruster_2.power_consumption"/>
-            <Variable ref="thruster_states.tunnel_thruster_2.thrust"/>
+            <Force name="tunnel_thruster_2_thrust">
+                <Variable ref="thruster_states.tunnel_thruster_2.thrust"/>
+            </Force>
+            <ElectricPower name="tunnel_thruster_2_power">
+                <Variable ref="thruster_states.tunnel_thruster_2.power_consumption"/>
+            </ElectricPower>
         </Generic>
         <Generic name="tunnel_thruster_3">
-            <Variable ref="thruster_states.tunnel_thruster_3.power_consumption"/>
-            <Variable ref="thruster_states.tunnel_thruster_3.thrust"/>
+            <Force name="tunnel_thruster_3_thrust">
+                <Variable ref="thruster_states.tunnel_thruster_3.thrust"/>
+            </Force>
+            <ElectricPower name="tunnel_thruster_3_power">
+                <Variable ref="thruster_states.tunnel_thruster_3.power_consumption"/>
+            </ElectricPower>
         </Generic>
+
         <Generic name="main_propeller_port">
-            <Variable ref="thruster_states.main_propeller_port.power_consumption"/>
-            <Variable ref="thruster_states.main_propeller_port.thrust"/>
-            <Variable ref="thruster_states.main_propeller_port.azimuth"/>
+            <Force name="main_propeller_port_thrust">
+                <Variable ref="thruster_states.main_propeller_port.thrust"/>
+            </Force>
+            <ElectricPower name="main_propeller_port_power">
+                <Variable ref="thruster_states.main_propeller_port.power_consumption"/>
+            </ElectricPower>
+            <AzimuthAngle name="main_propeller_port_azimuth">
+                <Variable ref="thruster_states.main_propeller_port.azimuth"/>
+            </AzimuthAngle>
         </Generic>
+        
         <Generic name="main_propeller_starboard">
-            <Variable ref="thruster_states.main_propeller_starboard.power_consumption"/>
-            <Variable ref="thruster_states.main_propeller_starboard.thrust"/>
-            <Variable ref="thruster_states.main_propeller_starboard.azimuth"/>
+            <Force name="main_propeller_starboard_thrust">
+                <Variable ref="thruster_states.main_propeller_starboard.thrust"/>
+            </Force>
+            <ElectricPower name="main_propeller_starboard_power">
+                <Variable ref="thruster_states.main_propeller_starboard.power_consumption"/>
+            </ElectricPower>
+            <AzimuthAngle name="main_propeller_starboard_azimuth">
+                <Variable ref="thruster_states.main_propeller_starboard.azimuth"/>
+            </AzimuthAngle>
         </Generic>
+
+        <ElectricPower name="winch_power">
+                <Variable ref="bus_1_loads.active_power"/>
+        </ElectricPower>
+
     </VariableGroups>
 </OspModelDescription>

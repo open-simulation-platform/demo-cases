@@ -1,68 +1,107 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription"
-                    version="0.1">
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
     <VariableGroups>
         <Generic name="wind_forces">
-            <Variable ref="wind_forces.surge"/>
-            <Variable ref="wind_forces.sway"/>
-            <Variable ref="wind_forces.heave"/>
-            <Variable ref="wind_forces.roll"/>
-            <Variable ref="wind_forces.pitch"/>
-            <Variable ref="wind_forces.yaw"/>
+            <Force name="linear_wind_force">
+                <Variable ref="wind_forces.surge"/>
+                <Variable ref="wind_forces.sway"/>
+                <Variable ref="wind_forces.heave"/>
+            </Force>
+            <Torque name="angular_wind_force">
+                <Variable ref="wind_forces.roll"/>
+                <Variable ref="wind_forces.pitch"/>
+                <Variable ref="wind_forces.yaw"/>
+            </Torque>
         </Generic>
         
         <Generic name="wave_forces">
-            <Variable ref="wave_forces.surge"/>
-            <Variable ref="wave_forces.sway"/>
-            <Variable ref="wave_forces.heave"/>
-            <Variable ref="wave_forces.roll"/>
-            <Variable ref="wave_forces.pitch"/>
-            <Variable ref="wave_forces.yaw"/>
+            <Force name="linear_wave_force">
+                <Variable ref="wave_forces.surge"/>
+                <Variable ref="wave_forces.sway"/>
+                <Variable ref="wave_forces.heave"/>
+            </Force>
+            <Torque name="angular_wave_force">
+                <Variable ref="wave_forces.roll"/>
+                <Variable ref="wave_forces.pitch"/>
+                <Variable ref="wave_forces.yaw"/>
+            </Torque>
         </Generic>
 
         <Generic name="tunnel_thruster_1">
-            <Variable ref="thruster_states.tunnel_thruster_1.power_consumption"/>
-            <Variable ref="thruster_states.tunnel_thruster_1.thrust"/>
+            <Force name="tunnel_thruster_1_thrust">
+                <Variable ref="thruster_states.tunnel_thruster_1.thrust"/>
+            </Force>
+            <ElectricPower name="tunnel_thruster_1_power">
+                <Variable ref="thruster_states.tunnel_thruster_1.power_consumption"/>
+            </ElectricPower>
         </Generic>
         
         <Generic name = "tunnel_thruster_2">
-            <Variable ref="thruster_states.tunnel_thruster_2.power_consumption"/>
-            <Variable ref="thruster_states.tunnel_thruster_2.thrust"/>
+            <Force name="tunnel_thruster_2_thrust">
+                <Variable ref="thruster_states.tunnel_thruster_2.thrust"/>
+            </Force>
+            <ElectricPower name="tunnel_thruster_2_power">
+                <Variable ref="thruster_states.tunnel_thruster_2.power_consumption"/>
+            </ElectricPower>
         </Generic>
         
         <Generic name="tunnel_thruster_3">
-            <Variable ref="thruster_states.tunnel_thruster_3.power_consumption"/>
-            <Variable ref="thruster_states.tunnel_thruster_3.thrust"/>
+            <Force name="tunnel_thruster_3_thrust">
+                <Variable ref="thruster_states.tunnel_thruster_3.thrust"/>
+            </Force>
+            <ElectricPower name="tunnel_thruster_3_power">
+                <Variable ref="thruster_states.tunnel_thruster_3.power_consumption"/>
+            </ElectricPower>
         </Generic>
         
         <Generic name="main_propeller_port">
-            <Variable ref="thruster_states.main_propeller_port.power_consumption"/>
-            <Variable ref="thruster_states.main_propeller_port.thrust"/>
-            <Variable ref="thruster_states.main_propeller_port.azimuth"/>
+            <Force name="main_propeller_port_thrust">
+                <Variable ref="thruster_states.main_propeller_port.thrust"/>
+            </Force>
+            <ElectricPower name="main_propeller_port_power">            
+                <Variable ref="thruster_states.main_propeller_port.power_consumption"/>
+            </ElectricPower>
+            <AzimuthAngle name="main_propeller_port_azimuth">
+                <Variable ref="thruster_states.main_propeller_port.azimuth"/>
+            </AzimuthAngle>
         </Generic>
         
         <Generic name="main_propeller_starboard">
-            <Variable ref="thruster_states.main_propeller_starboard.power_consumption"/>
-            <Variable ref="thruster_states.main_propeller_starboard.thrust"/>
-            <Variable ref="thruster_states.main_propeller_starboard.azimuth"/>
+            <Force name="main_propeller_starboard_thrust">
+                <Variable ref="thruster_states.main_propeller_starboard.thrust"/>
+            </Force>
+            <ElectricPower name="main_propeller_starboard_power">            
+                <Variable ref="thruster_states.main_propeller_starboard.power_consumption"/>
+            </ElectricPower>
+            <AzimuthAngle name="main_propeller_starboard_azimuth">
+                <Variable ref="thruster_states.main_propeller_starboard.azimuth"/>
+            </AzimuthAngle>
         </Generic>
         
         <Generic name="ned_position">
-            <Variable ref="ned_position.north"/>
-            <Variable ref="ned_position.east"/>
-            <Variable ref="ned_position.down"/>
-            <Variable ref="ned_position.roll"/>
-            <Variable ref="ned_position.pitch"/>
-            <Variable ref="ned_position.yaw"/>
+            <LinearDisplacement name="linear_position">
+                <Variable ref="ned_position.north"/>
+                <Variable ref="ned_position.east"/>
+                <Variable ref="ned_position.down"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angular_position">
+                <Variable ref="ned_position.roll"/>
+                <Variable ref="ned_position.pitch"/>
+                <Variable ref="ned_position.yaw"/>
+            </AngularDisplacement>
         </Generic>
 
         <Generic name="body_velocity">
-            <Variable ref="body_velocity.surge"/>
-            <Variable ref="body_velocity.sway"/>
-            <Variable ref="body_velocity.heave"/>
-            <Variable ref="body_velocity.roll"/>
-            <Variable ref="body_velocity.pitch"/>
-            <Variable ref="body_velocity.yaw"/>
+            <LinearVelocity name="linear_velocity">
+                <Variable ref="body_velocity.surge"/>
+                <Variable ref="body_velocity.sway"/>
+                <Variable ref="body_velocity.heave"/>
+            </LinearVelocity>
+            <AngularVelocity name="angular_velocity">
+                <Variable ref="body_velocity.roll"/>
+                <Variable ref="body_velocity.pitch"/>
+                <Variable ref="body_velocity.yaw"/>
+            </AngularVelocity>
         </Generic>
 
     </VariableGroups>

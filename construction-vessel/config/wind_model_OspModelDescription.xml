@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
     <VariableGroups>
+
         <Generic name="ned_position">
-            <Variable ref="vessel_position.north"/>
-            <Variable ref="vessel_position.east"/>
-            <Variable ref="vessel_position.down"/>
-            <Variable ref="vessel_position.roll"/>
-            <Variable ref="vessel_position.pitch"/>
-            <Variable ref="vessel_position.yaw"/>
-        </Generic>    
+            <LinearDisplacement name="linear_position">
+                <Variable ref="vessel_position.north"/>
+                <Variable ref="vessel_position.east"/>
+                <Variable ref="vessel_position.down"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angular_position">
+                <Variable ref="vessel_position.roll"/>
+                <Variable ref="vessel_position.pitch"/>
+                <Variable ref="vessel_position.yaw"/>
+            </AngularDisplacement>
+        </Generic>   
+  
         <Generic name="vessel_velocity">
-            <Variable ref="vessel_velocity.surge"/>
-            <Variable ref="vessel_velocity.sway"/>
-            <Variable ref="vessel_velocity.heave"/>
-            <Variable ref="vessel_velocity.roll"/>
-            <Variable ref="vessel_velocity.pitch"/>
-            <Variable ref="vessel_velocity.yaw"/>
+            <LinearVelocity name="linear_velocity">
+                <Variable ref="vessel_velocity.surge"/>
+                <Variable ref="vessel_velocity.sway"/>
+                <Variable ref="vessel_velocity.heave"/>
+            </LinearVelocity>
+            <AngularVelocity name="angular_velocity">
+                <Variable ref="vessel_velocity.roll"/>
+                <Variable ref="vessel_velocity.pitch"/>
+                <Variable ref="vessel_velocity.yaw"/>
+            </AngularVelocity>
         </Generic>
+
         <Generic name="wind_forces">
-            <Variable ref="wind_forces.surge"/>
-            <Variable ref="wind_forces.sway"/>
-            <Variable ref="wind_forces.heave"/>
-            <Variable ref="wind_forces.roll"/>
-            <Variable ref="wind_forces.pitch"/>
-            <Variable ref="wind_forces.yaw"/>
+            <Force name="linear_wind_force">
+                <Variable ref="wind_forces.surge"/>
+                <Variable ref="wind_forces.sway"/>
+                <Variable ref="wind_forces.heave"/>
+            </Force>
+            <Torque name="angular_wind_force">
+                <Variable ref="wind_forces.roll"/>
+                <Variable ref="wind_forces.pitch"/>
+                <Variable ref="wind_forces.yaw"/>
+            </Torque>
         </Generic>
     </VariableGroups>
 </OspModelDescription>

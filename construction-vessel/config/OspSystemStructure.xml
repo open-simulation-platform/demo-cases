@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<OspSystemStructure
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://opensimulationplatform.com/MSMI/OSPSystemStructure ../../../src/cpp/xsd/OspSystemStructure.xsd"
-        xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure"
-        version="0.1">
+<OspSystemStructure version="0.1" xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure">
     <StartTime>0.0</StartTime>
     <BaseStepSize>0.01</BaseStepSize>
     <Algorithm>fixedStep</Algorithm>

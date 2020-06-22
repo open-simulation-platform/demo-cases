@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
     <VariableGroups>
         
         <Generic name="ned_position">
-            <Variable ref="vessel_position.north"/>
-            <Variable ref="vessel_position.east"/>
-            <Variable ref="vessel_position.down"/>
-            <Variable ref="vessel_position.roll"/>
-            <Variable ref="vessel_position.pitch"/>
-            <Variable ref="vessel_position.yaw"/>
+            <LinearDisplacement name="linear_position">
+                <Variable ref="vessel_position.north"/>
+                <Variable ref="vessel_position.east"/>
+                <Variable ref="vessel_position.down"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angular_position">
+                <Variable ref="vessel_position.roll"/>
+                <Variable ref="vessel_position.pitch"/>
+                <Variable ref="vessel_position.yaw"/>
+            </AngularDisplacement>
         </Generic>
 
         <Generic name="vessel_setpoint">
-            <Variable ref="vessel_setpoint.north"/>
-            <Variable ref="vessel_setpoint.east"/>
-            <Variable ref="vessel_setpoint.yaw"/>
+            <LinearDisplacement name="linear_setpoint">
+                <Variable ref="vessel_setpoint.north"/>
+                <Variable ref="vessel_setpoint.east"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angular_setpoint">
+                <Variable ref="vessel_setpoint.yaw"/>
+            </AngularDisplacement>
         </Generic>
 
         <Generic name="force_command">
-            <Variable ref="force_command.surge"/>
-            <Variable ref="force_command.sway"/>
-            <Variable ref="force_command.yaw"/>
+            <Force name="linear_force_command">
+                <Variable ref="force_command.surge"/>
+                <Variable ref="force_command.sway"/>
+            </Force>
+            <Torque name="angular_force_command">
+                <Variable ref="force_command.yaw"/>
+            </Torque>
         </Generic>
 
     </VariableGroups>
