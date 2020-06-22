@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
     
     <UnitDefinitions>
         <Unit name="m">
@@ -63,7 +63,7 @@
             </AngularVelocity>
         </Generic>
         
-        <Generic name="acceleration_setpoint" type="acceleration_3dof">
+        <Generic name="acceleration_setpoint">
             <LinearAcceleration name="linear_acceleration_setpoint">
                 <Variable ref="Acceleration_Setpoint[1]"/>
                 <Variable ref="Acceleration_Setpoint[2]"/>
@@ -73,7 +73,7 @@
             </AngularAcceleration>
         </Generic>
 
-        <Generic name="thrust_command" type="dp_thrust_command">
+        <Generic name="thrust_command">
             <Force name="linear_thrust_command">
                 <Variable ref="Commanded_Thrust[1]" unit="N"/>
                 <Variable ref="Commanded_Thrust[2]" unit="N"/>

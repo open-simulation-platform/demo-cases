@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
     
     <UnitDefinitions>
         <Unit name="m">
@@ -34,7 +34,7 @@
             </AngularDisplacement>
         </Generic>
 
-        <Generic name="velocity_3dof" type="velocity_3dof">
+        <Generic name="velocity_3dof">
             <LinearVelocity name="linear_vessel_velocity">
                 <Variable ref="Measured_Velocity[1]" unit="m/s"/>
                 <Variable ref="Measured_Velocity[2]" unit="m/s"/>
@@ -44,7 +44,7 @@
             </AngularVelocity>
         </Generic>
 
-        <Generic name="acceleration_3dof" type="acceleration_3dof">
+        <Generic name="acceleration_3dof">
             <LinearAcceleration name="linear_vessel_acceleration">    
                 <Variable ref="Measured_Acceleration[1]"/>
                 <Variable ref="Measured_Acceleration[2]"/>

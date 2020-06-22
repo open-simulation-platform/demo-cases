@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
         
     <UnitDefinitions>
         <Unit name="m">
@@ -23,7 +23,7 @@
     </UnitDefinitions>
     
     <VariableGroups>
-        <Generic name="current_velocity" type="current_velocity_6dof">
+        <Generic name="current_velocity">
             <LinearVelocity name="linear_current_velocity">
                 <Variable ref="Current_Velocity[1]" unit="m/s"/>
                 <Variable ref="Current_Velocity[2]" unit="m/s"/>
