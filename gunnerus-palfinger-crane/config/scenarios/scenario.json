@@ -5,13 +5,13 @@
 	"events": [
 		{
 		  "time": 49,
-		  "model": "vesselModel",
+		  "model": "VesselFmu",
 		  "variable": "reset_position",
 		  "value": true
 		},
 		{
 		  "time": 50,
-		  "model": "vesselModel",
+		  "model": "VesselFmu",
 		  "variable": "reset_position",
 		  "value": false
 		},
@@ -27,6 +27,12 @@
 		  "variable": "enable",
 		  "value": true
 		},
+		{
+			"time": 50,
+			"model": "crane",
+			"variable": "release",
+			"value": true
+		 },		 
 		{
 		  "time": 200,
 		  "model": "crane",
