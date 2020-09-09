@@ -1,0 +1,23 @@
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
+  <UnitDefinitions>
+    <Unit name="kilo_newton">
+      <BaseUnit kg="1" m="1" s="-2" factor="1e-3"/>
+    </Unit>
+    <Unit name="meter_per_second">
+      <BaseUnit m="1" s="-1"/>
+    </Unit>
+  </UnitDefinitions>
+
+  <VariableGroups>
+    <LinearMechanicalPort name="mass_connector">
+      <Force name="force">
+        <Variable ref="df_0" unit="kilo_newton"/>
+        <Variable ref="df_1" unit="kilo_newton"/>
+      </Force>
+      <LinearVelocity name="linear_velocity">
+        <Variable ref="lv_0" unit="meter_per_second"/>
+        <Variable ref="lv_1" unit="meter_per_second"/>
+      </LinearVelocity>
+    </LinearMechanicalPort>
+  </VariableGroups>
+</OspModelDescription>

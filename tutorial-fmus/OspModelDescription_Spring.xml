@@ -1,0 +1,23 @@
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
+  <UnitDefinitions>
+    <Unit name="newton">
+      <BaseUnit kg="1" m="1" s="-2"/>
+    </Unit>
+    <Unit name="meter">
+      <BaseUnit m="1"/>
+    </Unit>
+  </UnitDefinitions>
+
+  <VariableGroups>
+    <LinearMechanicalQuasiPort name="mass_connector">
+      <Force name="force">
+        <Variable ref="for_xx" unit="newton"/>
+        <Variable ref="for_yx" unit="newton"/>
+      </Force>
+      <LinearDisplacement name="linear_position">
+        <Variable ref="dis_xx" unit="meter"/>
+        <Variable ref="dis_yx" unit="meter"/>
+      </LinearDisplacement>
+    </LinearMechanicalQuasiPort>
+  </VariableGroups>
+</OspModelDescription>

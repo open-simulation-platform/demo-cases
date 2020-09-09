@@ -1,0 +1,37 @@
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
+  <UnitDefinitions>
+    <Unit name="newton">
+      <BaseUnit kg="1" m="1" s="-2"/>
+    </Unit>
+    <Unit name="miles_per_hour">
+      <BaseUnit m="1" s="-1" factor="4.4704e-1"/>
+    </Unit>
+    <Unit name="feet">
+      <BaseUnit m="1" factor="3.048e-1"/>
+    </Unit>
+  </UnitDefinitions>
+
+  <VariableGroups>
+    <LinearMechanicalPort name="damper_connector">
+      <Force name="damper_force">
+        <Variable ref="in_f_u" unit="newton"/>
+        <Variable ref="in_f_w" unit="newton"/>
+      </Force>
+      <LinearVelocity name="linear_velocity">
+        <Variable ref="out_f_u" unit="miles_per_hour"/>
+        <Variable ref="out_f_w" unit="miles_per_hour"/>
+      </LinearVelocity>
+    </LinearMechanicalPort>
+
+    <LinearMechanicalQuasiPort name="spring_connector">
+      <Force name="spring_force">
+        <Variable ref="in_l_u" unit="newton"/>
+        <Variable ref="in_l_w" unit="newton"/>
+      </Force>
+      <LinearDisplacement name="linear_position">
+        <Variable ref="out_l_u" unit="feet"/>
+        <Variable ref="out_l_w" unit="feet"/>
+      </LinearDisplacement>
+    </LinearMechanicalQuasiPort>
+  </VariableGroups>
+</OspModelDescription>
