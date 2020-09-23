@@ -8,9 +8,9 @@
 <!--        <Simulator name="mass" source="Mass.fmu"/>-->
 <!--    </Simulators>-->
     <Simulators>
-        <Simulator name="spring" source="fmu-proxy://localhost:9091?file=Spring.fmu" />
-        <Simulator name="damper" source="fmu-proxy://localhost:9091?file=Damper.fmu"/>
-        <Simulator name="mass" source="fmu-proxy://localhost:9091?file=Mass.fmu"/>
+        <Simulator name="spring" source="Spring.fmu" />
+        <Simulator name="damper" source="Damper.fmu"/>
+        <Simulator name="mass" source="Mass.fmu"/>
     </Simulators>
 
     <Connections>
