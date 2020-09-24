@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure"
+                    version="0.1">
+    <BaseStepSize>0.01</BaseStepSize>
+    <Simulators>
+        <Simulator name="spring" source="Spring.fmu">
+            <InitialValues>
+                <InitialValue variable="springStiffness">
+                    <Real value="5.0"/>
+                </InitialValue>
+                <InitialValue variable="zeroForceLength">
+                    <Real value="5.0"/>
+                </InitialValue>
+            </InitialValues>
+        </Simulator>
+        
+        <Simulator name="damper" source="Damper.fmu">
+            <InitialValues>
+                <InitialValue variable="dampingCoefficient">
+                    <Real value="2.0"/>
+                </InitialValue>
+            </InitialValues>
+        </Simulator>
+        
+        <Simulator name="mass" source="Mass.fmu">
+            <InitialValues>
+                <InitialValue variable="initialPositionX">
+                    <Real value="5.0"/>
+                </InitialValue>
+                <InitialValue variable="mediumDensity">
+                    <Real value="1.0"/>
+                </InitialValue>
+            </InitialValues>
+        </Simulator>
+    </Simulators>
+
+    <Connections>
+        <VariableGroupConnection>
+            <VariableGroup simulator="spring" name="mass_connector"/>
+            <VariableGroup simulator="mass" name="spring_connector"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="damper" name="mass_connector"/>
+            <VariableGroup simulator="mass" name="damper_connector"/>
+        </VariableGroupConnection>
+    </Connections>
+</OspSystemStructure>
