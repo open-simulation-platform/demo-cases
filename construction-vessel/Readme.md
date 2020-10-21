@@ -8,12 +8,15 @@ FMUs are listed in Table 1.
 
 | FMU name                | Description                                                                                                                             |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| *[Vessel Model](#vessel-model)*              | Simulates the motions of a marine vessel exposed to environmental forces |
-| *[Power Plant](#power-plant)*           | Simulates the vessel’s power plant |
-| *[Thrust Allocation](#thrust-allocation)*    | Maps thrust orders from DP to thruster setpoints |
-| *[Thruster Model](#thruster-model)*          | Maps thruster setpoints to forces acting on the vessel |
-| *[Wind Model](#wind-model)*                 | Models wind forces acting on the vessel
-| *[Wave Model](#wave-model)*                 | Models first and second order wave forces as disturbances in vessel position |
-| *[Winch](#winch)*                 | Models the crane and winch |
-| *[DP Controller](#dp-controller)*                 | DP controller for keeping the vessel at a fixed position
-| *[Reference Model](#reference-model)*                 | Reference model for smoothing the setpoint provided to DP
+| *Vessel Model*              | Simulates the motions of a marine vessel exposed to environmental forces |
+| *Power Plant*           | Simulates the vessel’s power plant |
+| *Thrust Allocation*    | Maps thrust orders from DP to thruster setpoints |
+| *Thruster Model*          | Maps thruster setpoints to forces acting on the vessel |
+| *Wind Model*                 | Models wind forces acting on the vessel
+| *Wave Model*                 | Models first and second order wave forces as disturbances in vessel position |
+| *Winch*                 | Models the crane and winch |
+| *DP Controller*                 | DP controller for keeping the vessel at a fixed position
+| *Reference Model*                 | Reference model for smoothing the setpoint provided to DP
+
+## Source Code
+The source code for these FMUs can be found [here](https://github.com/open-simulation-platform/simulink-fmus)
