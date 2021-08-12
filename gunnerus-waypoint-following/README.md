@@ -1,10 +1,12 @@
 
 # README
 
-1. Update `JAVA_HOME` and `cosimDemoAppPath` in `start-all.cmd` to point to your java installation and cosim demo app. 
-2. Update the initial value of variable `vesselZipFile` to point to to `ShipModel.zip` in the `fmus/resources` folder. The path must be absolute.
-3. Run __run-windows.cmd__. This will start the demo-application server.
-4. Pass the folder containing this file to the demo-application.
+1. Update `JAVA_HOME` and `cosimDemoAppPath` in `start-all.cmd` to point to your java installation and cosim demo app.
+   Example: set JAVA_HOME=C:\Program Files\Java\jdk1.8.0_221, set cseServerGoPath=C:...\cosim-demo-app-v0.7.0-windows\bin
+2. In `config\OSPSystemStructure.xml` update the value of variable `vesselZipFile` to point to `ShipModel.zip` in the `fmus/resources` folder. The path must be absolute.
+3. Run __start-all.cmd__. This will start the demo-application server.
+   Note: In the first time you will be asked to provide a license file. Use the file ShipX.lic that is located in the root folder for this case.
+4. Under simulation setup, pass the folder containing the OSPSystemStructure file to the demo-application.
 
 **Table 1:** *FMUs*
 
