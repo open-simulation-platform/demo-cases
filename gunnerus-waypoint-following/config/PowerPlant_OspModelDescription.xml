@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<OspModelDescription xmlns="http://opensimulationplatform.com/MSMI/OSPModelDescription">
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
     <VariableGroups>
-        
         <Generic name="azimuth_0_available_power">
             <Variable ref="p1.e[1]"/>
             <Variable ref="p1.e[2]"/>
@@ -21,6 +20,5 @@
             <Variable ref="p2.f[1]"/>
             <Variable ref="p2.f[2]"/>
         </Generic>
-
     </VariableGroups>
 </OspModelDescription>
