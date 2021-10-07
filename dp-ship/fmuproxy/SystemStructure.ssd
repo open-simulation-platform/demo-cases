@@ -7,7 +7,7 @@
   <ssd:System name="cse-instance" description="An example of how to use Core Simulation Environment">
 
     <ssd:Elements>
-      <ssd:Component name="DP Controller" source="fmu-proxy://localhost:9090?file=../DPController.fmu">
+      <ssd:Component name="DP Controller" source="proxyfmu://localhost?file=../DPController.fmu">
         <ssd:Connectors>
           <ssd:Connector name="psi_ref" kind="input">
             <ssc:Real/>
@@ -56,7 +56,7 @@
           </ssd:Connector>
         </ssd:Connectors>
       </ssd:Component>
-      <ssd:Component name="Observer" source="fmu-proxy://localhost:9090?file=../NLPobserver.fmu">
+      <ssd:Component name="Observer" source="proxyfmu://localhost?file=../NLPobserver.fmu">
         <ssd:Connectors>
           <ssd:Connector name="tau[1]" kind="input">
             <ssc:Real/>
@@ -96,7 +96,7 @@
           </ssd:Connector>
         </ssd:Connectors>
       </ssd:Component>
-      <ssd:Component name="Reference Generator" source="fmu-proxy://localhost:9090?file=../ReferenceGenerator.fmu">
+      <ssd:Component name="Reference Generator" source="proxyfmu://localhost?file=../ReferenceGenerator.fmu">
         <ssd:Connectors>
           <ssd:Connector name="psi_wp" kind="input">
             <ssc:Real/>
@@ -136,7 +136,7 @@
           </ssd:Connector>
         </ssd:Connectors>
       </ssd:Component>
-      <ssd:Component name="Thrust Allocation" source="fmu-proxy://localhost:9090?file=../ThMPC.fmu">
+      <ssd:Component name="Thrust Allocation" source="proxyfmu://localhost?file=../ThMPC.fmu">
         <ssd:Connectors>
           <ssd:Connector name="refMz" kind="input">
             <ssc:Real/>
@@ -173,7 +173,7 @@
           </ssd:Connector>
         </ssd:Connectors>
       </ssd:Component>
-      <ssd:Component name="Ship" source="fmu-proxy://localhost:9090?file=../OSOM.fmu">
+      <ssd:Component name="Ship" source="proxyfmu://localhost?file=../OSOM.fmu">
         <ssd:Connectors>
           <ssd:Connector name="Thrust_d[1]" kind="input">
             <ssc:Real/>
