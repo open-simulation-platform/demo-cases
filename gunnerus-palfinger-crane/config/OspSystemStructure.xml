@@ -32,7 +32,7 @@
                     <Real value="0"/>
                 </InitialValue>		
 				<InitialValue variable="vesselZipFile">
-                    <String value="C:\dev\cse\cse-demos\gunnerus-palfinger-crane\fmus\resources\ShipModel.zip"/>
+                    <String value="C:\absolute\path\to\ShipModel.zip"/>
                 </InitialValue>		
             </InitialValues>
 		</Simulator>
