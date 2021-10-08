@@ -1,0 +1,26 @@
+{
+  "plots": [
+    {
+      "label": "Vessel position #b9919d91-d980-4e5a-be55-614eb5858558",
+      "plotType": "scatter",
+      "variables": [
+        {
+          "simulator": "waypoint_provider",
+          "variable": "targetWP.east"
+        },
+        {
+          "simulator": "waypoint_provider",
+          "variable": "targetWP.north"
+        },
+        {
+          "simulator": "vessel_model",
+          "variable": "cgShipMotion.ned.east"
+        },
+        {
+          "simulator": "vessel_model",
+          "variable": "cgShipMotion.ned.north"
+        }
+      ]
+    }
+  ]
+}
