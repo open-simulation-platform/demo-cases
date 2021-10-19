@@ -5,13 +5,13 @@
 	"events": [
 		{
 		  "time": 49,
-		  "model": "vesselModel",
+		  "model": "VesselFmu",
 		  "variable": "reset_position",
 		  "value": true
 		},
 		{
-		  "time": 50,
-		  "model": "vesselModel",
+		  "time": 49.001,
+		  "model": "VesselFmu",
 		  "variable": "reset_position",
 		  "value": false
 		},
