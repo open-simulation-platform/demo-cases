@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
+    <UnitDefinitions>
+        <Unit name="m">
+            <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad">
+            <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="m/s">
+            <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad/s">
+            <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N">
+            <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N.m">
+            <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+    </UnitDefinitions>
+    <VariableGroups>
+        <!-- INPUTS -->
+        <Generic name="vesselPosition">
+            <LinearDisplacement name="linearVesselPosition">
+                <Variable ref="x" unit="m"/>
+                <Variable ref="y" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularVesselPosition">
+                <Variable ref="psi" unit="rad"/>
+            </AngularDisplacement>
+        </Generic>
+        <Generic name="vesselVelocity">
+            <LinearVelocity name="linearVesselVelocity">
+                <Variable ref="dx" unit="m/s"/>
+                <Variable ref="dy" unit="m/s"/>
+            </LinearVelocity>
+            <AngularVelocity name="angularVesselVelocity">
+                <Variable ref="dpsi" unit="rad/s"/>
+            </AngularVelocity>
+        </Generic>
+        <Generic name="vesselPositionReference">
+            <LinearDisplacement name="linearVesselPositionReference">
+                <Variable ref="x_ref" unit="m"/>
+                <Variable ref="y_ref" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularVesselPositionReference">
+                <Variable ref="psi_ref" unit="rad"/>
+            </AngularDisplacement>
+        </Generic>
+        <Generic name="vesselVelocityReference">
+            <LinearVelocity name="linearVesselVelocityReference">
+                <Variable ref="dx_ref" unit="m/s"/>
+                <Variable ref="dy_ref" unit="m/s"/>
+            </LinearVelocity>
+            <AngularVelocity name="angularVesselVelocityReference">
+                <Variable ref="dpsi_ref" unit="rad/s"/>
+            </AngularVelocity>
+        </Generic>
+        <!-- OUTPUTS -->
+        <Generic name="ThrustCommand">
+            <Force name="linearThrustCommand">
+                <Variable ref="Controlx" unit="N"/>
+                <Variable ref="Controly" unit="N"/>
+            </Force>
+            <Torque name="angularThrustCommand">
+                <Variable ref="ControlMz" unit="N.m"/>
+            </Torque>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
+    <UnitDefinitions>
+        <Unit name="m">
+            <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad">
+            <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="m/s">
+            <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad/s">
+            <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N">
+            <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N.m">
+            <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+    </UnitDefinitions>
+    <VariableGroups>
+        <!-- INPUTS -->
+        <Generic name="vesselPosition">
+            <LinearDisplacement name="linearVesselPosition">
+                <Variable ref="y[1]" unit="m"/>
+                <Variable ref="y[2]" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularVesselPosition">
+                <Variable ref="y[3]" unit="rad"/>
+            </AngularDisplacement>
+        </Generic>
+        <Generic name="thrustForce">
+            <Force name="linearThrustForce">
+                <Variable ref="tau[1]" unit="N"/>
+                <Variable ref="tau[2]" unit="N"/>
+            </Force>
+            <Torque name="angularThrustForce">
+                <Variable ref="tau[3]" unit="N.m"/>
+            </Torque>
+        </Generic>
+        <!-- OUTPUTS -->
+        <Generic name="filteredPosition">
+            <LinearDisplacement name="linearFilteredPosition">
+                <Variable ref="y_hat[1]" unit="m"/>
+                <Variable ref="y_hat[2]" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularFilteredPosition">
+                <Variable ref="y_hat[3]" unit="rad"/>
+            </AngularDisplacement>
+        </Generic>
+        <Generic name="filteredVelocity">
+            <LinearVelocity name="linearFilteredVelocity">
+                <Variable ref="v_hat[1]" unit="m/s"/>
+                <Variable ref="v_hat[2]" unit="m/s"/>
+            </LinearVelocity>
+            <AngularVelocity name="angularFilteredVelocity">
+                <Variable ref="v_hat[3]" unit="rad/s"/>
+            </AngularVelocity>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

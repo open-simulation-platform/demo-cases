@@ -5,19 +5,19 @@
 	"events": [
 		{
 		  "time": 49,
-		  "model": "vesselModel",
+		  "model": "vessel_model",
 		  "variable": "reset_position",
 		  "value": true
 		},
 		{
-		  "time": 50,
-		  "model": "vesselModel",
+		  "time": 49.05,
+		  "model": "vessel_model",
 		  "variable": "reset_position",
 		  "value": false
 		},
 		{
 		  "time": 50,
-		  "model": "trackController",
+		  "model": "track_controller",
 		  "variable": "enable",
 		  "value": true
 		}

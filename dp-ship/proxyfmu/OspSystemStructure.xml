@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure"
+                    version="0.1">
+    <BaseStepSize>0.04</BaseStepSize>
+    <Simulators>
+        <Simulator name="DP Controller" source="proxyfmu://localhost?file=../DPController.fmu"/>
+        <Simulator name="Observer" source="proxyfmu://localhost?file=../NLPobserver.fmu"/>
+        <Simulator name="Reference Generator" source="proxyfmu://localhost?file=../ReferenceGenerator.fmu"/>
+        <Simulator name="Thrust Allocation" source="proxyfmu://localhost?file=../ThMPC.fmu"/>
+        <Simulator name="Ship" source="proxyfmu://localhost?file=../OSOM.fmu"/>
+    </Simulators>
+    <Connections>
+        <VariableGroupConnection>
+            <VariableGroup simulator="Thrust Allocation" name="thrustLocalCommand"/>
+            <VariableGroup simulator="Ship" name="thrust"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="Thrust Allocation" name="azimuthAngleCommand"/>
+            <VariableGroup simulator="Ship" name="azimuthAngle"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="Observer" name="filteredPosition"/>
+            <VariableGroup simulator="DP Controller" name="vesselPosition"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="Observer" name="filteredVelocity"/>
+            <VariableGroup simulator="DP Controller" name="vesselVelocity"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="Reference Generator" name="positionReference"/>
+            <VariableGroup simulator="DP Controller" name="vesselPositionReference"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="Reference Generator" name="velocityReference"/>
+            <VariableGroup simulator="DP Controller" name="vesselVelocityReference"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="Ship" name="position"/>
+            <VariableGroup simulator="Observer" name="vesselPosition"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="Thrust Allocation" name="thrustGlobalCommand"/>
+            <VariableGroup simulator="Observer" name="thrustForce"/>
+        </VariableGroupConnection>
+        <VariableGroupConnection>
+            <VariableGroup simulator="DP Controller" name="ThrustCommand"/>
+            <VariableGroup simulator="Thrust Allocation" name="thrust"/>
+        </VariableGroupConnection>
+    </Connections>
+</OspSystemStructure>

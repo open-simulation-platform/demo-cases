@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
+    <UnitDefinitions>
+        <Unit name="m">
+            <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad">
+            <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="m/s">
+            <BaseUnit kg="0" m="1" s="-1" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad/s">
+            <BaseUnit kg="0" m="0" s="-1" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+    </UnitDefinitions>
+    <VariableGroups>
+        <!-- OUTPUTS -->
+        <Generic name="positionReference">
+            <LinearDisplacement name="linearPositionReference">
+                <Variable ref="x_ref" unit="m"/>
+                <Variable ref="y_ref" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularPositionReference">
+                <Variable ref="psi_ref" unit="rad"/>
+            </AngularDisplacement>
+        </Generic>
+        <Generic name="velocityReference">
+            <LinearVelocity name="linearVelocityReference">
+                <Variable ref="dx_ref" unit="m/s"/>
+                <Variable ref="dy_ref" unit="m/s"/>
+            </LinearVelocity>
+            <AngularVelocity name="angularVelocityReference">
+                <Variable ref="dpsi_ref" unit="rad/s"/>
+            </AngularVelocity>
+        </Generic>
+    </VariableGroups>
+</OspModelDescription>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure" version="0.1">
+<OspSystemStructure xmlns="http://opensimulationplatform.com/MSMI/OSPSystemStructure"
+					version="0.1">
 	<StartTime>0.0</StartTime>
 	<BaseStepSize>1e-3</BaseStepSize>
 	<Algorithm>fixedStep</Algorithm>
 	<Simulators>
-		<Simulator name="VesselFmu" source="fmu-proxy://localhost:9094?guid=b71f76f7-b51e-40d5-affb-f63905622e2b" stepSize="0.05">
+		<Simulator name="VesselFmu" source="proxyfmu://localhost?file=../fmus/VesselFmu.fmu" stepSize="0.05">
 		  <InitialValues>
                 <InitialValue variable="wave_height">
                     <Real value="0"/>
@@ -16,7 +17,7 @@
                     <Real value="135"/>
                 </InitialValue>
 				<InitialValue variable="wave_spectrum">
-                    <Real value="2"/>
+                    <Integer value="2"/>
                 </InitialValue>
                 <InitialValue variable="global_cur_dir">
                     <Real value="135"/>
@@ -29,13 +30,10 @@
                 </InitialValue>
                 <InitialValue variable="input_global_wind_vel">
                     <Real value="0"/>
-                </InitialValue>		
-				<InitialValue variable="vesselZipFile">
-                    <String value="ShipModel.zip"/>
-                </InitialValue>		
+                </InitialValue>			
             </InitialValues>
 		</Simulator>
-		<Simulator name="azimuth0" source="fmu-proxy://localhost:9090?guid=74b8f036-accc-45b5-b0ba-44f19fff776a" stepSize="0.05">		
+		<Simulator name="azimuth0" source="proxyfmu://localhost?file=../fmus/PMAzimuth.fmu" stepSize="0.05">
 			<InitialValues>
                 <InitialValue variable="input_enabled">
                     <Boolean value="true"/>
@@ -69,7 +67,7 @@
                 </InitialValue>
             </InitialValues>
 		</Simulator>
-		<Simulator name="TunnelThruster" source="fmu-proxy://localhost:9093?guid=0b7d74f0-e32e-484d-83c1-edb5fd052cc8" stepSize="0.05">
+		<Simulator name="TunnelThruster" source="proxyfmu://localhost?file=../fmus/TunnelThruster.fmu" stepSize="0.05">
 			<InitialValues>
                 <InitialValue variable="input_enabled">
                     <Boolean value="true"/>
@@ -94,7 +92,7 @@
                 </InitialValue>
             </InitialValues>
 		</Simulator>
-		<Simulator name="azimuth0_drive" source="fmu-proxy://localhost:9090?file=../fmus/ThrusterDrive.fmu" stepSize="0.05">
+		<Simulator name="azimuth0_drive" source="proxyfmu://localhost?file=../fmus/ThrusterDrive.fmu" stepSize="0.05">
 		</Simulator>
 		<Simulator name="powerPlant" source="../fmus/PowerPlant.fmu" stepSize="0.05">
 		</Simulator>
@@ -204,11 +202,11 @@
                 </InitialValue>
 			</InitialValues>
 		</Simulator>
-		<Simulator name="azimuth1_drive" source="fmu-proxy://localhost:9091?file=../fmus/ThrusterDrive.fmu" stepSize="0.05">
+		<Simulator name="azimuth1_drive" source="proxyfmu://localhost?file=../fmus/ThrusterDrive.fmu" stepSize="0.05">
 		</Simulator>
-		<Simulator name="tunnel_drive" source="fmu-proxy://localhost:9093?file=../fmus/ThrusterDrive.fmu" stepSize="0.05">
+		<Simulator name="tunnel_drive" source="proxyfmu://localhost?file=../fmus/ThrusterDrive.fmu" stepSize="0.05">
 		</Simulator>
-		<Simulator name="azimuth1" source="fmu-proxy://localhost:9091?guid=74b8f036-accc-45b5-b0ba-44f19fff776a" stepSize="0.05">
+		<Simulator name="azimuth1" source="proxyfmu://localhost?file=../fmus/PMAzimuth.fmu" stepSize="0.05">
 			<InitialValues>
                 <InitialValue variable="input_enabled">
                     <Boolean value="true"/>

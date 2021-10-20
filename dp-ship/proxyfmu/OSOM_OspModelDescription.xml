@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
+    <UnitDefinitions>
+        <Unit name="m">
+            <BaseUnit kg="1" m="1" s="0" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="rad">
+            <BaseUnit kg="0" m="0" s="0" A="0" K="0" mol="0" cd="0" rad="1" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N">
+            <BaseUnit kg="1" m="1" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+        <Unit name="N.m">
+            <BaseUnit kg="1" m="2" s="-2" A="0" K="0" mol="0" cd="0" rad="0" factor="1.0" offset="0.0"/>
+        </Unit>
+    </UnitDefinitions>
+    <VariableGroups>
+        <!-- OUTPUTS -->
+        <Generic name="position">
+            <LinearDisplacement name="linearPosition">
+                <Variable ref="q[1]" unit="m"/>
+                <Variable ref="q[2]" unit="m"/>
+            </LinearDisplacement>
+            <AngularDisplacement name="angularPosition">
+                <Variable ref="q[3]" unit="rad"/>
+            </AngularDisplacement>
+        </Generic>
+        <!-- INPUTS -->
+        <Generic name="thrust">
+            <Force name="thrustForce">
+                <Variable ref="Thrust_d[1]" unit="N"/>
+                <Variable ref="Thrust_d[2]" unit="N"/>
+            </Force>
+            <Torque name="thrustTorque">
+                <Variable ref="Thrust_d[3]" unit="N.m"/>
+            </Torque>
+        </Generic>
+        <AngularDisplacement name="azimuthAngle">
+            <Variable ref="input[1]" unit="rad"/>
+            <Variable ref="input[2]" unit="rad"/>
+        </AngularDisplacement>
+    </VariableGroups>
+</OspModelDescription>
