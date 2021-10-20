@@ -30,10 +30,7 @@
                 </InitialValue>
                 <InitialValue variable="input_global_wind_vel">
                     <Real value="0"/>
-                </InitialValue>		
-				<InitialValue variable="vesselZipFile">
-                    <String value="C:\absolute\path\to\ShipModel.zip"/>
-                </InitialValue>		
+                </InitialValue>			
             </InitialValues>
 		</Simulator>
 		<Simulator name="azimuth0" source="proxyfmu://localhost?file=../fmus/PMAzimuth.fmu" stepSize="0.05">
