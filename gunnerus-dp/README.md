@@ -6,5 +6,9 @@ This toplogy is common when performing hardware-in-the-loop (HIL) simulations. I
 
 This demo case demonstrates that doing simulations with this kind of topology is feasible using `libcosim` and the OSP configuration format. The case simulates a DP controlled vessel performing a box maneuver while exposed to external forces. NTNU's research vessel, Gunnerus has been used as reference for both the vessel and control plant.
 
+## Documentation
+
+A more thorough documentation and description of this demo case can be found [here](https://open-simulation-platform.github.io/cosim-demo-app/Gunnerus-DP) 
+
 ## Source Code
 The source code for the network FMU used in this use can be found [here](https://github.com/open-simulation-platform/fmi-udp-adapter)
