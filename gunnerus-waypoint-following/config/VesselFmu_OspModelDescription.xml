@@ -3,8 +3,8 @@
     <VariableGroups>
         
         <Generic name="position_3dof">
-            <Variable ref="cgShipMotion.ned.north"/>
-            <Variable ref="cgShipMotion.ned.east"/>
+            <Variable ref="cgShipMotion.nedDisplacement.north"/>
+            <Variable ref="cgShipMotion.nedDisplacement.east"/>
             <Variable ref="cgShipMotion.angularDisplacement.yaw"/>
         </Generic>
 

@@ -7,6 +7,9 @@
     <Simulators>
         <Simulator name="vessel_model" source="proxyfmu://localhost?file=../fmus/VesselFmu.fmu" stepSize="0.05">
             <InitialValues>
+                <InitialValue variable="additionalBodyForce[0].enabled">
+                    <Boolean value="true"/>
+                </InitialValue>
                 <InitialValue variable="wave_height">
                     <Real value="0"/>
                 </InitialValue>
@@ -92,9 +95,6 @@
                 </InitialValue>
             </InitialValues>
         </Simulator>
-		
-<!-- 		<Simulator name="azimuth_0_rpm_actuator" source="proxyfmu://localhost?file=../fmus/ThrusterDrive.fmu" stepSize="0.05"/>-->
-<!--        <Simulator name="azimuth_1_rpm_actuator" source="proxyfmu://localhost?file=../fmus/ThrusterDrive.fmu" stepSize="0.05"/> -->
         <Simulator name="azimuth_0_rpm_actuator" source="proxyfmu://localhost?file=../fmus/ThrusterDrive.fmu" stepSize="0.05"/>
         <Simulator name="azimuth_1_rpm_actuator" source="proxyfmu://localhost?file=../fmus/ThrusterDrive.fmu" stepSize="0.05"/>
         <Simulator name="power_plant" source="../fmus/PowerPlant.fmu" stepSize="0.1"/>

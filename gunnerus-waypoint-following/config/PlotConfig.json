@@ -14,11 +14,11 @@
         },
         {
           "simulator": "vessel_model",
-          "variable": "cgShipMotion.ned.east"
+          "variable": "cgShipMotion.nedDisplacement.east"
         },
         {
           "simulator": "vessel_model",
-          "variable": "cgShipMotion.ned.north"
+          "variable": "cgShipMotion.nedDisplacement.north"
         }
       ]
     }
