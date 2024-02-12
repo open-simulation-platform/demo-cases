@@ -1,4 +1,4 @@
-<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.0" version="1.0">
+<OspModelDescription xmlns="https://open-simulation-platform.com/OspModelDescription/1.0.1" version="1.0">
   <UnitDefinitions>
     <Unit name="newton">
       <BaseUnit kg="1" m="1" s="-2"/>

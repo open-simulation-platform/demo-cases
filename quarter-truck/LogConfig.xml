@@ -1,11 +1,19 @@
-<simulators>
-    <simulator name="chassis">
-        <variable name="zChassis"/>
-    </simulator>
-    <simulator name="wheel">
-        <variable name="zWheel"/>
-    </simulator>
-	<simulator name="ground">
-        <variable name="zGround"/>
-    </simulator>
-</simulators>
+         <simulators>
+           <simulator name="chassis">
+             <variable name="zChassis"/>
+             <variable name="p.e"/>
+             <variable name="p.f"/>
+           </simulator>
+           <simulator name="wheel">
+             <variable name="zWheel"/>
+             <variable name="p1.e"/>
+             <variable name="p1.f"/>
+             <variable name="p.e"/>
+             <variable name="p.f"/>
+           </simulator>
+           <simulator name="ground">
+             <variable name="zGround"/>
+             <variable name="p.e"/>
+             <variable name="p.f"/>
+           </simulator>
+         </simulators>
